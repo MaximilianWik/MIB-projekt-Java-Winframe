@@ -11,13 +11,15 @@ import oru.inf.InfException;
 
 /**
  *
- * @author filip
+ * @author filip, maximilian, anton
  */
 public class Start {
     
     private static InfDB idb;
     
     public static void main(String[] args) throws InfException {
+        
+        new LogInFonster().setVisible(true);
         
         try {
             idb = new InfDB ("mibdb", "3306", "mibdba", "mibkey");
