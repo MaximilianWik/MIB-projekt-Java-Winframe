@@ -19,6 +19,10 @@ public class Start {
     
     public static void main(String[] args) throws InfException {
         
+<<<<<<< Updated upstream
+=======
+        
+>>>>>>> Stashed changes
         try {
             idb = new InfDB ("mibdb", "3306", "mibdba", "mibkey");
             
@@ -26,6 +30,7 @@ public class Start {
             Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
      
         }
+        new LogInFonster(idb).setVisible(true);
     }
     
 }
