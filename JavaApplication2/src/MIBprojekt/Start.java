@@ -19,7 +19,7 @@ public class Start {
     
     public static void main(String[] args) throws InfException {
         
-        new LogInFonster().setVisible(true);
+        new LogInFonster(idb).setVisible(true);
         
         try {
             idb = new InfDB ("mibdb", "3306", "mibdba", "mibkey");
