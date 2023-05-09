@@ -127,8 +127,26 @@ public class LogInFonster extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
-    
-      
+
+        try {
+            String Anvandarnamn = txtAnvandare.getText();
+            String Losenord = new String(txtLosen.getText());
+            String fraga ="SELCT Alien_ID FROM alien WHERE Alien_ID = '" + Anvandarnamn + "' AND Losenord = '" + Losenord + "'";
+            String svar = idb.fetchSingle(fraga);
+         
+            if(svar != null){
+                JOptionPane.showMessageDialog(null, "Lyckat!");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Nekad!");
+            }
+        }
+       
+       catch(InfException e){
+           
+       }
+       
+       
     }//GEN-LAST:event_btnLogInActionPerformed
 
     /**
