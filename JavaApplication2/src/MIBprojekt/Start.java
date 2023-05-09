@@ -18,19 +18,15 @@ public class Start {
     private static InfDB idb;
     
     public static void main(String[] args) throws InfException {
-        
-<<<<<<< Updated upstream
-=======
-        
->>>>>>> Stashed changes
+
         try {
-            idb = new InfDB ("mibdb", "3306", "mibdba", "mibkey");
-            
+            idb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
+
         } catch (InfException ex) {
             Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
-     
+
         }
         new LogInFonster(idb).setVisible(true);
     }
-    
+
 }
