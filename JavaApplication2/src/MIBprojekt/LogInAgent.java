@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -17,14 +18,14 @@ import oru.inf.InfException;
  */
 public class LogInAgent extends javax.swing.JFrame {
     
-    
+    public static InfDB idb;
 
     /**
      * Creates new form LogInAgent
      */
     public LogInAgent() {
         initComponents();
-        
+        this.idb = idb;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
@@ -149,10 +150,29 @@ public class LogInAgent extends javax.swing.JFrame {
     
     //Logga in knapp
     private void LoggaInAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInAgentActionPerformed
-        AgentMeny AM = new AgentMeny();
-        AM.setVisible(true);
+                AgentMeny AM = new AgentMeny();
+                AM.setVisible(true);
+                dispose();
         
-        dispose();
+        /* try {
+            String Epost = AnvNamnAgent.getText();
+            String Losen = new String(LosenAgent.getPassword());
+            String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Epost = '"+Epost+"' AND Losenord = '"+Losen+"'");
+
+            if (agentID != null) {
+                int agentId = Integer.parseInt(agentID);
+                AgentMeny AM = new AgentMeny();
+                AM.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Felaktig e-postadress eller lösenord.", "Fel", JOptionPane.ERROR_MESSAGE);
+                AnvNamnAgent.setText("");
+                LosenAgent.setText("");
+                AnvNamnAgent.requestFocus();
+            }
+        } catch (InfException ex) {
+
+        } */
     }//GEN-LAST:event_LoggaInAgentActionPerformed
 
     /**

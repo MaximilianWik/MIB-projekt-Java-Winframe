@@ -55,19 +55,24 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="SokKnapp" max="32767" attributes="0"/>
-                      <Component id="GaTillbakaKnapp" alignment="1" pref="101" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="AnvLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="401" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Component id="AlienIDtext" min="-2" pref="71" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="LosenAdmin" alignment="1" max="32767" attributes="0"/>
+                              <Component id="AnvNamnAdmin" alignment="1" max="32767" attributes="0"/>
+                              <Component id="LoggaInAdmin" alignment="1" pref="105" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="372" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="AnvLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="412" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="377" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -75,15 +80,17 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="Bilden" min="-2" pref="231" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Component id="AnvLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="AlienIDtext" min="-2" max="-2" attributes="0"/>
+                  <Component id="AnvNamnAdmin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="SokKnapp" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                  <Component id="GaTillbakaKnapp" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="206" max="32767" attributes="0"/>
+                  <Component id="AnvLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="LosenAdmin" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="LoggaInAdmin" min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace pref="104" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -96,30 +103,38 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="GaTillbakaKnapp">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="G&#xe5; tillbaka"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="AnvNamnAdmin">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GaTillbakaKnappActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AnvNamnAdminActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="AnvLabel">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="AlienID"/>
+            <Property name="text" type="java.lang.String" value="Epost"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="AlienIDtext">
-        </Component>
-        <Component class="javax.swing.JButton" name="SokKnapp">
+        <Component class="javax.swing.JLabel" name="AnvLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="S&#xf6;k"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="LosenAdmin">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LosenAdminActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="LoggaInAdmin">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Logga In"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SokKnappActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoggaInAdminActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

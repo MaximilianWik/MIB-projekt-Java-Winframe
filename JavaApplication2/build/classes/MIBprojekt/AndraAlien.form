@@ -49,22 +49,22 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="Namntext" alignment="0" max="32767" attributes="0"/>
+                              <Component id="andraNamntext" alignment="0" max="32767" attributes="0"/>
                               <Component id="Namn" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="Telefontext1" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="andraTelefontext1" min="-2" pref="101" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="Platstext" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="andraPlatstext" min="-2" pref="101" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="AnsvarigAgentIDtext" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="andraAnsvarigAgentIDtext" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="Telefon" min="-2" pref="101" max="-2" attributes="0"/>
@@ -73,29 +73,28 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="AnsvarigAgentID" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="LäggTillAlienKnapp" alignment="0" min="-2" pref="214" max="-2" attributes="0"/>
+                              <Component id="Andratext" alignment="0" min="-2" pref="214" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="AlienIDtext" max="32767" attributes="0"/>
-                              <Component id="AlienID" min="-2" pref="101" max="-2" attributes="0"/>
+                              <Component id="andraAlienIDtext" alignment="0" max="32767" attributes="0"/>
+                              <Component id="AlienID" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="Registreringsdatum" pref="0" max="32767" attributes="0"/>
-                              <Component id="Registreringsdatumtext" pref="101" max="32767" attributes="0"/>
+                              <Component id="Registreringsdatum" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="andraRegistreringsdatumtext" alignment="0" pref="101" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="Eposttext" min="-2" pref="101" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="Lösenordtext" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="andraRastext" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Component id="andraLösenordtext" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="Epost" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="Ras" min="-2" pref="101" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="Lösenord" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
@@ -106,16 +105,7 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Bilden" alignment="1" min="-2" pref="860" max="-2" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="Ras" min="-2" pref="101" max="-2" attributes="0"/>
-                              <Component id="Rastext" min="-2" pref="101" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="377" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="Bilden" min="-2" pref="860" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -132,15 +122,15 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Registreringsdatum" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="AlienID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Epost" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Lösenord" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Ras" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Eposttext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="AlienIDtext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="Registreringsdatumtext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="Lösenordtext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="andraAlienIDtext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="andraRegistreringsdatumtext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="andraLösenordtext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="andraRastext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -151,20 +141,16 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Platstext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="Namntext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="AnsvarigAgentIDtext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="Telefontext1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="andraPlatstext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="andraNamntext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="andraAnsvarigAgentIDtext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="andraTelefontext1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
-                  <Component id="Ras" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Rastext" min="-2" pref="37" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="LäggTillAlienKnapp" min="-2" pref="41" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="Andratext" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="GaTillbakaKnapp" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <EmptySpace pref="86" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -177,21 +163,16 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="Eposttext">
+        <Component class="javax.swing.JTextField" name="andraAlienIDtext">
+        </Component>
+        <Component class="javax.swing.JTextField" name="andraRegistreringsdatumtext">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EposttextActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andraRegistreringsdatumtextActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="AlienIDtext">
-        </Component>
-        <Component class="javax.swing.JTextField" name="Registreringsdatumtext">
+        <Component class="javax.swing.JTextField" name="andraL&#xf6;senordtext">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistreringsdatumtextActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="L&#xf6;senordtext">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="L&#xf6;senordtextActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andraL&#xf6;senordtextActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Registreringsdatum">
@@ -208,14 +189,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="AlienID"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="Epost">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Epost"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="L&#xf6;senord">
@@ -258,23 +231,23 @@
             <Property name="text" type="java.lang.String" value="Ansvarig AgentID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="AnsvarigAgentIDtext">
+        <Component class="javax.swing.JTextField" name="andraAnsvarigAgentIDtext">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AnsvarigAgentIDtextActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andraAnsvarigAgentIDtextActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="Platstext">
+        <Component class="javax.swing.JTextField" name="andraPlatstext">
         </Component>
-        <Component class="javax.swing.JTextField" name="Rastext">
+        <Component class="javax.swing.JTextField" name="andraRastext">
         </Component>
-        <Component class="javax.swing.JTextField" name="Namntext">
+        <Component class="javax.swing.JTextField" name="andraNamntext">
         </Component>
-        <Component class="javax.swing.JButton" name="L&#xe4;ggTillAlienKnapp">
+        <Component class="javax.swing.JButton" name="Andratext">
           <Properties>
-            <Property name="text" type="java.lang.String" value="L&#xe4;gg till Alien"/>
+            <Property name="text" type="java.lang.String" value="&#xc4;ndra"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="L&#xe4;ggTillAlienKnappActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AndratextActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="GaTillbakaKnapp">
@@ -285,7 +258,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GaTillbakaKnappActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="Telefontext1">
+        <Component class="javax.swing.JTextField" name="andraTelefontext1">
         </Component>
         <Component class="javax.swing.JLabel" name="Ras">
           <Properties>

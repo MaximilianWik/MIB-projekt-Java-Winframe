@@ -4,6 +4,13 @@
  */
 package MIBprojekt;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 /**
  *
  * @author Victus
@@ -15,6 +22,9 @@ public class AlienInfo extends javax.swing.JFrame {
      */
     public AlienInfo() {
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
     }
 
     /**
@@ -94,8 +104,8 @@ public class AlienInfo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        LogInAgent LIA = new LogInAgent();
-        LIA.setVisible(true);
+        AgentMeny AM = new AgentMeny();
+        AM.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
