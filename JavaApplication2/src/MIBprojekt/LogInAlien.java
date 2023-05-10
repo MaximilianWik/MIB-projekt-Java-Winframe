@@ -43,6 +43,7 @@ public class LogInAlien extends javax.swing.JFrame {
         AnvLabel1 = new javax.swing.JLabel();
         LosenAlien = new javax.swing.JPasswordField();
         LoggaInAlien = new javax.swing.JButton();
+        GaTillbakaKnapp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +76,13 @@ public class LogInAlien extends javax.swing.JFrame {
             }
         });
 
+        GaTillbakaKnapp.setText("Gå tillbaka");
+        GaTillbakaKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GaTillbakaKnappActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,7 +100,8 @@ public class LogInAlien extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(LosenAlien)
                             .addComponent(AnvNamnAlien)
-                            .addComponent(LoggaInAlien, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
+                            .addComponent(LoggaInAlien, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                            .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(372, 372, 372))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(AnvLabel)
@@ -112,7 +121,9 @@ public class LogInAlien extends javax.swing.JFrame {
                 .addComponent(LosenAlien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(LoggaInAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(GaTillbakaKnapp)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,6 +159,13 @@ public class LogInAlien extends javax.swing.JFrame {
         
         dispose();
     }//GEN-LAST:event_LoggaInAlienActionPerformed
+
+    private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
+        AlienEllerAgent AEA = new AlienEllerAgent();
+        AEA.setVisible(true);
+
+        dispose();
+    }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,6 +207,7 @@ public class LogInAlien extends javax.swing.JFrame {
     private javax.swing.JLabel AnvLabel1;
     private javax.swing.JTextField AnvNamnAlien;
     private javax.swing.JLabel Bilden;
+    private javax.swing.JButton GaTillbakaKnapp;
     private javax.swing.JButton LoggaInAlien;
     private javax.swing.JPasswordField LosenAlien;
     private javax.swing.JPanel jPanel1;

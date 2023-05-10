@@ -56,11 +56,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="366" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="GaTillbakaKnapp" pref="129" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="SkrivNyttLosentext" max="32767" attributes="0"/>
-                          <Component id="jLabel1" pref="129" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="GaTillbakaKnapp" alignment="0" pref="129" max="32767" attributes="0"/>
+                      <Component id="SkrivNyttLosentextalien" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabel1" alignment="0" pref="129" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -73,7 +71,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="SkrivNyttLosentext" min="-2" max="-2" attributes="0"/>
+                  <Component id="SkrivNyttLosentextalien" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="GaTillbakaKnapp" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="198" max="32767" attributes="0"/>
@@ -97,7 +95,7 @@
             <Property name="text" type="java.lang.String" value="Skriv ditt nya l&#xf6;senord"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="SkrivNyttLosentext">
+        <Component class="javax.swing.JTextField" name="SkrivNyttLosentextalien">
         </Component>
         <Component class="javax.swing.JButton" name="GaTillbakaKnapp">
           <Properties>

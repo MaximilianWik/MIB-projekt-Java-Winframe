@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package MIBprojekt;
-
-
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
@@ -15,12 +13,12 @@ import oru.inf.InfException;
  *
  * @author Victus
  */
-public class LogInAdmin extends javax.swing.JFrame {
+public class BytLosenordAlien extends javax.swing.JFrame {
 
     /**
-     * Creates new form LogInAdmin
+     * Creates new form BytLosenordAlien
      */
-    public LogInAdmin() {
+    public BytLosenordAlien() {
         initComponents();
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
@@ -38,11 +36,8 @@ public class LogInAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Bilden = new javax.swing.JLabel();
-        AnvNamnAdmin = new javax.swing.JTextField();
-        AnvLabel = new javax.swing.JLabel();
-        AnvLabel1 = new javax.swing.JLabel();
-        LosenAdmin = new javax.swing.JPasswordField();
-        LoggaInAdmin = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        SkrivNyttLosentextalien = new javax.swing.JTextField();
         GaTillbakaKnapp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,30 +46,8 @@ public class LogInAdmin extends javax.swing.JFrame {
 
         Bilden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MIBprojekt/Ikoner/men-in-black-2-logo.png"))); // NOI18N
 
-        AnvNamnAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AnvNamnAdminActionPerformed(evt);
-            }
-        });
-
-        AnvLabel.setForeground(new java.awt.Color(255, 255, 255));
-        AnvLabel.setText("Epost");
-
-        AnvLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        AnvLabel1.setText("Lösenord");
-
-        LosenAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LosenAdminActionPerformed(evt);
-            }
-        });
-
-        LoggaInAdmin.setText("Logga In");
-        LoggaInAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoggaInAdminActionPerformed(evt);
-            }
-        });
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Skriv ditt nya lösenord");
 
         GaTillbakaKnapp.setText("Gå tillbaka");
         GaTillbakaKnapp.addActionListener(new java.awt.event.ActionListener() {
@@ -90,40 +63,25 @@ public class LogInAdmin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Bilden, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(AnvLabel1)
-                        .addGap(401, 401, 401))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(AnvLabel)
-                        .addGap(412, 412, 412))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(LosenAdmin)
-                            .addComponent(AnvNamnAdmin)
-                            .addComponent(LoggaInAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(372, 372, 372))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(366, 366, 366)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                    .addComponent(SkrivNyttLosentextalien)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(Bilden, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AnvLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AnvNamnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(AnvLabel1)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LosenAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(LoggaInAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SkrivNyttLosentextalien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(GaTillbakaKnapp)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,25 +102,9 @@ public class LogInAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AnvNamnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnvNamnAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AnvNamnAdminActionPerformed
-
-    private void LosenAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LosenAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LosenAdminActionPerformed
-
-    //Admin logga in knapp
-    private void LoggaInAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInAdminActionPerformed
-        AdminMeny AM = new AdminMeny();
-        AM.setVisible(true);
-        
-        dispose();
-    }//GEN-LAST:event_LoggaInAdminActionPerformed
-
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        AlienEllerAgent AEA = new AlienEllerAgent();
-        AEA.setVisible(true);
+        AlienMeny AMM = new AlienMeny();
+        AMM.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
@@ -184,32 +126,29 @@ public class LogInAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LogInAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BytLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LogInAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BytLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LogInAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BytLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LogInAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BytLosenordAlien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LogInAdmin().setVisible(true);
+                new BytLosenordAlien().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AnvLabel;
-    private javax.swing.JLabel AnvLabel1;
-    private javax.swing.JTextField AnvNamnAdmin;
     private javax.swing.JLabel Bilden;
     private javax.swing.JButton GaTillbakaKnapp;
-    private javax.swing.JButton LoggaInAdmin;
-    private javax.swing.JPasswordField LosenAdmin;
+    private javax.swing.JTextField SkrivNyttLosentextalien;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
