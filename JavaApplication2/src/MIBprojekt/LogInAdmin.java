@@ -4,6 +4,13 @@
  */
 package MIBprojekt;
 
+
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 /**
  *
  * @author Victus
@@ -15,6 +22,9 @@ public class LogInAdmin extends javax.swing.JFrame {
      */
     public LogInAdmin() {
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
     }
 
     /**
@@ -59,6 +69,11 @@ public class LogInAdmin extends javax.swing.JFrame {
         });
 
         LoggaInAdmin.setText("Logga In");
+        LoggaInAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoggaInAdminActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,6 +140,14 @@ public class LogInAdmin extends javax.swing.JFrame {
     private void LosenAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LosenAdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LosenAdminActionPerformed
+
+    //Admin logga in knapp
+    private void LoggaInAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInAdminActionPerformed
+        AdminMeny AM = new AdminMeny();
+        AM.setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_LoggaInAdminActionPerformed
 
     /**
      * @param args the command line arguments

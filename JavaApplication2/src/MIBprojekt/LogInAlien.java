@@ -69,6 +69,11 @@ public class LogInAlien extends javax.swing.JFrame {
         });
 
         LoggaInAlien.setText("Logga In");
+        LoggaInAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoggaInAlienActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,6 +140,14 @@ public class LogInAlien extends javax.swing.JFrame {
     private void LosenAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LosenAlienActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LosenAlienActionPerformed
+
+    //Logga in knapp Alien
+    private void LoggaInAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInAlienActionPerformed
+        AlienMeny AM = new AlienMeny();
+        AM.setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_LoggaInAlienActionPerformed
 
     /**
      * @param args the command line arguments
