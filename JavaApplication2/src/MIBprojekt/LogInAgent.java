@@ -16,12 +16,15 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class LogInAgent extends javax.swing.JFrame {
+    
+    
 
     /**
      * Creates new form LogInAgent
      */
     public LogInAgent() {
         initComponents();
+        
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);

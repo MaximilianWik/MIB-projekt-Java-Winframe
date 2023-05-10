@@ -42,8 +42,8 @@ public class AgentMeny extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         ÄndraAlienKnapp = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        AlienInfoKnapp = new javax.swing.JButton();
+        SokPåAlien = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
@@ -78,9 +78,19 @@ public class AgentMeny extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("jButton1");
+        AlienInfoKnapp.setText("Alien Info");
+        AlienInfoKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlienInfoKnappActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("jButton1");
+        SokPåAlien.setText("Sök på Alien");
+        SokPåAlien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SokPåAlienActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("jButton1");
 
@@ -116,9 +126,9 @@ public class AgentMeny extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(ÄndraAlienKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AlienInfoKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SokPåAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -141,9 +151,9 @@ public class AgentMeny extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ÄndraAlienKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AlienInfoKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SokPåAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,6 +215,20 @@ public class AgentMeny extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_ÄndraAlienKnappActionPerformed
 
+    private void AlienInfoKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienInfoKnappActionPerformed
+        AlienInfo AI = new AlienInfo();
+        AI.setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_AlienInfoKnappActionPerformed
+
+    private void SokPåAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPåAlienActionPerformed
+        SokPaAlien SPA = new SokPaAlien();
+        SPA.setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_SokPåAlienActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,13 +265,13 @@ public class AgentMeny extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AlienInfoKnapp;
     private javax.swing.JLabel Bilden;
     private javax.swing.JButton GaTillbakaKnapp;
+    private javax.swing.JButton SokPåAlien;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
