@@ -38,7 +38,8 @@ public class AlienEllerAgent extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Agent = new javax.swing.JButton();
         Alien = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        Bilden = new javax.swing.JLabel();
+        Admin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,8 +59,15 @@ public class AlienEllerAgent extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MIBprojekt/Ikoner/men-in-black-2-logo.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        Bilden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MIBprojekt/Ikoner/men-in-black-2-logo.png"))); // NOI18N
+        Bilden.setText("jLabel1");
+
+        Admin.setText("Admin");
+        Admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -69,11 +77,13 @@ public class AlienEllerAgent extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Bilden, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(234, 234, 234)
                         .addComponent(Alien, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Agent, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
@@ -81,11 +91,12 @@ public class AlienEllerAgent extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Bilden, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Alien, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Agent, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Agent, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
 
@@ -104,7 +115,7 @@ public class AlienEllerAgent extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //Agent
+    //Agent knapp
     private void AgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgentActionPerformed
         LogInAgent LLA = new LogInAgent();
         LLA.setVisible(true);
@@ -112,13 +123,21 @@ public class AlienEllerAgent extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_AgentActionPerformed
 
-    //Alien
+    //Alien Knapp
     private void AlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienActionPerformed
         LogInAlien LIA = new LogInAlien();
         LIA.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_AlienActionPerformed
+
+    //Admin knapp
+    private void AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminActionPerformed
+        LogInAdmin LIAdmin = new LogInAdmin();
+        LIAdmin.setVisible(true);
+        
+        dispose();        
+    }//GEN-LAST:event_AdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,9 +175,10 @@ public class AlienEllerAgent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Admin;
     private javax.swing.JButton Agent;
     private javax.swing.JButton Alien;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Bilden;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

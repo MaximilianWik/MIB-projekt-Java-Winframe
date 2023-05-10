@@ -6,6 +6,10 @@ package MIBprojekt;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /**
  *
@@ -53,7 +57,7 @@ public class LogInAlien extends javax.swing.JFrame {
         });
 
         AnvLabel.setForeground(new java.awt.Color(255, 255, 255));
-        AnvLabel.setText("Användarnamn");
+        AnvLabel.setText("Epost");
 
         AnvLabel1.setForeground(new java.awt.Color(255, 255, 255));
         AnvLabel1.setText("Lösenord");
@@ -77,9 +81,6 @@ public class LogInAlien extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(AnvLabel)
-                        .addGap(385, 385, 385))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(AnvLabel1)
                         .addGap(401, 401, 401))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -87,7 +88,10 @@ public class LogInAlien extends javax.swing.JFrame {
                             .addComponent(LosenAlien)
                             .addComponent(AnvNamnAlien)
                             .addComponent(LoggaInAlien, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
-                        .addGap(372, 372, 372))))
+                        .addGap(372, 372, 372))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(AnvLabel)
+                        .addGap(412, 412, 412))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
