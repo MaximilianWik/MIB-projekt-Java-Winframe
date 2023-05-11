@@ -11,7 +11,7 @@ import oru.inf.InfException;
 
 /**
  *
- * @author filip
+ * @author filip, maximilian, anton
  */
 public class Start {
     
@@ -19,9 +19,11 @@ public class Start {
     
     public static void main(String[] args) throws InfException {
         
+        
+        
         try {
             idb = new InfDB ("mibdb", "3306", "mibdba", "mibkey");
-            
+            new AlienEllerAgent(idb).setVisible(true);
         } catch (InfException ex) {
             Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, ex);
      
