@@ -169,7 +169,7 @@ public class LogInAlien extends javax.swing.JFrame {
 
             if (agentID != null) {
                
-                AgentMeny AM = new AgentMeny(idb);
+                AlienMeny AM = new AlienMeny(idb);
                 AM.setVisible(true);
                 dispose();
             } else {
