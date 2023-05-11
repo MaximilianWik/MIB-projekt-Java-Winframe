@@ -17,12 +17,14 @@ import oru.inf.InfException;
  */
 public class AdminMeny extends javax.swing.JFrame {
     private InfDB idb;
+    private int agentId;
 
     /**
      * Creates new form AdminMeny
      */
-    public AdminMeny(InfDB idb) {
+    public AdminMeny(InfDB idb, int agentId) {
         initComponents();
+        this.agentId = agentId;
         this.idb = idb;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
@@ -322,34 +324,34 @@ public class AdminMeny extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        NyAlien NY = new NyAlien(idb);
+        NyAlien NY = new NyAlien(idb, agentId);
         NY.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ÄndraAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraAlienKnappActionPerformed
-        AndraAlien AA = new AndraAlien(idb);
+        AndraAlien AA = new AndraAlien(idb, agentId);
         AA.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_ÄndraAlienKnappActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        BytLosenordAgent BLA = new BytLosenordAgent(idb);
+        BytLosenordAgent BLA = new BytLosenordAgent(idb, agentId);
         BLA.setVisible(true);
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void AlienInfoKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienInfoKnappActionPerformed
-        AlienInfo AI = new AlienInfo(idb);
+        AlienInfo AI = new AlienInfo(idb, agentId);
         AI.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_AlienInfoKnappActionPerformed
 
     private void SokPåAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPåAlienActionPerformed
-        SokPaAlien SPA = new SokPaAlien(idb);
+        SokPaAlien SPA = new SokPaAlien(idb, agentId);
         SPA.setVisible(true);
 
         dispose();
@@ -360,21 +362,21 @@ public class AdminMeny extends javax.swing.JFrame {
     }//GEN-LAST:event_OmradescheftextActionPerformed
 
     private void UtrustningKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UtrustningKnappActionPerformed
-        Utrustning U = new Utrustning(idb);
+        Utrustning U = new Utrustning(idb, agentId);
         U.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_UtrustningKnappActionPerformed
 
     private void AlienDatumknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienDatumknappActionPerformed
-        AlienDatum AD = new AlienDatum(idb);
+        AlienDatum AD = new AlienDatum(idb, agentId);
         AD.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_AlienDatumknappActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        LogInAdmin LIA = new LogInAdmin(idb);
+        LogInAdmin LIA = new LogInAdmin(idb, agentId);
         LIA.setVisible(true);
 
         dispose();

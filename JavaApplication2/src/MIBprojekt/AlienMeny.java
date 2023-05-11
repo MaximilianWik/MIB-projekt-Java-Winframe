@@ -16,13 +16,15 @@ import oru.inf.InfException;
  */
 public class AlienMeny extends javax.swing.JFrame {
     private InfDB idb;
+    private int alienId;
 
     /**
      * Creates new form AlienMeny
      */
-    public AlienMeny(InfDB idb) {
+    public AlienMeny(InfDB idb, int alienId) {
         initComponents();
         this.idb = idb;
+        this.alienId = alienId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
@@ -121,7 +123,7 @@ public class AlienMeny extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        BytLosenordAlien BLA = new BytLosenordAlien(idb);
+        BytLosenordAlien BLA = new BytLosenordAlien(idb, alienId);
         BLA.setVisible(true);
         
         dispose();
@@ -132,7 +134,7 @@ public class AlienMeny extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        LogInAlien LIA = new LogInAlien(idb);
+        LogInAlien LIA = new LogInAlien(idb, alienId);
         LIA.setVisible(true);
 
         dispose();

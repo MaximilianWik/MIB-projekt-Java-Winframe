@@ -15,13 +15,15 @@ import oru.inf.InfException;
  */
 public class BytLosenordAlien extends javax.swing.JFrame {
     private InfDB idb;
+    private int alienId;
 
     /**
      * Creates new form BytLosenordAlien
      */
-    public BytLosenordAlien(InfDB idb) {
+    public BytLosenordAlien(InfDB idb, int alienId) {
         initComponents();
         this.idb = idb;
+        this.alienId = alienId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
@@ -105,7 +107,7 @@ public class BytLosenordAlien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        AlienMeny AMM = new AlienMeny(idb);
+        AlienMeny AMM = new AlienMeny(idb, alienId);
         AMM.setVisible(true);
 
         dispose();

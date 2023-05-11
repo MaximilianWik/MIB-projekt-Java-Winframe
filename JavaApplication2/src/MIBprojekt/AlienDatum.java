@@ -15,12 +15,14 @@ import oru.inf.InfException;
  */
 public class AlienDatum extends javax.swing.JFrame {
     private InfDB idb;
+    private int agentId;
 
     /**
      * Creates new form AlienDatum
      */
-    public AlienDatum(InfDB idb) {
+    public AlienDatum(InfDB idb, int agentId) {
         initComponents();
+        this.agentId = agentId; 
         this.idb = idb;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
@@ -93,7 +95,7 @@ public class AlienDatum extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        AgentMeny AM = new AgentMeny(idb);
+        AgentMeny AM = new AgentMeny(idb, agentId);
         AM.setVisible(true);
 
         dispose();

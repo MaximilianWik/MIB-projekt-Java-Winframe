@@ -19,13 +19,15 @@ import oru.inf.InfException;
 public class LogInAgent extends javax.swing.JFrame {
     
     public InfDB idb;
+    private int agentId;
 
     /**
      * Creates new form LogInAgent
      */
-    public LogInAgent(InfDB idb) {
+    public LogInAgent(InfDB idb, int agentId) {
         initComponents();
         this.idb = idb;
+        this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
@@ -172,7 +174,7 @@ public class LogInAgent extends javax.swing.JFrame {
 
             if (agentID != null) {
                 int agentId = Integer.parseInt(agentID);
-                AgentMeny AM = new AgentMeny(idb);
+                AgentMeny AM = new AgentMeny(idb, agentId);
                 AM.setVisible(true);
                 dispose();
             } else {

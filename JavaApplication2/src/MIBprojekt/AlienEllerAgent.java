@@ -16,11 +16,8 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class AlienEllerAgent extends javax.swing.JFrame {
-
-    /**
-     * Creates new form AlienEllerAgent
-     */
     private InfDB idb;
+    
 
     public AlienEllerAgent(InfDB idb) {
         //Fönstret hamnar i mitten

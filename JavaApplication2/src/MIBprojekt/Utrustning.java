@@ -15,13 +15,15 @@ import oru.inf.InfException;
  */
 public class Utrustning extends javax.swing.JFrame {
     private InfDB idb;
+    private int agentId;
 
     /**
      * Creates new form Utrustning
      */
-    public Utrustning(InfDB idb) {
+    public Utrustning(InfDB idb, int agentId) {
         initComponents();
         this.idb = idb;
+        this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);

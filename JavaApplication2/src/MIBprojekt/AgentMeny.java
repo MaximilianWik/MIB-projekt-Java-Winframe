@@ -19,11 +19,13 @@ import oru.inf.InfException;
  */
 public class AgentMeny extends javax.swing.JFrame {
     private InfDB idb;
+    private int agentId;
     /**
      * Creates new form AgentMeny
      */
-    public AgentMeny(InfDB idb) {
+    public AgentMeny(InfDB idb, int agentId) {
         initComponents();
+        this.agentId = agentId;
         this.idb = idb;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
@@ -194,7 +196,7 @@ public class AgentMeny extends javax.swing.JFrame {
     
     //Ändra Lösenord
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        BytLosenordAgent BLA = new BytLosenordAgent(idb);
+        BytLosenordAgent BLA = new BytLosenordAgent(idb, agentId);
         BLA.setVisible(true);
         
         
@@ -202,35 +204,35 @@ public class AgentMeny extends javax.swing.JFrame {
 
     //Ny Alien
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        NyAlien NY = new NyAlien(idb);
+        NyAlien NY = new NyAlien(idb, agentId);
         NY.setVisible(true);
         
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        LogInAgent LIA = new LogInAgent(idb);
+        LogInAgent LIA = new LogInAgent(idb, agentId);
         LIA.setVisible(true);
         
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
     private void ÄndraAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraAlienKnappActionPerformed
-        AndraAlien AA = new AndraAlien(idb);
+        AndraAlien AA = new AndraAlien(idb, agentId);
         AA.setVisible(true);
         
         dispose();
     }//GEN-LAST:event_ÄndraAlienKnappActionPerformed
 
     private void AlienInfoKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienInfoKnappActionPerformed
-        AlienInfo AI = new AlienInfo(idb);
+        AlienInfo AI = new AlienInfo(idb, agentId);
         AI.setVisible(true);
         
         dispose();
     }//GEN-LAST:event_AlienInfoKnappActionPerformed
 
     private void SokPåAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPåAlienActionPerformed
-        SokPaAlien SPA = new SokPaAlien(idb);
+        SokPaAlien SPA = new SokPaAlien(idb, agentId);
         SPA.setVisible(true);
         
         dispose();
@@ -241,14 +243,14 @@ public class AgentMeny extends javax.swing.JFrame {
     }//GEN-LAST:event_OmradescheftextActionPerformed
 
     private void UtrustningKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UtrustningKnappActionPerformed
-        Utrustning U = new Utrustning(idb);
+        Utrustning U = new Utrustning(idb, agentId);
         U.setVisible(true);
         
         dispose();
     }//GEN-LAST:event_UtrustningKnappActionPerformed
 
     private void AlienDatumknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienDatumknappActionPerformed
-        AlienDatum AD = new AlienDatum(idb);
+        AlienDatum AD = new AlienDatum(idb, agentId);
         AD.setVisible(true);
         
         dispose();
