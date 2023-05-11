@@ -4,10 +4,12 @@
  */
 package MIBprojekt;
 
+import static MIBprojekt.LogInAgent.idb;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -156,10 +158,29 @@ public class LogInAlien extends javax.swing.JFrame {
 
     //Logga in knapp Alien
     private void LoggaInAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInAlienActionPerformed
-        AlienMeny AM = new AlienMeny(idb);
+        /*AlienMeny AM = new AlienMeny(idb);
         AM.setVisible(true);
         
-        dispose();
+        dispose();'*/
+        try {
+            String Epost = AnvNamnAlien.getText();
+            String Losen = new String(LosenAlien.getPassword());
+            String agentID = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Epost = '"+Epost+"' AND Losenord = '"+Losen+"'");
+
+            if (agentID != null) {
+               
+                AgentMeny AM = new AgentMeny(idb);
+                AM.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Felaktig e-postadress eller lösenord.", "Fel", JOptionPane.ERROR_MESSAGE);
+                AnvNamnAlien.setText("");
+                LosenAlien.setText("");
+                AnvNamnAlien.requestFocus();
+            }
+        } catch (InfException ex) {
+
+        } 
     }//GEN-LAST:event_LoggaInAlienActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
