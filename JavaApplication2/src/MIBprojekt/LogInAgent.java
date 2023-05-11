@@ -18,7 +18,7 @@ import oru.inf.InfException;
  */
 public class LogInAgent extends javax.swing.JFrame {
     
-    public static InfDB idb;
+    public InfDB idb;
 
     /**
      * Creates new form LogInAgent

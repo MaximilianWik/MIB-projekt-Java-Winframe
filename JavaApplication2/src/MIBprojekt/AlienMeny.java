@@ -15,7 +15,7 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class AlienMeny extends javax.swing.JFrame {
-    private static InfDB idb;
+    private InfDB idb;
 
     /**
      * Creates new form AlienMeny

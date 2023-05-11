@@ -4,7 +4,7 @@
  */
 package MIBprojekt;
 
-import static MIBprojekt.LogInAgent.idb;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
@@ -18,7 +18,7 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class LogInAlien extends javax.swing.JFrame {
-    private static InfDB idb;
+    private InfDB idb;
 
     /**
      * Creates new form LogInAlien

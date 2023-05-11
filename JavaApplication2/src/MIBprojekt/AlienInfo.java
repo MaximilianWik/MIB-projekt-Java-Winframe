@@ -16,7 +16,7 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class AlienInfo extends javax.swing.JFrame {
-    private static InfDB idb;
+    private InfDB idb;
     /**
      * Creates new form AlienInfo
      */

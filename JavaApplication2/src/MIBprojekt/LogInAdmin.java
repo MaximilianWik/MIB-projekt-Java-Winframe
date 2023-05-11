@@ -5,10 +5,12 @@
 package MIBprojekt;
 
 
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
@@ -16,7 +18,7 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class LogInAdmin extends javax.swing.JFrame {
-    private static InfDB idb;
+    private InfDB idb;
 
     /**
      * Creates new form LogInAdmin
@@ -156,10 +158,29 @@ public class LogInAdmin extends javax.swing.JFrame {
 
     //Admin logga in knapp
     private void LoggaInAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInAdminActionPerformed
-        AdminMeny AM = new AdminMeny(idb);
+        /*AdminMeny AM = new AdminMeny(idb);
         AM.setVisible(true);
         
-        dispose();
+        dispose();*/
+        try {
+            String Epost = AnvNamnAdmin.getText();
+            String Losen = new String(LosenAdmin.getPassword());
+            String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Epost = '"+Epost+"' AND Losenord = '"+Losen+"' AND Administrator = 'J'");
+
+            if (agentID != null) {
+                int agentId = Integer.parseInt(agentID);
+                AdminMeny AM = new AdminMeny(idb);
+                AM.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Du har inte tillgång till dessa funktioner", "Fel", JOptionPane.ERROR_MESSAGE);
+                AnvNamnAdmin.setText("");
+                LosenAdmin.setText("");
+                AnvNamnAdmin.requestFocus();
+            }
+        } catch (InfException ex) {
+
+        } 
     }//GEN-LAST:event_LoggaInAdminActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed

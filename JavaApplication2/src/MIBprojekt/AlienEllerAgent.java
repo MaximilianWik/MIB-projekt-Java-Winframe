@@ -20,7 +20,7 @@ public class AlienEllerAgent extends javax.swing.JFrame {
     /**
      * Creates new form AlienEllerAgent
      */
-    private static InfDB idb;
+    private InfDB idb;
 
     public AlienEllerAgent(InfDB idb) {
         //Fönstret hamnar i mitten
