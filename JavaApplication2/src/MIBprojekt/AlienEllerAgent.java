@@ -23,6 +23,7 @@ public class AlienEllerAgent extends javax.swing.JFrame {
         //Fönstret hamnar i mitten
         initComponents();
         this.idb = idb;
+        
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);

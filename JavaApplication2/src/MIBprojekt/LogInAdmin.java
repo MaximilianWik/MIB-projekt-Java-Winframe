@@ -19,15 +19,15 @@ import oru.inf.InfException;
  */
 public class LogInAdmin extends javax.swing.JFrame {
     private InfDB idb;
-    private int agentId;
+    //private int agentId;
 
     /**
      * Creates new form LogInAdmin
      */
-    public LogInAdmin(InfDB idb, int agentId) {
+    public LogInAdmin(InfDB idb) {
         initComponents();
         this.idb = idb;
-        this.agentId = agentId;
+       // this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);

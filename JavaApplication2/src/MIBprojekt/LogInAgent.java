@@ -19,15 +19,15 @@ import oru.inf.InfException;
 public class LogInAgent extends javax.swing.JFrame {
     
     public InfDB idb;
-    private int agentId;
+   // private int agentId;
 
     /**
      * Creates new form LogInAgent
      */
-    public LogInAgent(InfDB idb, int agentId) {
+    public LogInAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
-        this.agentId = agentId;
+        //this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
@@ -171,7 +171,8 @@ public class LogInAgent extends javax.swing.JFrame {
             String Epost = AnvNamnAgent.getText();
             String Losen = new String(LosenAgent.getPassword());
             String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Epost = '"+Epost+"' AND Losenord = '"+Losen+"'");
-
+            
+             
             if (agentID != null) {
                 int agentId = Integer.parseInt(agentID);
                 AgentMeny AM = new AgentMeny(idb, agentId);

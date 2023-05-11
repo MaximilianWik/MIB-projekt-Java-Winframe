@@ -43,6 +43,7 @@ public class AlienInfo extends javax.swing.JFrame {
         Bilden = new javax.swing.JLabel();
         GaTillbakaKnapp = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        test1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,6 +61,13 @@ public class AlienInfo extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Gör en tabell här med selectfråga som visar AlienID, område/plats, datum och ras");
 
+        test1.setText("jButton1");
+        test1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                test1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -74,14 +82,19 @@ public class AlienInfo extends javax.swing.JFrame {
                         .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(238, 238, 238)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(367, 367, 367)
+                        .addComponent(test1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(Bilden, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addGap(18, 18, 18)
+                .addComponent(test1)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addGap(102, 102, 102)
                 .addComponent(GaTillbakaKnapp)
@@ -113,6 +126,13 @@ public class AlienInfo extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
+    private void test1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_test1ActionPerformed
+        
+        String str = Integer.toString(agentId);
+        JOptionPane.showConfirmDialog(null, agentId);
+        
+    }//GEN-LAST:event_test1ActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -120,5 +140,6 @@ public class AlienInfo extends javax.swing.JFrame {
     private javax.swing.JButton GaTillbakaKnapp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton test1;
     // End of variables declaration//GEN-END:variables
 }

@@ -211,7 +211,7 @@ public class AgentMeny extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        LogInAgent LIA = new LogInAgent(idb, agentId);
+        LogInAgent LIA = new LogInAgent(idb);
         LIA.setVisible(true);
         
         dispose();

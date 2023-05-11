@@ -134,7 +134,7 @@ public class AlienMeny extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        LogInAlien LIA = new LogInAlien(idb, alienId);
+        LogInAlien LIA = new LogInAlien(idb);
         LIA.setVisible(true);
 
         dispose();

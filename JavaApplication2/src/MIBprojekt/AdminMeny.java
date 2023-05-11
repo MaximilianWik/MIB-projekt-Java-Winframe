@@ -376,7 +376,7 @@ public class AdminMeny extends javax.swing.JFrame {
     }//GEN-LAST:event_AlienDatumknappActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        LogInAdmin LIA = new LogInAdmin(idb, agentId);
+        LogInAdmin LIA = new LogInAdmin(idb);
         LIA.setVisible(true);
 
         dispose();
