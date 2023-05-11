@@ -22,9 +22,10 @@ public class AlienEllerAgent extends javax.swing.JFrame {
      */
     private static InfDB idb;
 
-    public AlienEllerAgent() {
+    public AlienEllerAgent(InfDB idb) {
         //Fönstret hamnar i mitten
         initComponents();
+        this.idb = idb;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
@@ -117,7 +118,7 @@ public class AlienEllerAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     //Agent knapp
     private void AgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgentActionPerformed
-        LogInAgent LLA = new LogInAgent();
+        LogInAgent LLA = new LogInAgent(idb);
         LLA.setVisible(true);
 
         dispose();
@@ -125,7 +126,7 @@ public class AlienEllerAgent extends javax.swing.JFrame {
 
     //Alien Knapp
     private void AlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienActionPerformed
-        LogInAlien LIA = new LogInAlien();
+        LogInAlien LIA = new LogInAlien(idb);
         LIA.setVisible(true);
 
         dispose();
@@ -133,46 +134,13 @@ public class AlienEllerAgent extends javax.swing.JFrame {
 
     //Admin knapp
     private void AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminActionPerformed
-        LogInAdmin LIAdmin = new LogInAdmin();
+        LogInAdmin LIAdmin = new LogInAdmin(idb);
         LIAdmin.setVisible(true);
         
         dispose();        
     }//GEN-LAST:event_AdminActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AlienEllerAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AlienEllerAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AlienEllerAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AlienEllerAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AlienEllerAgent().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Admin;

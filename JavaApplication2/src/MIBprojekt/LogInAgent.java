@@ -23,7 +23,7 @@ public class LogInAgent extends javax.swing.JFrame {
     /**
      * Creates new form LogInAgent
      */
-    public LogInAgent() {
+    public LogInAgent(InfDB idb) {
         initComponents();
         this.idb = idb;
         Toolkit toolkit = getToolkit();
@@ -161,18 +161,18 @@ public class LogInAgent extends javax.swing.JFrame {
     
     //Logga in knapp
     private void LoggaInAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInAgentActionPerformed
-                AgentMeny AM = new AgentMeny();
+               /* AgentMeny AM = new AgentMeny();
                 AM.setVisible(true);
                 dispose();
-        
-        /* try {
+        */
+        try {
             String Epost = AnvNamnAgent.getText();
             String Losen = new String(LosenAgent.getPassword());
             String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Epost = '"+Epost+"' AND Losenord = '"+Losen+"'");
 
             if (agentID != null) {
                 int agentId = Integer.parseInt(agentID);
-                AgentMeny AM = new AgentMeny();
+                AgentMeny AM = new AgentMeny(idb);
                 AM.setVisible(true);
                 dispose();
             } else {
@@ -183,50 +183,16 @@ public class LogInAgent extends javax.swing.JFrame {
             }
         } catch (InfException ex) {
 
-        } */
+        } 
     }//GEN-LAST:event_LoggaInAgentActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        AlienEllerAgent AEA = new AlienEllerAgent();
+        AlienEllerAgent AEA = new AlienEllerAgent(idb);
         AEA.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LogInAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LogInAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LogInAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LogInAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LogInAgent().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AnvLabel2;
