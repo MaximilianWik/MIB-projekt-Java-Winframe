@@ -185,8 +185,7 @@ public class LogInAdmin extends javax.swing.JFrame {
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         AlienEllerAgent AEA = new AlienEllerAgent(idb);
-        AEA.setVisible(true);
-
+        AEA.setVisible(true); 
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
