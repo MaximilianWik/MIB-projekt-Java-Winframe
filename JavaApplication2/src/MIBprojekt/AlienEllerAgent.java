@@ -16,16 +16,14 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class AlienEllerAgent extends javax.swing.JFrame {
-
-    /**
-     * Creates new form AlienEllerAgent
-     */
     private InfDB idb;
+    
 
     public AlienEllerAgent(InfDB idb) {
         //Fönstret hamnar i mitten
         initComponents();
         this.idb = idb;
+        
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);

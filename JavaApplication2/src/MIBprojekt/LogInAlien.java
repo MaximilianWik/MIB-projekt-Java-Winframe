@@ -19,6 +19,7 @@ import oru.inf.InfException;
  */
 public class LogInAlien extends javax.swing.JFrame {
     private InfDB idb;
+    //private int alienId;
 
     /**
      * Creates new form LogInAlien
@@ -26,6 +27,7 @@ public class LogInAlien extends javax.swing.JFrame {
     public LogInAlien(InfDB idb) {
         initComponents();
         this.idb = idb;
+        //this.alienId = alienId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
@@ -165,11 +167,11 @@ public class LogInAlien extends javax.swing.JFrame {
         try {
             String Epost = AnvNamnAlien.getText();
             String Losen = new String(LosenAlien.getPassword());
-            String agentID = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Epost = '"+Epost+"' AND Losenord = '"+Losen+"'");
+            String alienID = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Epost = '"+Epost+"' AND Losenord = '"+Losen+"'");
 
-            if (agentID != null) {
-               
-                AlienMeny AM = new AlienMeny(idb);
+            if (alienID != null) {
+                int alienId = Integer.parseInt(alienID);
+                AlienMeny AM = new AlienMeny(idb, alienId);
                 AM.setVisible(true);
                 dispose();
             } else {

@@ -16,13 +16,15 @@ import oru.inf.InfException;
  */
 public class AndraAlien extends javax.swing.JFrame {
     private InfDB idb;
+    private int agentId;
 
     /**
      * Creates new form AndraAlien
      */
-    public AndraAlien(InfDB idb) {
+    public AndraAlien(InfDB idb, int agentId) {
         initComponents();
         this.idb = idb;
+        this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
@@ -243,7 +245,7 @@ public class AndraAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_AndratextActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        AgentMeny AM = new AgentMeny(idb);
+        AgentMeny AM = new AgentMeny(idb, agentId);
         AM.setVisible(true);
 
         dispose();

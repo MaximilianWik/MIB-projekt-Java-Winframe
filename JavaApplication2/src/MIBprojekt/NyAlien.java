@@ -17,13 +17,15 @@ import oru.inf.InfException;
  */
 public class NyAlien extends javax.swing.JFrame {
     private InfDB idb;
+    private int agentId;
 
     /**
      * Creates new form NyAlien
      */
-    public NyAlien(InfDB dib) {
+    public NyAlien(InfDB idb, int agentId) {
         initComponents();
         this.idb = idb;
+        this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
@@ -271,7 +273,7 @@ public class NyAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_LäggTillAlienKnappActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        AgentMeny AM = new AgentMeny(idb);
+        AgentMeny AM = new AgentMeny(idb, agentId);
         AM.setVisible(true);
 
         dispose();
