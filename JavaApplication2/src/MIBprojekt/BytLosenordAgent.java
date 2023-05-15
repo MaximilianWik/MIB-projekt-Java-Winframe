@@ -4,10 +4,10 @@
  */
 package MIBprojekt;
 
+import java.sql.Statement;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
@@ -17,9 +17,11 @@ import oru.inf.InfException;
 public class BytLosenordAgent extends javax.swing.JFrame {
     private InfDB idb;
     private int agentId;
-
+    
     /**
      * Creates new form BytLosenordAgent
+     * @param idb
+     * @param agentId
      */
     public BytLosenordAgent(InfDB idb, int agentId) {
         initComponents();
@@ -44,6 +46,7 @@ public class BytLosenordAgent extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         SkrivNyttLosentext = new javax.swing.JTextField();
         GaTillbakaKnapp = new javax.swing.JButton();
+        BytLosen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,6 +64,13 @@ public class BytLosenordAgent extends javax.swing.JFrame {
             }
         });
 
+        BytLosen.setText("Byt Lösenord");
+        BytLosen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BytLosenActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -72,9 +82,9 @@ public class BytLosenordAgent extends javax.swing.JFrame {
                 .addGap(366, 366, 366)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(SkrivNyttLosentext)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)))
+                    .addComponent(SkrivNyttLosentext)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                    .addComponent(BytLosen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -87,7 +97,9 @@ public class BytLosenordAgent extends javax.swing.JFrame {
                 .addComponent(SkrivNyttLosentext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(GaTillbakaKnapp)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BytLosen)
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -115,9 +127,31 @@ public class BytLosenordAgent extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
+    private void BytLosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BytLosenActionPerformed
+        // TODO add your handling code here:
+        try {
+            String nyttLosenord = BytLosen.getText();
+            String UpdateLosen = idb.fetchSingle("UPDATE Agent SET Losenord = '" + nyttLosenord + "' WHERE Agent_ID = '" + agentId + "'");
+            
+            if (UpdateLosen != null) {
+                JOptionPane.showMessageDialog(null, "Lyckat");
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "något gick fel");
+                BytLosen.setText("");
+                BytLosen.requestFocus();
+
+            }
+
+        } catch (InfException ex) {
+
+        }
+    }//GEN-LAST:event_BytLosenActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Bilden;
+    private javax.swing.JButton BytLosen;
     private javax.swing.JButton GaTillbakaKnapp;
     private javax.swing.JTextField SkrivNyttLosentext;
     private javax.swing.JLabel jLabel1;
