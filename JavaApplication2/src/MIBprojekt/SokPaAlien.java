@@ -6,8 +6,8 @@ package MIBprojekt;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -18,9 +18,11 @@ import oru.inf.InfException;
 public class SokPaAlien extends javax.swing.JFrame {
     private InfDB idb;
     private int agentId;
-
+    
     /**
      * Creates new form SokPaAlien
+     * @param idb
+     * @param agentId
      */
     public SokPaAlien(InfDB idb, int agentId) {
         initComponents();
@@ -144,14 +146,15 @@ public class SokPaAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
     private void SokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokKnappActionPerformed
-        String AID = AlienIDtext.getText();
+           
         
         try{
-            String alienInfo = idb.fetchSingle("SELECT * FROM alien WHERE Alien_ID = " + AID);
+            String AID = AlienIDtext.getText();
+            String alienInfo = idb.fetchSingle("SELECT * FROM alien WHERE Alien_ID =" + AID);
             
-            if(alienInfo!= null){
-               
-               jTextArea1.setText(alienInfo);
+            if(alienInfo != null){
+              JOptionPane.showConfirmDialog(null, alienInfo);
+               //jTextArea1.setText(alienInfo);
                System.out.println(alienInfo);
             }
             else{

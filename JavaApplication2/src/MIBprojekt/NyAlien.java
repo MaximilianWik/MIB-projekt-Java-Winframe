@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -45,7 +46,7 @@ public class NyAlien extends javax.swing.JFrame {
         Eposttext = new javax.swing.JTextField();
         AlienIDtext = new javax.swing.JTextField();
         Registreringsdatumtext = new javax.swing.JTextField();
-        Lösenordtext = new javax.swing.JTextField();
+        Losenordtext = new javax.swing.JTextField();
         Registreringsdatum = new javax.swing.JLabel();
         AlienID = new javax.swing.JLabel();
         Epost = new javax.swing.JLabel();
@@ -81,9 +82,9 @@ public class NyAlien extends javax.swing.JFrame {
             }
         });
 
-        Lösenordtext.addActionListener(new java.awt.event.ActionListener() {
+        Losenordtext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LösenordtextActionPerformed(evt);
+                LosenordtextActionPerformed(evt);
             }
         });
 
@@ -173,7 +174,7 @@ public class NyAlien extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(Eposttext, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Lösenordtext, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Losenordtext, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addComponent(Epost, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,7 +210,7 @@ public class NyAlien extends javax.swing.JFrame {
                     .addComponent(Eposttext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AlienIDtext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Registreringsdatumtext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Lösenordtext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Losenordtext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Telefon)
@@ -251,9 +252,9 @@ public class NyAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LösenordtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LösenordtextActionPerformed
+    private void LosenordtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LosenordtextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LösenordtextActionPerformed
+    }//GEN-LAST:event_LosenordtextActionPerformed
 
     private void AnsvarigAgentIDtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnsvarigAgentIDtextActionPerformed
         // TODO add your handling code here:
@@ -270,8 +271,59 @@ public class NyAlien extends javax.swing.JFrame {
     //LäggTillAlienKnapp 
     private void LäggTillAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LäggTillAlienKnappActionPerformed
         // TODO add your handling code here:
+         
+        laggTillNyAlien();
+         
     }//GEN-LAST:event_LäggTillAlienKnappActionPerformed
 
+    private void laggTillNyAlien() {
+        String AID = AlienIDtext.getText();
+        String RegDatum = Registreringsdatumtext.getText();
+        String epost = Eposttext.getText();
+        String Losen = Losenordtext.getText();
+        String namn = Namntext.getText();
+        String telefon = Telefontext1.getText();
+        String plats = Platstext.getText();
+        String ansvarigAgentID = AnsvarigAgentIDtext.getText();
+        String ras = Rastext.getText();
+
+        try {
+            String fraga = "INSERT INTO alien (Alien_ID, Registreringsdatum, Epost, Losenord, Namn, Telefon, Plats, Ansvarig_Agent) VALUES ('" + AID + "', '" + RegDatum + "', '" + epost + "', '" + Losen + "', '" + namn + "', '" + telefon + "', '" + plats + "', '" + ansvarigAgentID + "')";
+            idb.insert(fraga);
+            String TilldelaRas = "INSERT INTO " + ras + " (Alien_ID) VALUES ('" + AID + "')";
+            idb.insert(TilldelaRas);
+           
+           /* String TilldelaRas = "";
+
+           } else if ("worm".equals(ras)) {
+                TilldelaRas = "INSERT INTO worm (Alien_ID) VALUES (1)";
+            } else if ("boglodite".equals(ras)) {
+                TilldelaRas = "INSERT INTO boglodite (Alien_ID) VALUES (1)";
+            }
+
+            if (!TilldelaRas.isEmpty()) {
+                idb.insert(TilldelaRas);
+            }*/
+
+            JOptionPane.showMessageDialog(this, "Ny Alien har lagts till!");
+            AlienIDtext.setText("");
+            Registreringsdatumtext.setText("");
+            Eposttext.setText("");
+            Losenordtext.setText("");
+            Namntext.setText("");
+            Telefontext1.setText("");
+            Platstext.setText("");
+            AnsvarigAgentIDtext.setText("");
+            AlienIDtext.requestFocus();
+        } catch (InfException ex) {
+            Logger.getLogger(NyAlien.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Finns redan en Alien med detta ID");
+        }
+
+    }
+
+
+    
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         AgentMeny AM = new AgentMeny(idb, agentId);
         AM.setVisible(true);
@@ -290,9 +342,9 @@ public class NyAlien extends javax.swing.JFrame {
     private javax.swing.JLabel Epost;
     private javax.swing.JTextField Eposttext;
     private javax.swing.JButton GaTillbakaKnapp;
+    private javax.swing.JTextField Losenordtext;
     private javax.swing.JButton LäggTillAlienKnapp;
     private javax.swing.JLabel Lösenord;
-    private javax.swing.JTextField Lösenordtext;
     private javax.swing.JLabel Namn;
     private javax.swing.JTextField Namntext;
     private javax.swing.JLabel Plats;
