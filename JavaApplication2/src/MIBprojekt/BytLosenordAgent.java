@@ -4,7 +4,7 @@
  */
 package MIBprojekt;
 
-import java.sql.Statement;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
@@ -129,22 +129,18 @@ public class BytLosenordAgent extends javax.swing.JFrame {
 
     private void BytLosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BytLosenActionPerformed
         // TODO add your handling code here:
-        try {
-            String nyttLosenord = BytLosen.getText();
-            String UpdateLosen = idb.fetchSingle("UPDATE Agent SET Losenord = '" + nyttLosenord + "' WHERE Agent_ID = '" + agentId + "'");
+        try{
+            String nyttLosenord = SkrivNyttLosentext.getText();
+            String NyttLosen = "UPDATE agent SET Losenord = '" + nyttLosenord +"' WHERE Agent_ID = " + agentId;
+            idb.update(NyttLosen);
             
-            if (UpdateLosen != null) {
-                JOptionPane.showMessageDialog(null, "Lyckat");
-                dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "något gick fel");
-                BytLosen.setText("");
-                BytLosen.requestFocus();
-
-            }
-
-        } catch (InfException ex) {
-
+            JOptionPane.showMessageDialog(null, "Lösenordet är uppdaterat!");
+            SkrivNyttLosentext.setText("");
+            SkrivNyttLosentext.requestFocus();    
+        }
+        catch (InfException ex){
+            JOptionPane.showMessageDialog(null, "Något fel har inträffat!");
+            
         }
     }//GEN-LAST:event_BytLosenActionPerformed
 
