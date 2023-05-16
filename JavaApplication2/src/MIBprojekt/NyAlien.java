@@ -320,10 +320,7 @@ public class NyAlien extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Finns redan en Alien med detta ID");
         }
 
-    }
-
-
-    
+    }   
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         AgentMeny AM = new AgentMeny(idb, agentId);
         AM.setVisible(true);

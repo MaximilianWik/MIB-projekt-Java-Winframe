@@ -11,6 +11,7 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.util.ArrayList;
 /**
  *
  * @author Victus
@@ -18,6 +19,7 @@ import oru.inf.InfException;
 public class SokPaAlien extends javax.swing.JFrame {
     private InfDB idb;
     private int agentId;
+    
     
     /**
      * Creates new form SokPaAlien
@@ -28,6 +30,7 @@ public class SokPaAlien extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
+        
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
@@ -89,9 +92,6 @@ public class SokPaAlien extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(352, 352, 352))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(SokKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(AlienIDtext, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -102,6 +102,10 @@ public class SokPaAlien extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(361, 361, 361)
+                .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,10 +118,10 @@ public class SokPaAlien extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(SokKnapp)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(GaTillbakaKnapp)
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addGap(46, 46, 46))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,6 +142,9 @@ public class SokPaAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         AgentMeny AM = new AgentMeny(idb, agentId);
         AM.setVisible(true);
@@ -145,30 +152,31 @@ public class SokPaAlien extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
+   
     private void SokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokKnappActionPerformed
-           
-        
         try{
-            String AID = AlienIDtext.getText();
-            String alienInfo = idb.fetchSingle("SELECT * FROM alien WHERE Alien_ID =" + AID);
+           int alienId = Integer.parseInt(AlienIDtext.getText());
+           String fraga = "SELECT Namn FROM alien WHERE Alien_ID = " + alienId;
+           
+           String alienInfo = idb.fetchSingle(fraga);
+           
+           if (alienInfo != null){
+               
             
-            if(alienInfo != null){
-              JOptionPane.showConfirmDialog(null, alienInfo);
-               //jTextArea1.setText(alienInfo);
+               JOptionPane.showConfirmDialog(null, alienInfo);
                System.out.println(alienInfo);
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Finns ingen Alien med detta ID!");
-            }
-                
-        }
-        catch (InfException ex){
-            
-        }
+           }
+           else{
+               JOptionPane.showMessageDialog(null, "Finns ingen Alien med dett ID!");
+           }
+       } 
        
-        //String AlienID = AlienIdText.getText();
-        //Svar = 
-        //JOptionPane.showMessageDialog(null, "Heeeej");
+       catch (InfException ex){
+           JOptionPane.showMessageDialog(null, "Ett fel har uppstått");
+       }
+        
+        
+
     }//GEN-LAST:event_SokKnappActionPerformed
 
   
