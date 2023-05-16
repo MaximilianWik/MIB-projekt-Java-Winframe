@@ -47,7 +47,7 @@ public class AdminMeny extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         AlienInfoKnapp = new javax.swing.JButton();
         SokPåAlien = new javax.swing.JButton();
-        Omradescheftext = new javax.swing.JButton();
+        NyAgent = new javax.swing.JButton();
         UtrustningKnapp = new javax.swing.JButton();
         AlienDatumknapp = new javax.swing.JButton();
         GaTillbakaKnapp = new javax.swing.JButton();
@@ -109,10 +109,10 @@ public class AdminMeny extends javax.swing.JFrame {
             }
         });
 
-        Omradescheftext.setText("Ny Agent");
-        Omradescheftext.addActionListener(new java.awt.event.ActionListener() {
+        NyAgent.setText("Ny Agent");
+        NyAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OmradescheftextActionPerformed(evt);
+                NyAgentActionPerformed(evt);
             }
         });
 
@@ -211,7 +211,7 @@ public class AdminMeny extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(ÄndraAlienKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(Omradescheftext, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(NyAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(AlienDatumknapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,7 +258,7 @@ public class AdminMeny extends javax.swing.JFrame {
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Omradescheftext, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NyAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ÄndraAlienKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -357,9 +357,13 @@ public class AdminMeny extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_SokPåAlienActionPerformed
 
-    private void OmradescheftextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OmradescheftextActionPerformed
+    private void NyAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NyAgentActionPerformed
         //JOptionPane.showMessageDialog(null, "Heeeej");
-    }//GEN-LAST:event_OmradescheftextActionPerformed
+        NyAgent NA = new NyAgent(idb, agentId);
+        NA.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_NyAgentActionPerformed
 
     private void UtrustningKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UtrustningKnappActionPerformed
         Utrustning U = new Utrustning(idb, agentId);
@@ -412,7 +416,7 @@ public class AdminMeny extends javax.swing.JFrame {
     private javax.swing.JLabel Bilden;
     private javax.swing.JButton GaTillbakaKnapp;
     private javax.swing.JTextField Kontorscheftext;
-    private javax.swing.JButton Omradescheftext;
+    private javax.swing.JButton NyAgent;
     private javax.swing.JTextField Omradetext;
     private javax.swing.JButton SokPåAlien;
     private javax.swing.JTextField TaBortAgenttext;
