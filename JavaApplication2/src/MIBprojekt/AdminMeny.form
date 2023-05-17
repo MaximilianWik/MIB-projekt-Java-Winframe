@@ -82,7 +82,7 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel2" max="32767" attributes="0"/>
                                       <Component id="TaBortAgenttext" max="32767" attributes="0"/>
-                                      <Component id="AlienInfoKnapp" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="TaBortAgent" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -148,7 +148,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="AlienInfoKnapp1" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="AlienInfoKnapp" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="TaBortAgent" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                               <Component id="SokPåAlien" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -228,12 +228,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="AlienInfoKnapp">
+        <Component class="javax.swing.JButton" name="TaBortAgent">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ta bort agent"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlienInfoKnappActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TaBortAgentActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="SokP&#xe5;Alien">
