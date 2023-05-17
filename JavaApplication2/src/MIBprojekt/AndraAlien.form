@@ -51,7 +51,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="andraNamntext" alignment="0" max="32767" attributes="0"/>
@@ -77,26 +77,25 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="andraAlienIDtext" alignment="0" max="32767" attributes="0"/>
-                              <Component id="AlienID" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="Registreringsdatum" alignment="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="andraRegistreringsdatumtext" alignment="0" pref="101" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="andraRastext" min="-2" pref="101" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="andraLösenordtext" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="Registreringsdatum1" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="Registreringsdatum" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="andraAlienIDtext" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="andraRegistreringsdatumtext1" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="andraRastext" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="Ras" min="-2" pref="101" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="Lösenord" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -121,16 +120,14 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Registreringsdatum" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="AlienID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="Lösenord" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Ras" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Registreringsdatum1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="andraAlienIDtext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="andraRegistreringsdatumtext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="andraLösenordtext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="andraRastext" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="andraRegistreringsdatumtext1" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -164,15 +161,8 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="andraAlienIDtext">
-        </Component>
-        <Component class="javax.swing.JTextField" name="andraRegistreringsdatumtext">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andraRegistreringsdatumtextActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="andraL&#xf6;senordtext">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andraL&#xf6;senordtextActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andraAlienIDtextActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Registreringsdatum">
@@ -181,22 +171,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Registreringsdatum"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="AlienID">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="AlienID"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="L&#xf6;senord">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="Namn">
@@ -266,6 +240,19 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ras"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="andraRegistreringsdatumtext1">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="andraRegistreringsdatumtext1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="Registreringsdatum1">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Alien ID"/>
           </Properties>
         </Component>
       </SubComponents>

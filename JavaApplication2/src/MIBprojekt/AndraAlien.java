@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 /**
@@ -42,11 +43,7 @@ public class AndraAlien extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Bilden = new javax.swing.JLabel();
         andraAlienIDtext = new javax.swing.JTextField();
-        andraRegistreringsdatumtext = new javax.swing.JTextField();
-        andraLösenordtext = new javax.swing.JTextField();
         Registreringsdatum = new javax.swing.JLabel();
-        AlienID = new javax.swing.JLabel();
-        Lösenord = new javax.swing.JLabel();
         Namn = new javax.swing.JLabel();
         Telefon = new javax.swing.JLabel();
         Plats = new javax.swing.JLabel();
@@ -59,6 +56,8 @@ public class AndraAlien extends javax.swing.JFrame {
         GaTillbakaKnapp = new javax.swing.JButton();
         andraTelefontext1 = new javax.swing.JTextField();
         Ras = new javax.swing.JLabel();
+        andraRegistreringsdatumtext1 = new javax.swing.JTextField();
+        Registreringsdatum1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,26 +65,14 @@ public class AndraAlien extends javax.swing.JFrame {
 
         Bilden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MIBprojekt/Ikoner/men-in-black-2-logo.png"))); // NOI18N
 
-        andraRegistreringsdatumtext.addActionListener(new java.awt.event.ActionListener() {
+        andraAlienIDtext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                andraRegistreringsdatumtextActionPerformed(evt);
-            }
-        });
-
-        andraLösenordtext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                andraLösenordtextActionPerformed(evt);
+                andraAlienIDtextActionPerformed(evt);
             }
         });
 
         Registreringsdatum.setForeground(new java.awt.Color(255, 255, 255));
         Registreringsdatum.setText("Registreringsdatum");
-
-        AlienID.setForeground(new java.awt.Color(255, 255, 255));
-        AlienID.setText("AlienID");
-
-        Lösenord.setForeground(new java.awt.Color(255, 255, 255));
-        Lösenord.setText("Lösenord");
 
         Namn.setForeground(new java.awt.Color(255, 255, 255));
         Namn.setText("Namn");
@@ -122,13 +109,22 @@ public class AndraAlien extends javax.swing.JFrame {
         Ras.setForeground(new java.awt.Color(255, 255, 255));
         Ras.setText("Ras");
 
+        andraRegistreringsdatumtext1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                andraRegistreringsdatumtext1ActionPerformed(evt);
+            }
+        });
+
+        Registreringsdatum1.setForeground(new java.awt.Color(255, 255, 255));
+        Registreringsdatum1.setText("Alien ID");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(209, 209, 209)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(andraNamntext)
@@ -149,23 +145,22 @@ public class AndraAlien extends javax.swing.JFrame {
                                 .addComponent(AnsvarigAgentID, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(Andratext, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(andraAlienIDtext)
-                            .addComponent(AlienID, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Registreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(andraRegistreringsdatumtext, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(andraRastext, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(andraLösenordtext, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Registreringsdatum1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Registreringsdatum, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(andraAlienIDtext, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(andraRegistreringsdatumtext1)
+                                .addGap(12, 12, 12)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(andraRastext, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(Ras, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Lösenord, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(113, 113, 113)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -182,15 +177,13 @@ public class AndraAlien extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Registreringsdatum)
-                    .addComponent(AlienID)
-                    .addComponent(Lösenord)
-                    .addComponent(Ras))
+                    .addComponent(Ras)
+                    .addComponent(Registreringsdatum1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(andraAlienIDtext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(andraRegistreringsdatumtext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(andraLösenordtext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(andraRastext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(andraRastext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(andraRegistreringsdatumtext1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Telefon)
@@ -228,20 +221,54 @@ public class AndraAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void andraRegistreringsdatumtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraRegistreringsdatumtextActionPerformed
+    private void andraAlienIDtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraAlienIDtextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_andraRegistreringsdatumtextActionPerformed
-
-    private void andraLösenordtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraLösenordtextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_andraLösenordtextActionPerformed
+    }//GEN-LAST:event_andraAlienIDtextActionPerformed
 
     private void andraAnsvarigAgentIDtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraAnsvarigAgentIDtextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_andraAnsvarigAgentIDtextActionPerformed
 
     private void AndratextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndratextActionPerformed
-        // TODO add your handling code here:
+        String AID = andraAlienIDtext.getText();
+        String RegDatum = andraRegistreringsdatumtext1.getText();
+        String Ras = andraRastext.getText();
+        String namn = andraNamntext.getText();
+        String telefon = andraTelefontext1.getText();
+        String P = andraPlatstext.getText();
+        String AA = andraAnsvarigAgentIDtext.getText();
+        
+        try {
+            //Uppdaterar alien tabellen
+             String uppdateraAlienQuery = "UPDATE alien SET Registreringsdatum = '" + RegDatum + "', Namn = '" + namn + "', Telefon = '" + telefon + "', Plats = '" + P + "', Ansvarig_Agent = '" + AA + "' WHERE Alien_ID = '" + AID + "'";
+             idb.update(uppdateraAlienQuery);
+
+             //Uppdaterar ras
+             String uppdateraRasQuery = "";
+                if (Ras.equals("Boglodite")) {
+                    uppdateraRasQuery = "INSERT INTO boglodite (Alien_ID, Number_of_boglodites) VALUES ('" + AID + "', 1) ON DUPLICATE KEY UPDATE Number_of_boglodites = Number_of_boglodites + 1";
+                } else if (Ras.equals("Worm")) {
+                     uppdateraRasQuery = "INSERT INTO worm (Alien_ID, Number_of_worms) VALUES ('" + AID + "', 1) ON DUPLICATE KEY UPDATE Number_of_worms = Number_of_worms + 1";
+                } else if (Ras.equals("Squid")) {
+                     uppdateraRasQuery = "INSERT INTO squid (Alien_ID, Number_of_squids) VALUES ('" + AID + "', 1) ON DUPLICATE KEY UPDATE Number_of_squids = Number_of_squids + 1";
+                }
+                
+            idb.insert(uppdateraRasQuery);
+            
+            JOptionPane.showMessageDialog(null, "Alien information är uppdaterad");
+            andraAlienIDtext.setText("");
+            andraRegistreringsdatumtext1.setText("");
+            andraRastext.setText("");
+            andraNamntext.setText("");
+            andraTelefontext1.setText("");
+            andraPlatstext.setText("");
+            andraAlienIDtext.requestFocus();
+            
+            } catch (InfException ex) {
+            Logger.getLogger(AndraAlien.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Knaaaas bror");
+            //JOptionPane.showMessageDialog(null, "Lägg av");
+            }   
     }//GEN-LAST:event_AndratextActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
@@ -251,27 +278,29 @@ public class AndraAlien extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
+    private void andraRegistreringsdatumtext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andraRegistreringsdatumtext1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_andraRegistreringsdatumtext1ActionPerformed
+
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AlienID;
     private javax.swing.JButton Andratext;
     private javax.swing.JLabel AnsvarigAgentID;
     private javax.swing.JLabel Bilden;
     private javax.swing.JButton GaTillbakaKnapp;
-    private javax.swing.JLabel Lösenord;
     private javax.swing.JLabel Namn;
     private javax.swing.JLabel Plats;
     private javax.swing.JLabel Ras;
     private javax.swing.JLabel Registreringsdatum;
+    private javax.swing.JLabel Registreringsdatum1;
     private javax.swing.JLabel Telefon;
     private javax.swing.JTextField andraAlienIDtext;
     private javax.swing.JTextField andraAnsvarigAgentIDtext;
-    private javax.swing.JTextField andraLösenordtext;
     private javax.swing.JTextField andraNamntext;
     private javax.swing.JTextField andraPlatstext;
     private javax.swing.JTextField andraRastext;
-    private javax.swing.JTextField andraRegistreringsdatumtext;
+    private javax.swing.JTextField andraRegistreringsdatumtext1;
     private javax.swing.JTextField andraTelefontext1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

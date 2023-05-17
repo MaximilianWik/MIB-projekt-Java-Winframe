@@ -128,6 +128,8 @@ public class AlienInfo extends javax.swing.JFrame {
 
     private void test1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_test1ActionPerformed
         
+         
+        
         String str = Integer.toString(agentId);
         JOptionPane.showConfirmDialog(null, agentId);
         
