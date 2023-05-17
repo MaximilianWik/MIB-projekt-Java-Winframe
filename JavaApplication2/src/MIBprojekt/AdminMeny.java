@@ -43,7 +43,7 @@ public class AdminMeny extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Bilden = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        ÄndraAlienKnapp = new javax.swing.JButton();
+        ÄndraAgentKnapp = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         AlienInfoKnapp = new javax.swing.JButton();
         SokPåAlien = new javax.swing.JButton();
@@ -81,10 +81,10 @@ public class AdminMeny extends javax.swing.JFrame {
             }
         });
 
-        ÄndraAlienKnapp.setText("Ändra Agent");
-        ÄndraAlienKnapp.addActionListener(new java.awt.event.ActionListener() {
+        ÄndraAgentKnapp.setText("Ändra Agent");
+        ÄndraAgentKnapp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ÄndraAlienKnappActionPerformed(evt);
+                ÄndraAgentKnappActionPerformed(evt);
             }
         });
 
@@ -209,7 +209,7 @@ public class AdminMeny extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(UtrustningKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ÄndraAlienKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ÄndraAgentKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(NyAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(AlienDatumknapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -259,7 +259,7 @@ public class AdminMeny extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(NyAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ÄndraAlienKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ÄndraAgentKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -330,12 +330,12 @@ public class AdminMeny extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void ÄndraAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraAlienKnappActionPerformed
-        AndraAlien AA = new AndraAlien(idb, agentId);
+    private void ÄndraAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraAgentKnappActionPerformed
+        AndraAgent AA = new AndraAgent(idb, agentId);
         AA.setVisible(true);
 
         dispose();
-    }//GEN-LAST:event_ÄndraAlienKnappActionPerformed
+    }//GEN-LAST:event_ÄndraAgentKnappActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         BytLosenordAgent BLA = new BytLosenordAgent(idb, agentId);
@@ -432,7 +432,7 @@ public class AdminMeny extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton ÄndraAlienKnapp;
+    private javax.swing.JButton ÄndraAgentKnapp;
     private javax.swing.JButton ÄndraAlienKnapp1;
     private javax.swing.JButton ÄndraAlienKnapp2;
     private javax.swing.JButton ÄndraAlienKnapp3;
