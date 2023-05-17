@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -45,7 +46,7 @@ public class AdminMeny extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         ÄndraAgentKnapp = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        AlienInfoKnapp = new javax.swing.JButton();
+        TaBortAgent = new javax.swing.JButton();
         SokPåAlien = new javax.swing.JButton();
         NyAgent = new javax.swing.JButton();
         UtrustningKnapp = new javax.swing.JButton();
@@ -95,10 +96,10 @@ public class AdminMeny extends javax.swing.JFrame {
             }
         });
 
-        AlienInfoKnapp.setText("Ta bort agent");
-        AlienInfoKnapp.addActionListener(new java.awt.event.ActionListener() {
+        TaBortAgent.setText("Ta bort agent");
+        TaBortAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlienInfoKnappActionPerformed(evt);
+                TaBortAgentActionPerformed(evt);
             }
         });
 
@@ -224,7 +225,7 @@ public class AdminMeny extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(TaBortAgenttext)
-                                    .addComponent(AlienInfoKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(TaBortAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(SokPåAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -273,7 +274,7 @@ public class AdminMeny extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(AlienInfoKnapp1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AlienInfoKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TaBortAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SokPåAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -343,12 +344,40 @@ public class AdminMeny extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void AlienInfoKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienInfoKnappActionPerformed
-        AlienInfo AI = new AlienInfo(idb, agentId);
-        AI.setVisible(true);
+    private void TaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAgentActionPerformed
+        
+      try{  
+      String agentID = TaBortAgenttext.getText();
+            
+        if (agentID.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Ange Agent ID att ta bort.");
+            }
+         String CheckaID = "SELECT Agent_ID FROM agent where Agent_ID = '" + agentID + "'";
+        //int confirm = JOptionPane.showConfirmDialog(this, "Är du säker på att du vill ta bort agenten med ID: " + agentID + "?.", JOptionPane.YES_NO_OPTION)
+        if (idb.fetchSingle(CheckaID) == null) {
+            JOptionPane.showMessageDialog(this, "Finns ingen Agent med detta ID.");
+            return;
+        } 
+            
+        String fraga = "DELETE FROM agent WHERE Agent_ID = '" + agentID + "'";
+        idb.delete(fraga);  
+            
+            JOptionPane.showMessageDialog(this, "Agent med Agent ID " + agentID + "har tagits bort.");
+            
+            TaBortAgenttext.setText("");      
+            
+              
+            }
+                catch(InfException ex){
+                
+            }
+      
+    
+        //AlienInfo AI = new AlienInfo(idb, agentId);
+        //AI.setVisible(true);
 
-        dispose();
-    }//GEN-LAST:event_AlienInfoKnappActionPerformed
+        //dispose();
+    }//GEN-LAST:event_TaBortAgentActionPerformed
 
     private void SokPåAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPåAlienActionPerformed
         SokPaAlien SPA = new SokPaAlien(idb, agentId);
@@ -410,7 +439,6 @@ public class AdminMeny extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlienDatumknapp;
-    private javax.swing.JButton AlienInfoKnapp;
     private javax.swing.JButton AlienInfoKnapp1;
     private javax.swing.JTextField AndraOmradescheftext;
     private javax.swing.JLabel Bilden;
@@ -419,6 +447,7 @@ public class AdminMeny extends javax.swing.JFrame {
     private javax.swing.JButton NyAgent;
     private javax.swing.JTextField Omradetext;
     private javax.swing.JButton SokPåAlien;
+    private javax.swing.JButton TaBortAgent;
     private javax.swing.JTextField TaBortAgenttext;
     private javax.swing.JTextField TaBortAlienText;
     private javax.swing.JTextField TaBortUtrustningtext;
