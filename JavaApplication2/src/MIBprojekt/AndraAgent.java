@@ -229,9 +229,9 @@ public class AndraAgent extends javax.swing.JFrame {
         String Omrade = Omradetext.getText();
 
         StringBuilder uppdateraFalt = new StringBuilder("UPDATE agent SET ");
-        
+
         boolean faltUppdaterade = false;
-        
+
         if (!namn.isEmpty()) {
             uppdateraFalt.append("Namn = '").append(namn).append("'");
             faltUppdaterade = true;
@@ -261,13 +261,13 @@ public class AndraAgent extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Inga fält att Uppdatera");
             return;
         }
+
         uppdateraFalt.append(" WHERE Agent_ID = '").append(AID).append("'");
         String fraga = uppdateraFalt.toString();
-        
+
         System.out.println("SQL Fråga: " + fraga);
         try {
-            
-            
+
             idb.update(fraga);
             JOptionPane.showMessageDialog(null, "Agentens Information är nu uppdaterad!");
             AgentIDtxt.setText("");
@@ -276,7 +276,7 @@ public class AndraAgent extends javax.swing.JFrame {
             AnsDattxt.setText("");
             Omradetext.setText("");
             AgentIDtxt.requestFocus();
-            
+
         } catch (InfException ex) {
             Logger.getLogger(AndraAgent.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Något gick fel!");
