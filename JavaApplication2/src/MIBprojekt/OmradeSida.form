@@ -47,15 +47,10 @@
                   <Component id="Bilden" min="-2" pref="860" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="342" pref="342" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
-                          <Component id="GaTillbakaKnapp" min="-2" pref="101" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
-                          <Component id="SokKnapp" min="-2" pref="101" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="GaTillbakaKnapp" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="SokKnapp" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>

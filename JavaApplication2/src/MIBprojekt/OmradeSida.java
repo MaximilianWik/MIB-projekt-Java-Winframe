@@ -73,13 +73,10 @@ public class OmradeSida extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Bilden, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(342, 342, 342)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(342, 342, 342)
-                        .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(342, 342, 342)
-                        .addComponent(SokKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SokKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -109,19 +106,16 @@ public class OmradeSida extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokKnappActionPerformed
-        AndraAlien AA = new AndraAlien(idb, agentId);
-        AA.setVisible(true);
-
-        
-    }//GEN-LAST:event_SokKnappActionPerformed
-
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         AgentMeny AM = new AgentMeny(idb, agentId);
         AM.setVisible(true);
 
-        
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
+
+    private void SokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokKnappActionPerformed
+        // Text fält ovan som där man skriver in vilket område If område.getNamn.equals(exempel) then display namn på områdeschef
+
+    }//GEN-LAST:event_SokKnappActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
