@@ -246,16 +246,17 @@ public class AndraAlien extends javax.swing.JFrame {
              //Uppdaterar ras
              String uppdateraRasQuery = "";
                 if (Ras.equals("Boglodite")) {
-                    uppdateraRasQuery = "INSERT INTO boglodite (Alien_ID, Number_of_boglodites) VALUES ('" + AID + "', 1) ON DUPLICATE KEY UPDATE Number_of_boglodites = Number_of_boglodites + 1";
+                    uppdateraRasQuery = "INSERT INTO boglodite (Alien_ID, Antal_Boogies) VALUES ('" + AID + "', 1) ON DUPLICATE KEY UPDATE Number_of_boglodites = Number_of_boglodites + 1";
                 } else if (Ras.equals("Worm")) {
-                     uppdateraRasQuery = "INSERT INTO worm (Alien_ID, Number_of_worms) VALUES ('" + AID + "', 1) ON DUPLICATE KEY UPDATE Number_of_worms = Number_of_worms + 1";
+                     uppdateraRasQuery = "INSERT INTO worm (Alien_ID, Langd) VALUES ('" + AID + "', 5,4) ON DUPLICATE KEY UPDATE Number_of_worms = Number_of_worms + 1";
                 } else if (Ras.equals("Squid")) {
-                     uppdateraRasQuery = "INSERT INTO squid (Alien_ID, Number_of_squids) VALUES ('" + AID + "', 1) ON DUPLICATE KEY UPDATE Number_of_squids = Number_of_squids + 1";
+                     uppdateraRasQuery = "INSERT INTO squid (Alien_ID, Antal_Armar) VALUES ('" + AID + "', 6) ON DUPLICATE KEY UPDATE Number_of_squids = Number_of_squids + 1";
                 }
                 
             idb.insert(uppdateraRasQuery);
             
             JOptionPane.showMessageDialog(null, "Alien information är uppdaterad");
+            //Rensar alla fält
             andraAlienIDtext.setText("");
             andraRegistreringsdatumtext1.setText("");
             andraRastext.setText("");
