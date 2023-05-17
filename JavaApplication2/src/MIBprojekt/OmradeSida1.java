@@ -128,13 +128,20 @@ public class OmradeSida1 extends javax.swing.JFrame {
         // Text fält ovan som där man skriver in vilket område If område.getNamn.equals(exempel) then display namn på områdeschef
 
         //String omradesChef = Omradetext.getText();
-
-        try {
             String omradesChef = Omradetext.getText();
-            String omradeChefQuery = "SELECT Namn FROM agent JOIN omradeschef ON agent.Agent_ID = omradeschef.Agent_ID JOIN omrade on omradeschef.Omrade = omrade.Omrades_ID  WHERE Benamning = '" + omradesChef + "'";
-            idb.fetchSingle(omradeChefQuery);
+        try {
+            
+            String fraga = "SELECT Namn FROM agent JOIN omradeschef ON agent.Agent_ID = omradeschef.Agent_ID JOIN omrade on omradeschef.Omrade = omrade.Omrades_ID  WHERE Benamning = '" + omradesChef + "'";
+            String agentNamn = idb.fetchSingle(fraga);
+            
+            if (agentNamn != null){
+                
+                JOptionPane.showMessageDialog(this, agentNamn);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Finns ingen Agent i detta område");
 
-            JOptionPane.showMessageDialog(null, omradeChefQuery, "SQL Query", JOptionPane.INFORMATION_MESSAGE);
+            }
                 
         } catch (InfException ex) {
 
