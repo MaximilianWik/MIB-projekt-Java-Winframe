@@ -1,9 +1,8 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package MIBprojekt;
-
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
@@ -12,19 +11,17 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
-
 /**
  *
  * @author Victus
  */
-public class OmradeSida extends javax.swing.JPanel {
+public class OmradeSida1 extends javax.swing.JFrame {
     private InfDB idb;
     private int agentId;
-
     /**
-     * Creates new form OmradeSida
+     * Creates new form OmradeSida1
      */
-    public OmradeSida(InfDB idb, int agentId) {
+    public OmradeSida1(InfDB idb, int agentId) {
         initComponents();
         this.agentId = agentId;
         this.idb = idb;
@@ -46,9 +43,10 @@ public class OmradeSida extends javax.swing.JPanel {
         Bilden = new javax.swing.JLabel();
         SokKnapp = new javax.swing.JButton();
         GaTillbakaKnapp = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Omradetext = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
+        Omradetext = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -68,10 +66,14 @@ public class OmradeSida extends javax.swing.JPanel {
             }
         });
 
-        jScrollPane1.setViewportView(Omradetext);
-
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Välj område");
+
+        Omradetext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OmradetextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,8 +87,8 @@ public class OmradeSida extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                     .addComponent(SokKnapp, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Omradetext))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -95,8 +97,8 @@ public class OmradeSida extends javax.swing.JPanel {
                 .addComponent(Bilden, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(Omradetext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SokKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -104,8 +106,8 @@ public class OmradeSida extends javax.swing.JPanel {
                 .addContainerGap(206, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -118,38 +120,43 @@ public class OmradeSida extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        AgentMeny AM = new AgentMeny(idb, agentId);
-        AM.setVisible(true);
-
-    }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
     private void SokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokKnappActionPerformed
         // Text fält ovan som där man skriver in vilket område If område.getNamn.equals(exempel) then display namn på områdeschef
 
-        String omradesChef = Omradetext.getText();
-        
+        //String omradesChef = Omradetext.getText();
+
         try {
-            String omradeChefQuery = "SELECT Namn FROM agent JOIN omradeschef ON agent.Agent_ID = omradeschef.Agent_ID WHERE Omrade = '" + omradesChef + "'";
-            idb.insert(omradeChefQuery);
-            
-            JOptionPane.showMessageDialog(null, omradeChefQuery);
-                    
+            String omradesChef = Omradetext.getText();
+            String omradeChefQuery = "SELECT Namn FROM agent JOIN omradeschef ON agent.Agent_ID = omradeschef.Agent_ID JOIN omrade on omradeschef.Omrade = omrade.Omrades_ID  WHERE Benamning = '" + omradesChef + "'";
+            idb.fetchSingle(omradeChefQuery);
+
+            JOptionPane.showMessageDialog(null, omradeChefQuery, "SQL Query", JOptionPane.INFORMATION_MESSAGE);
+                
         } catch (InfException ex) {
-            
+
         }
     }//GEN-LAST:event_SokKnappActionPerformed
+
+    private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
+        AgentMeny AM = new AgentMeny(idb, agentId);
+        AM.setVisible(true);
+    }//GEN-LAST:event_GaTillbakaKnappActionPerformed
+
+    private void OmradetextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OmradetextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OmradetextActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Bilden;
     private javax.swing.JButton GaTillbakaKnapp;
-    private javax.swing.JTextPane Omradetext;
+    private javax.swing.JTextField Omradetext;
     private javax.swing.JButton SokKnapp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

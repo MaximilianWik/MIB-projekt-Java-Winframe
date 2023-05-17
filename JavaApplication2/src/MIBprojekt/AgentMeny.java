@@ -239,7 +239,7 @@ public class AgentMeny extends javax.swing.JFrame {
     }//GEN-LAST:event_SokPåAlienActionPerformed
 
     private void OmradescheftextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OmradescheftextActionPerformed
-        OmradeSida OS = new OmradeSida(idb, agentId);
+        OmradeSida1 OS = new OmradeSida1(idb, agentId);
         OS.setVisible(true);
         
         dispose();
