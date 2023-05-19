@@ -266,6 +266,7 @@ public class AndraAgent extends javax.swing.JFrame {
         String fraga = uppdateraFalt.toString();
 
         System.out.println("SQL Fråga: " + fraga);
+        
         try {
 
             idb.update(fraga);
