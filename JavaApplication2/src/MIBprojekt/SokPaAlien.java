@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.ArrayList;
+import java.util.HashMap;
 /**
  *
  * @author Victus
@@ -155,19 +156,41 @@ public class SokPaAlien extends javax.swing.JFrame {
    
     private void SokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokKnappActionPerformed
         try{
+           
            int alienId = Integer.parseInt(AlienIDtext.getText());
-           String fraga = "SELECT Namn FROM alien WHERE Alien_ID = " + alienId;
+           String fraga = "SELECT Namn, Telefon, Epost, Registreringsdatum, Ansvarig_Agent FROM alien WHERE Alien_ID = " + alienId;
            
-           String alienInfo = idb.fetchSingle(fraga);
            
-           if (alienInfo != null){
+           ArrayList<HashMap<String, String>> alienInformation = idb.fetchRows(fraga);
+           jTextArea1.setText("");
+           
+           for (HashMap<String, String> alienInfoMap : alienInformation){
                
+            if (alienInformation != null){
+                
+                    String namn = alienInfoMap.get("Namn");
+                    String epost = alienInfoMap.get("Epost");
+                    String RegDat = alienInfoMap.get("Registreringsdatum");
+                    String agent = alienInfoMap.get("Ansvarig_Agent");
+                    String Tel = alienInfoMap.get("Telefon");
+                    
+                    jTextArea1.append("Namn: " + namn + "\n");
+                    jTextArea1.append("Epost: " + epost + "\n");
+                    jTextArea1.append("Telefon: " + Tel + "\n");
+                    jTextArea1.append("Reg. Datum: " + RegDat + "\n");
+                    jTextArea1.append("Ansvarig Agent: " + agent + "\n");
+                    jTextArea1.append("\n");
             
-               JOptionPane.showConfirmDialog(null, alienInfo);
-               System.out.println(alienInfo);
+               
+               System.out.println(alienInformation);
+               
+               
            }
-           else{
+           
+            else{
+                
                JOptionPane.showMessageDialog(null, "Finns ingen Alien med dett ID!");
+           }
            }
        } 
        
