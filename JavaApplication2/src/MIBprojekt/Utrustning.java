@@ -157,9 +157,7 @@ public class Utrustning extends javax.swing.JFrame {
     private void RegistreraUtrustningKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistreraUtrustningKnappActionPerformed
         
         try {
-            //String AID = AgentIDUtrustningtext.getText();
             String UID = UtrustningsIDtext.getText();
-            //String UTDatum = Utkvitteringsdatumtext.getText();
             String Benamning = Benamningtext.getText();
             
             String KontrolleraID = "SELECT Utrustnings_ID FROM utrustning WHERE Utrustnings_ID = '" + UID + "'";
@@ -177,9 +175,9 @@ public class Utrustning extends javax.swing.JFrame {
                      UtrustningsIDtext.requestFocus();
             
         } catch (InfException ex) {
-            // Display an error message or perform any necessary error handling
+            // Displayar error meddelande för nödvändlig error hantering
                  JOptionPane.showMessageDialog(this, "An error occurred while processing the request: " + ex.getMessage());
-                     ex.printStackTrace(); // Print the stack trace for debugging purposes
+                     ex.printStackTrace(); // Printar stack tracen för debugga
             
         }
         
