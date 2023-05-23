@@ -5,6 +5,8 @@
 package MIBprojekt;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
@@ -41,6 +43,11 @@ public class AlienDatum extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Bilden = new javax.swing.JLabel();
         GaTillbakaKnapp = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        InfoRuta = new javax.swing.JTextArea();
+        Ankomst = new javax.swing.JTextField();
+        Utkomst = new javax.swing.JTextField();
+        SokKnapp = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +62,23 @@ public class AlienDatum extends javax.swing.JFrame {
             }
         });
 
+        InfoRuta.setColumns(20);
+        InfoRuta.setRows(5);
+        jScrollPane1.setViewportView(InfoRuta);
+
+        Ankomst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnkomstActionPerformed(evt);
+            }
+        });
+
+        SokKnapp.setText("Sök");
+        SokKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SokKnappActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -63,17 +87,36 @@ public class AlienDatum extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Bilden, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(366, 366, 366)
-                .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(349, 349, 349)
+                        .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(226, 226, 226)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Ankomst, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Utkomst, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(SokKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(Bilden, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Ankomst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Utkomst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SokKnapp))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(GaTillbakaKnapp)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,11 +144,53 @@ public class AlienDatum extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
+    private void AnkomstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnkomstActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AnkomstActionPerformed
+
+    private void SokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokKnappActionPerformed
+        // TODO add your handling code here:
+        try{
+        String AK = Ankomst.getText();
+        String UK = Utkomst.getText();
+        String fraga = "SELECT Namn, Epost, Alien_ID, Plats, Telefon, Registreringsdatum FROM Alien WHERE Registreringsdatum >= '" + AK + "' AND Registreringsdatum <= '" + UK + "'";
+        ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(fraga);
+        
+        for (HashMap <String, String> AlienInfoMap : alienInfo){
+            
+                    String ID = AlienInfoMap.get("Alien_ID");
+                    String epost = AlienInfoMap.get("Epost");
+                    String namn = AlienInfoMap.get("Namn");
+                    String plats = AlienInfoMap.get("Plats");
+                    String tel = AlienInfoMap.get("Telefon");
+                    String Reg = AlienInfoMap.get("Registreringsdatum");
+                    
+                    InfoRuta.append("ALien ID: " + ID + "\n");
+                    InfoRuta.append("Epost: " + epost + "\n");
+                    InfoRuta.append("Telefon: " + tel + "\n");
+                    InfoRuta.append("Namn: " + namn + "\n");
+                    InfoRuta.append("Plats: " + plats + "\n");
+                    InfoRuta.append("Registreringsdatum: " + Reg + "\n");
+                    InfoRuta.append("\n");
+        }
+        
+        }
+        catch(InfException ex){
+             Logger.getLogger(AlienInfoRas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_SokKnappActionPerformed
+
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Ankomst;
     private javax.swing.JLabel Bilden;
     private javax.swing.JButton GaTillbakaKnapp;
+    private javax.swing.JTextArea InfoRuta;
+    private javax.swing.JToggleButton SokKnapp;
+    private javax.swing.JTextField Utkomst;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
