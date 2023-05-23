@@ -43,19 +43,19 @@ public class AdminMeny extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Bilden = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        NyAlien = new javax.swing.JButton();
         ÄndraAgentKnapp = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         TaBortAgent = new javax.swing.JButton();
         SokPåAlien = new javax.swing.JButton();
         NyAgent = new javax.swing.JButton();
         UtrustningKnapp = new javax.swing.JButton();
-        AlienDatumknapp = new javax.swing.JButton();
+        AndraAdminStatus = new javax.swing.JButton();
         GaTillbakaKnapp = new javax.swing.JButton();
         ÄndraAlienKnapp1 = new javax.swing.JButton();
-        AlienInfoKnapp1 = new javax.swing.JButton();
-        ÄndraAlienKnapp2 = new javax.swing.JButton();
-        ÄndraAlienKnapp3 = new javax.swing.JButton();
+        TaBortAlien = new javax.swing.JButton();
+        AndraKontorschef = new javax.swing.JButton();
+        AndraOmrådeschef = new javax.swing.JButton();
         TaBortAlienText = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         TaBortAgenttext = new javax.swing.JTextField();
@@ -75,10 +75,10 @@ public class AdminMeny extends javax.swing.JFrame {
 
         Bilden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MIBprojekt/Ikoner/men-in-black-2-logo.png"))); // NOI18N
 
-        jButton1.setText("Ny Alien");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        NyAlien.setText("Ny Alien");
+        NyAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                NyAlienActionPerformed(evt);
             }
         });
 
@@ -124,10 +124,10 @@ public class AdminMeny extends javax.swing.JFrame {
             }
         });
 
-        AlienDatumknapp.setText("Ny Admin");
-        AlienDatumknapp.addActionListener(new java.awt.event.ActionListener() {
+        AndraAdminStatus.setText("Ny Admin");
+        AndraAdminStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlienDatumknappActionPerformed(evt);
+                AndraAdminStatusActionPerformed(evt);
             }
         });
 
@@ -145,24 +145,24 @@ public class AdminMeny extends javax.swing.JFrame {
             }
         });
 
-        AlienInfoKnapp1.setText("Ta bort Alien");
-        AlienInfoKnapp1.addActionListener(new java.awt.event.ActionListener() {
+        TaBortAlien.setText("Ta bort Alien");
+        TaBortAlien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlienInfoKnapp1ActionPerformed(evt);
+                TaBortAlienActionPerformed(evt);
             }
         });
 
-        ÄndraAlienKnapp2.setText("Ändra kontorschef");
-        ÄndraAlienKnapp2.addActionListener(new java.awt.event.ActionListener() {
+        AndraKontorschef.setText("Ändra kontorschef");
+        AndraKontorschef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ÄndraAlienKnapp2ActionPerformed(evt);
+                AndraKontorschefActionPerformed(evt);
             }
         });
 
-        ÄndraAlienKnapp3.setText("Ändra områdeschef");
-        ÄndraAlienKnapp3.addActionListener(new java.awt.event.ActionListener() {
+        AndraOmrådeschef.setText("Ändra områdeschef");
+        AndraOmrådeschef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ÄndraAlienKnapp3ActionPerformed(evt);
+                AndraOmrådeschefActionPerformed(evt);
             }
         });
 
@@ -204,7 +204,7 @@ public class AdminMeny extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(NyAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(ÄndraAlienKnapp1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -213,13 +213,13 @@ public class AdminMeny extends javax.swing.JFrame {
                                 .addComponent(ÄndraAgentKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(NyAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(AlienDatumknapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AndraAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(TaBortAlienText)
-                                    .addComponent(AlienInfoKnapp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TaBortAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -233,7 +233,7 @@ public class AdminMeny extends javax.swing.JFrame {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ÄndraAlienKnapp3)
+                                    .addComponent(AndraOmrådeschef)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -241,7 +241,7 @@ public class AdminMeny extends javax.swing.JFrame {
                                         .addComponent(AndraOmradescheftext)))
                                 .addGap(101, 101, 101)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ÄndraAlienKnapp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(AndraKontorschef, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(Kontorscheftext)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -255,7 +255,7 @@ public class AdminMeny extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NyAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -273,7 +273,7 @@ public class AdminMeny extends javax.swing.JFrame {
                             .addComponent(TaBortUtrustningtext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(AlienInfoKnapp1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TaBortAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TaBortAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SokPåAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,7 +288,7 @@ public class AdminMeny extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(AlienDatumknapp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AndraAdminStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(AndraOmradescheftext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -301,8 +301,8 @@ public class AdminMeny extends javax.swing.JFrame {
                                     .addComponent(Kontorscheftext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ÄndraAlienKnapp3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ÄndraAlienKnapp2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AndraOmrådeschef, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AndraKontorschef, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addComponent(GaTillbakaKnapp)
                         .addGap(21, 21, 21))))
@@ -324,12 +324,12 @@ public class AdminMeny extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void NyAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NyAlienActionPerformed
         NyAlien NY = new NyAlien(idb, agentId);
         NY.setVisible(true);
 
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_NyAlienActionPerformed
 
     private void ÄndraAgentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraAgentKnappActionPerformed
         AndraAgent AA = new AndraAgent(idb, agentId);
@@ -401,12 +401,12 @@ public class AdminMeny extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_UtrustningKnappActionPerformed
 
-    private void AlienDatumknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienDatumknappActionPerformed
+    private void AndraAdminStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraAdminStatusActionPerformed
         AlienDatum AD = new AlienDatum(idb, agentId);
         AD.setVisible(true);
 
         dispose();
-    }//GEN-LAST:event_AlienDatumknappActionPerformed
+    }//GEN-LAST:event_AndraAdminStatusActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         LogInAdmin LIA = new LogInAdmin(idb);
@@ -417,19 +417,45 @@ public class AdminMeny extends javax.swing.JFrame {
 
     private void ÄndraAlienKnapp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraAlienKnapp1ActionPerformed
         // TODO add your handling code here:
+        AndraAlienAdmin AAA = new AndraAlienAdmin(idb, agentId);
+        AAA.setVisible(true);
+        dispose();
     }//GEN-LAST:event_ÄndraAlienKnapp1ActionPerformed
 
-    private void AlienInfoKnapp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienInfoKnapp1ActionPerformed
+    private void TaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAlienActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AlienInfoKnapp1ActionPerformed
+        
+    }//GEN-LAST:event_TaBortAlienActionPerformed
 
-    private void ÄndraAlienKnapp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraAlienKnapp2ActionPerformed
+    private void AndraKontorschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraKontorschefActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ÄndraAlienKnapp2ActionPerformed
+        try{ 
+        String Kontorschef = Kontorscheftext.getText();
+        String UppdateraChef = "UPDATE kontorschef SET Agent_ID = '" + Kontorschef + "'WHERE Kontorsbeteckning = 'Örebrokontoret'";
+        idb.fetchSingle(UppdateraChef);
+        JOptionPane.showMessageDialog(this, "Kontorschef är uppdaterad till : " + Kontorschef);
+       }
+        catch(InfException ex) {
+            Logger.getLogger(AndraAlien.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Något gick fel, var god och skriv in ett korrekt ID");
+        }
+    }//GEN-LAST:event_AndraKontorschefActionPerformed
 
-    private void ÄndraAlienKnapp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraAlienKnapp3ActionPerformed
+    private void AndraOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraOmrådeschefActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ÄndraAlienKnapp3ActionPerformed
+       try{
+           String OmradesChef = AndraOmradescheftext.getText();
+           String Omrade = Omradetext.getText();
+           
+           String uptdOmradeChef = "UPDATE omradeschef SET Agent_ID = '" + OmradesChef + "' WHERE Omrade = '" + Omrade + "'";
+           idb.fetchSingle(uptdOmradeChef);
+           JOptionPane.showMessageDialog(this, "Områdeschef är uppdaterad till : " + OmradesChef);
+
+       }
+       catch(InfException ex){
+                JOptionPane.showMessageDialog(this, "Kontrollera så att information är korrekt");
+       }
+    }//GEN-LAST:event_AndraOmrådeschefActionPerformed
 
     private void AndraOmradescheftextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraOmradescheftextActionPerformed
         // TODO add your handling code here:
@@ -438,21 +464,23 @@ public class AdminMeny extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AlienDatumknapp;
-    private javax.swing.JButton AlienInfoKnapp1;
+    private javax.swing.JButton AndraAdminStatus;
+    private javax.swing.JButton AndraKontorschef;
     private javax.swing.JTextField AndraOmradescheftext;
+    private javax.swing.JButton AndraOmrådeschef;
     private javax.swing.JLabel Bilden;
     private javax.swing.JButton GaTillbakaKnapp;
     private javax.swing.JTextField Kontorscheftext;
     private javax.swing.JButton NyAgent;
+    private javax.swing.JButton NyAlien;
     private javax.swing.JTextField Omradetext;
     private javax.swing.JButton SokPåAlien;
     private javax.swing.JButton TaBortAgent;
     private javax.swing.JTextField TaBortAgenttext;
+    private javax.swing.JButton TaBortAlien;
     private javax.swing.JTextField TaBortAlienText;
     private javax.swing.JTextField TaBortUtrustningtext;
     private javax.swing.JButton UtrustningKnapp;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -463,7 +491,5 @@ public class AdminMeny extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton ÄndraAgentKnapp;
     private javax.swing.JButton ÄndraAlienKnapp1;
-    private javax.swing.JButton ÄndraAlienKnapp2;
-    private javax.swing.JButton ÄndraAlienKnapp3;
     // End of variables declaration//GEN-END:variables
 }

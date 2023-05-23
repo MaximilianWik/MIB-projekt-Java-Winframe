@@ -56,7 +56,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jButton3" min="-2" pref="101" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Component id="NyAlien" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="ÄndraAlienKnapp1" min="-2" pref="98" max="-2" attributes="0"/>
@@ -68,14 +68,14 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="NyAgent" min="-2" pref="98" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="AlienDatumknapp" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="AndraAdminStatus" min="-2" pref="98" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="TaBortAlienText" max="32767" attributes="0"/>
-                                      <Component id="AlienInfoKnapp1" max="32767" attributes="0"/>
+                                      <Component id="TaBortAlien" max="32767" attributes="0"/>
                                       <Component id="jLabel1" min="-2" pref="101" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -93,7 +93,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="ÄndraAlienKnapp3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="AndraOmrådeschef" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
@@ -103,7 +103,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="ÄndraAlienKnapp2" max="32767" attributes="0"/>
+                                      <Component id="AndraKontorschef" max="32767" attributes="0"/>
                                       <Component id="Kontorscheftext" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabel6" alignment="1" min="-2" pref="127" max="-2" attributes="0"/>
                                   </Group>
@@ -124,7 +124,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton1" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="NyAlien" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                               <Component id="jButton3" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -147,7 +147,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="AlienInfoKnapp1" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="TaBortAlien" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                               <Component id="TaBortAgent" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                               <Component id="SokPåAlien" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
@@ -167,7 +167,7 @@
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="AlienDatumknapp" alignment="1" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="AndraAdminStatus" alignment="1" min="-2" pref="43" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="AndraOmradescheftext" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -184,8 +184,8 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ÄndraAlienKnapp3" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="ÄndraAlienKnapp2" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="AndraOmrådeschef" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="AndraKontorschef" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="31" max="32767" attributes="0"/>
                           <Component id="GaTillbakaKnapp" min="-2" max="-2" attributes="0"/>
@@ -204,12 +204,12 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="NyAlien">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ny Alien"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NyAlienActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="&#xc4;ndraAgentKnapp">
@@ -260,12 +260,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UtrustningKnappActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="AlienDatumknapp">
+        <Component class="javax.swing.JButton" name="AndraAdminStatus">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ny Admin"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlienDatumknappActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AndraAdminStatusActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="GaTillbakaKnapp">
@@ -284,28 +284,28 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="&#xc4;ndraAlienKnapp1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="AlienInfoKnapp1">
+        <Component class="javax.swing.JButton" name="TaBortAlien">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ta bort Alien"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlienInfoKnapp1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TaBortAlienActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="&#xc4;ndraAlienKnapp2">
+        <Component class="javax.swing.JButton" name="AndraKontorschef">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xc4;ndra kontorschef"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="&#xc4;ndraAlienKnapp2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AndraKontorschefActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="&#xc4;ndraAlienKnapp3">
+        <Component class="javax.swing.JButton" name="AndraOmr&#xe5;deschef">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xc4;ndra omr&#xe5;deschef"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="&#xc4;ndraAlienKnapp3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AndraOmr&#xe5;deschefActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="TaBortAlienText">
