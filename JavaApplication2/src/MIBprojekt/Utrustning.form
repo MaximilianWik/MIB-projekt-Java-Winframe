@@ -53,10 +53,31 @@
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Component id="Bilden" min="-2" pref="860" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
-                  <Component id="GaTillbakaKnapp" min="-2" pref="101" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="UtrustningsIDtext" min="-2" pref="103" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="Benamningtext" max="32767" attributes="0"/>
+                      <Component id="jLabel5" min="-2" pref="101" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="GaTillbakaKnapp" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="RegistreraUtrustningKnapp" min="-2" pref="101" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="376" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabel4" min="-2" pref="145" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="351" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -64,9 +85,25 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="Bilden" min="-2" pref="231" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="UtrustningsIDtext" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Benamningtext" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="RegistreraUtrustningKnapp" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="GaTillbakaKnapp" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="206" max="32767" attributes="0"/>
+                  <EmptySpace pref="217" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -86,6 +123,42 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GaTillbakaKnappActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="UtrustningsIDtext">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Utrustnings ID"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="RegistreraUtrustningKnapp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Registrera"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistreraUtrustningKnappActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Registrera ny utrustning"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="Benamningtext">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Ben&#xe4;mning"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

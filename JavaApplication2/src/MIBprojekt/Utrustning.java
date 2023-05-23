@@ -9,6 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Victus
@@ -41,6 +43,12 @@ public class Utrustning extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Bilden = new javax.swing.JLabel();
         GaTillbakaKnapp = new javax.swing.JButton();
+        UtrustningsIDtext = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        RegistreraUtrustningKnapp = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        Benamningtext = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +63,22 @@ public class Utrustning extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Utrustnings ID");
+
+        RegistreraUtrustningKnapp.setText("Registrera");
+        RegistreraUtrustningKnapp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistreraUtrustningKnappActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Registrera ny utrustning");
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Benämning");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -63,17 +87,46 @@ public class Utrustning extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Bilden, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(342, 342, 342)
-                .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(UtrustningsIDtext, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Benamningtext)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RegistreraUtrustningKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(376, 376, 376))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(351, 351, 351))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(Bilden, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(184, 184, 184)
+                .addGap(37, 37, 37)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(UtrustningsIDtext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Benamningtext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(RegistreraUtrustningKnapp)
+                .addGap(33, 33, 33)
                 .addComponent(GaTillbakaKnapp)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,10 +154,47 @@ public class Utrustning extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
+    private void RegistreraUtrustningKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistreraUtrustningKnappActionPerformed
+        
+        try {
+            //String AID = AgentIDUtrustningtext.getText();
+            String UID = UtrustningsIDtext.getText();
+            //String UTDatum = Utkvitteringsdatumtext.getText();
+            String Benamning = Benamningtext.getText();
+            
+            String KontrolleraID = "SELECT Utrustnings_ID FROM utrustning WHERE Utrustnings_ID = '" + UID + "'";
+            
+            if(idb.fetchSingle(KontrolleraID)!= null){
+                JOptionPane.showMessageDialog(this, "Utrustning existerar redan, vänligen välj kontrollera ID");
+                 return;
+            }
+            
+            String LaggTillUtrustning = "INSERT INTO utrustning (Utrustnings_ID, Benamning) VALUES ('" + UID + "', '" + Benamning + "')";
+              idb.insert(LaggTillUtrustning);
+                 JOptionPane.showMessageDialog(this, "Utrustning: " + Benamning + " har registrerats med Utrustnings ID: " + UID);
+                     UtrustningsIDtext.setText("");
+                     Benamningtext.setText("");
+                     UtrustningsIDtext.requestFocus();
+            
+        } catch (InfException ex) {
+            // Display an error message or perform any necessary error handling
+                 JOptionPane.showMessageDialog(this, "An error occurred while processing the request: " + ex.getMessage());
+                     ex.printStackTrace(); // Print the stack trace for debugging purposes
+            
+        }
+        
+    }//GEN-LAST:event_RegistreraUtrustningKnappActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Benamningtext;
     private javax.swing.JLabel Bilden;
     private javax.swing.JButton GaTillbakaKnapp;
+    private javax.swing.JButton RegistreraUtrustningKnapp;
+    private javax.swing.JTextField UtrustningsIDtext;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
