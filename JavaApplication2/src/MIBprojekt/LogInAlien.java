@@ -4,7 +4,6 @@
  */
 package MIBprojekt;
 
-
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
@@ -18,6 +17,7 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class LogInAlien extends javax.swing.JFrame {
+
     private InfDB idb;
     //private int alienId;
 
@@ -30,7 +30,7 @@ public class LogInAlien extends javax.swing.JFrame {
         //this.alienId = alienId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -167,7 +167,7 @@ public class LogInAlien extends javax.swing.JFrame {
         try {
             String Epost = AnvNamnAlien.getText();
             String Losen = new String(LosenAlien.getPassword());
-            String alienID = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Epost = '"+Epost+"' AND Losenord = '"+Losen+"'");
+            String alienID = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Epost = '" + Epost + "' AND Losenord = '" + Losen + "'");
 
             if (alienID != null) {
                 int alienId = Integer.parseInt(alienID);
@@ -182,7 +182,7 @@ public class LogInAlien extends javax.swing.JFrame {
             }
         } catch (InfException ex) {
 
-        } 
+        }
     }//GEN-LAST:event_LoggaInAlienActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
@@ -192,7 +192,6 @@ public class LogInAlien extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AnvLabel;

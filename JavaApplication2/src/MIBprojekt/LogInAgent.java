@@ -17,9 +17,9 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class LogInAgent extends javax.swing.JFrame {
-    
+
     public InfDB idb;
-   // private int agentId;
+    // private int agentId;
 
     /**
      * Creates new form LogInAgent
@@ -30,7 +30,7 @@ public class LogInAgent extends javax.swing.JFrame {
         //this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -160,19 +160,17 @@ public class LogInAgent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LosenAgentActionPerformed
 
-    
     //Logga in knapp
     private void LoggaInAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInAgentActionPerformed
-               /* AgentMeny AM = new AgentMeny();
+        /* AgentMeny AM = new AgentMeny();
                 AM.setVisible(true);
                 dispose();
-        */
+         */
         try {
             String Epost = AnvNamnAgent.getText();
             String Losen = new String(LosenAgent.getPassword());
-            String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Epost = '"+Epost+"' AND Losenord = '"+Losen+"'");
-            
-             
+            String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Epost = '" + Epost + "' AND Losenord = '" + Losen + "'");
+
             if (agentID != null) {
                 int agentId = Integer.parseInt(agentID);
                 AgentMeny AM = new AgentMeny(idb, agentId);
@@ -186,7 +184,7 @@ public class LogInAgent extends javax.swing.JFrame {
             }
         } catch (InfException ex) {
 
-        } 
+        }
     }//GEN-LAST:event_LoggaInAgentActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed

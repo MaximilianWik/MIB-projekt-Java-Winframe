@@ -478,14 +478,13 @@ public class AdminMeny extends javax.swing.JFrame {
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
     private void ÄndraAlienKnapp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraAlienKnapp1ActionPerformed
-        // TODO add your handling code here:
         AndraAlienAdmin AAA = new AndraAlienAdmin(idb, agentId);
         AAA.setVisible(true);
         dispose();
     }//GEN-LAST:event_ÄndraAlienKnapp1ActionPerformed
 
     private void TaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAlienActionPerformed
-        // TODO add your handling code here:
+        // Validering
             if (Validering.textFaltIfyllt(TaBortAlienText)) {
             
                 try {

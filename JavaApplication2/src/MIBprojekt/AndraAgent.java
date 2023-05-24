@@ -13,11 +13,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author Victus
  */
 public class AndraAgent extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
 
@@ -30,7 +32,7 @@ public class AndraAgent extends javax.swing.JFrame {
         this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -219,7 +221,7 @@ public class AndraAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_OmradetextActionPerformed
 
     private void AndratextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndratextActionPerformed
-       
+
         String AID = AgentIDtxt.getText();
         String namn = Namntxt.getText();
         String Tel = Teltxt.getText();
@@ -266,7 +268,7 @@ public class AndraAgent extends javax.swing.JFrame {
         String fraga = uppdateraFalt.toString();
 
         System.out.println("SQL Fråga: " + fraga);
-        
+
         try {
 
             idb.update(fraga);
@@ -300,7 +302,6 @@ public class AndraAgent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AgentIDtxtActionPerformed
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AgentIDtxt;

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package MIBprojekt;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
@@ -10,11 +11,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author Victus
  */
 public class BytLosenordAlien extends javax.swing.JFrame {
+
     private InfDB idb;
     private int alienId;
 
@@ -27,7 +30,7 @@ public class BytLosenordAlien extends javax.swing.JFrame {
         this.alienId = alienId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -127,24 +130,21 @@ public class BytLosenordAlien extends javax.swing.JFrame {
 
     private void BytLosenAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BytLosenAlienActionPerformed
         // TODO add your handling code here:
-        
 
-       try{
+        try {
             String nyttLosenord = SkrivNyttLosentextalien.getText();
-            String NyttLosen = "UPDATE alien SET Losenord = '" + nyttLosenord +"' WHERE Alien_ID = " + alienId;
+            String NyttLosen = "UPDATE alien SET Losenord = '" + nyttLosenord + "' WHERE Alien_ID = " + alienId;
             idb.update(NyttLosen);
-            
+
             JOptionPane.showMessageDialog(null, "Lösenordet är uppdaterat!");
             SkrivNyttLosentextalien.setText("");
-            SkrivNyttLosentextalien.requestFocus();    
-        }
-        catch (InfException ex){
+            SkrivNyttLosentextalien.requestFocus();
+        } catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Något fel har inträffat!");
-            
+
         }
     }//GEN-LAST:event_BytLosenAlienActionPerformed
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Bilden;

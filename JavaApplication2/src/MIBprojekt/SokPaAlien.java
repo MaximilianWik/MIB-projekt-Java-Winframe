@@ -7,23 +7,24 @@ package MIBprojekt;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
-
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 /**
  *
  * @author Victus
  */
 public class SokPaAlien extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
-    
-    
+
     /**
      * Creates new form SokPaAlien
+     *
      * @param idb
      * @param agentId
      */
@@ -31,10 +32,10 @@ public class SokPaAlien extends javax.swing.JFrame {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
-        
+
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -143,9 +144,7 @@ public class SokPaAlien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    
+
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         AgentMeny AM = new AgentMeny(idb, agentId);
         AM.setVisible(true);
@@ -153,56 +152,59 @@ public class SokPaAlien extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
-   
+
     private void SokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokKnappActionPerformed
-        try{
-           
-           int alienId = Integer.parseInt(AlienIDtext.getText());
-           String fraga = "SELECT Namn, Telefon, Epost, Registreringsdatum, Ansvarig_Agent FROM alien WHERE Alien_ID = " + alienId;
-           
-           
-           ArrayList<HashMap<String, String>> alienInformation = idb.fetchRows(fraga);
-           jTextArea1.setText("");
-           
-           for (HashMap<String, String> alienInfoMap : alienInformation){
-               
-            if (alienInformation != null){
-                
+        /**
+         *
+         * Denna kod är en händelseslyssnare för en knapp i
+         * användargränssnittet. När knappen klickas på hämtar koden information
+         * om en alien från en databas baserat på ett angivet ID. Den visar
+         * sedan den hämtade informationen i en textkomponent. Om inga resultat
+         * hittas i databasen med det angivna ID:et visas en meddelanderuta.
+         * Eventuella fel som uppstår under databasåtkomst fångas upp och ett
+         * felmeddelande visas.
+         */
+
+        try {
+
+            int alienId = Integer.parseInt(AlienIDtext.getText());
+            String fraga = "SELECT Namn, Telefon, Epost, Registreringsdatum, Ansvarig_Agent FROM alien WHERE Alien_ID = " + alienId;
+
+            ArrayList<HashMap<String, String>> alienInformation = idb.fetchRows(fraga);
+            jTextArea1.setText("");
+
+            for (HashMap<String, String> alienInfoMap : alienInformation) {
+
+                if (alienInformation != null) {
+
                     String namn = alienInfoMap.get("Namn");
                     String epost = alienInfoMap.get("Epost");
                     String RegDat = alienInfoMap.get("Registreringsdatum");
                     String agent = alienInfoMap.get("Ansvarig_Agent");
                     String Tel = alienInfoMap.get("Telefon");
-                    
+
                     jTextArea1.append("Namn: " + namn + "\n");
                     jTextArea1.append("Epost: " + epost + "\n");
                     jTextArea1.append("Telefon: " + Tel + "\n");
                     jTextArea1.append("Reg. Datum: " + RegDat + "\n");
                     jTextArea1.append("Ansvarig Agent: " + agent + "\n");
                     jTextArea1.append("\n");
-            
-               
-               System.out.println(alienInformation);
-               
-               
-           }
-           
-            else{
-                
-               JOptionPane.showMessageDialog(null, "Finns ingen Alien med dett ID!");
-           }
-           }
-       } 
-       
-       catch (InfException ex){
-           JOptionPane.showMessageDialog(null, "Ett fel har uppstått");
-       }
-        
-        
+
+                    System.out.println(alienInformation);
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Finns ingen Alien med dett ID!");
+                }
+            }
+        } catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Ett fel har uppstått");
+        }
+
 
     }//GEN-LAST:event_SokKnappActionPerformed
 
-  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AlienIDtext;
     private javax.swing.JLabel Bilden;

@@ -17,6 +17,7 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class NyAlien extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
 
@@ -29,7 +30,7 @@ public class NyAlien extends javax.swing.JFrame {
         this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -271,9 +272,9 @@ public class NyAlien extends javax.swing.JFrame {
     //LäggTillAlienKnapp 
     private void LäggTillAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LäggTillAlienKnappActionPerformed
         // TODO add your handling code here:
-         
+
         laggTillNyAlien();
-         
+
     }//GEN-LAST:event_LäggTillAlienKnappActionPerformed
 
     private void laggTillNyAlien() {
@@ -292,8 +293,8 @@ public class NyAlien extends javax.swing.JFrame {
             idb.insert(fraga);
             String TilldelaRas = "INSERT INTO " + ras + " (Alien_ID) VALUES ('" + AID + "')";
             idb.insert(TilldelaRas);
-           
-           /* String TilldelaRas = "";
+
+            /* String TilldelaRas = "";
 
            } else if ("worm".equals(ras)) {
                 TilldelaRas = "INSERT INTO worm (Alien_ID) VALUES (1)";
@@ -304,7 +305,6 @@ public class NyAlien extends javax.swing.JFrame {
             if (!TilldelaRas.isEmpty()) {
                 idb.insert(TilldelaRas);
             }*/
-
             JOptionPane.showMessageDialog(this, "Ny Alien har lagts till!");
             AlienIDtext.setText("");
             Registreringsdatumtext.setText("");
@@ -320,7 +320,7 @@ public class NyAlien extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Finns redan en Alien med detta ID");
         }
 
-    }   
+    }
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         AgentMeny AM = new AgentMeny(idb, agentId);
         AM.setVisible(true);
@@ -328,7 +328,6 @@ public class NyAlien extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AlienID;

@@ -17,6 +17,7 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class NyAgent extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
 
@@ -29,7 +30,7 @@ public class NyAgent extends javax.swing.JFrame {
         this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -265,14 +266,14 @@ public class NyAgent extends javax.swing.JFrame {
     //LäggTillAlienKnapp 
     private void LäggTillAagentKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LäggTillAagentKnappActionPerformed
         // TODO add your handling code here:
-         
+
         laggTillNyAgent();
-         
+
     }//GEN-LAST:event_LäggTillAagentKnappActionPerformed
-        //Om finns tid, försöka generera epost istället för att skriva in.
-    
+    //Om finns tid, försöka generera epost istället för att skriva in.
+
     private void laggTillNyAgent() {
-        
+
         try {
             String AID = AgentIDtext.getText();
             String namn = Namntext.getText();
@@ -282,18 +283,18 @@ public class NyAgent extends javax.swing.JFrame {
             String epost = Eposttxt.getText();
             String Losen = Losentext.getText();
             String Omrade = Områdetext.getText();
-            
+
             String checkaEpost = "SELECT Epost FROM agent WHERE Epost = '" + epost + "'";
-            
-            if(idb.fetchSingle(checkaEpost)!= null){
-                
-            JOptionPane.showMessageDialog(this, "Epost existerar redan! Var vänlig slå in en ny!");
-            return;
-            
+
+            if (idb.fetchSingle(checkaEpost) != null) {
+
+                JOptionPane.showMessageDialog(this, "Epost existerar redan! Var vänlig slå in en ny!");
+                return;
+
             }
-            
+
             String fraga = "INSERT INTO agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Epost, Losenord, Omrade) VALUES ('" + AID + "', '" + namn + "', '" + Tel + "', '" + AnsDat + "', '" + Admin + "', '" + epost + "', '" + Losen + "', '" + Omrade + "')";
-              idb.insert(fraga);
+            idb.insert(fraga);
             JOptionPane.showMessageDialog(this, "Ny Agent har lagts till!");
             AgentIDtext.setText("");
             Namntext.setText("");
@@ -303,15 +304,15 @@ public class NyAgent extends javax.swing.JFrame {
             Eposttxt.setText("");
             Losentext.setText("");
             Områdetext.setText("");
-            AgentIDtext.requestFocus();    
-      
+            AgentIDtext.requestFocus();
+
         } catch (InfException ex) {
-            
+
             Logger.getLogger(NyAgent.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Finns redan en Agent med detta ID");
         }
-        
-    }   
+
+    }
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         AdminMeny AM = new AdminMeny(idb, agentId);
         AM.setVisible(true);
@@ -323,7 +324,6 @@ public class NyAgent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EposttxtActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Admintext;

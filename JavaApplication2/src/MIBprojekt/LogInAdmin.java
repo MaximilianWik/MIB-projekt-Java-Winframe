@@ -4,8 +4,6 @@
  */
 package MIBprojekt;
 
-
-
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
@@ -13,11 +11,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author Victus
  */
 public class LogInAdmin extends javax.swing.JFrame {
+
     private InfDB idb;
     //private int agentId;
 
@@ -27,10 +27,10 @@ public class LogInAdmin extends javax.swing.JFrame {
     public LogInAdmin(InfDB idb) {
         initComponents();
         this.idb = idb;
-       // this.agentId = agentId;
+        // this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -167,7 +167,7 @@ public class LogInAdmin extends javax.swing.JFrame {
         try {
             String Epost = AnvNamnAdmin.getText();
             String Losen = new String(LosenAdmin.getPassword());
-            String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Epost = '"+Epost+"' AND Losenord = '"+Losen+"' AND Administrator = 'J'");
+            String agentID = idb.fetchSingle("SELECT Agent_ID FROM Agent WHERE Epost = '" + Epost + "' AND Losenord = '" + Losen + "' AND Administrator = 'J'");
 
             if (agentID != null) {
                 int agentId = Integer.parseInt(agentID);
@@ -182,16 +182,15 @@ public class LogInAdmin extends javax.swing.JFrame {
             }
         } catch (InfException ex) {
 
-        } 
+        }
     }//GEN-LAST:event_LoggaInAdminActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         AlienEllerAgent AEA = new AlienEllerAgent(idb);
-        AEA.setVisible(true); 
+        AEA.setVisible(true);
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AnvLabel;

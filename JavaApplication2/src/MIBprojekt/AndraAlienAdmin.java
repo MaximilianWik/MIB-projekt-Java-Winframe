@@ -11,11 +11,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author Victus
  */
 public class AndraAlienAdmin extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
 
@@ -28,7 +30,7 @@ public class AndraAlienAdmin extends javax.swing.JFrame {
         this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -237,24 +239,24 @@ public class AndraAlienAdmin extends javax.swing.JFrame {
         String telefon = andraTelefontext1.getText();
         String P = andraPlatstext.getText();
         String AA = andraAnsvarigAgentIDtext.getText();
-        
+
         try {
             //Uppdaterar alien tabellen
-             String uppdateraAlienQuery = "UPDATE alien SET Registreringsdatum = '" + RegDatum + "', Namn = '" + namn + "', Telefon = '" + telefon + "', Plats = '" + P + "', Ansvarig_Agent = '" + AA + "' WHERE Alien_ID = '" + AID + "'";
-             idb.update(uppdateraAlienQuery);
+            String uppdateraAlienQuery = "UPDATE alien SET Registreringsdatum = '" + RegDatum + "', Namn = '" + namn + "', Telefon = '" + telefon + "', Plats = '" + P + "', Ansvarig_Agent = '" + AA + "' WHERE Alien_ID = '" + AID + "'";
+            idb.update(uppdateraAlienQuery);
 
-             //Uppdaterar ras
-             String uppdateraRasQuery = "";
-                if (Ras.equals("Boglodite")) {
-                    uppdateraRasQuery = "INSERT INTO boglodite (Alien_ID, Antal_Boogies) VALUES ('" + AID + "', 1) ON DUPLICATE KEY UPDATE Number_of_boglodites = Number_of_boglodites + 1";
-                } else if (Ras.equals("Worm")) {
-                     uppdateraRasQuery = "INSERT INTO worm (Alien_ID, Langd) VALUES ('" + AID + "', 5,4) ON DUPLICATE KEY UPDATE Number_of_worms = Number_of_worms + 1";
-                } else if (Ras.equals("Squid")) {
-                     uppdateraRasQuery = "INSERT INTO squid (Alien_ID, Antal_Armar) VALUES ('" + AID + "', 6) ON DUPLICATE KEY UPDATE Number_of_squids = Number_of_squids + 1";
-                }
-                
+            //Uppdaterar ras
+            String uppdateraRasQuery = "";
+            if (Ras.equals("Boglodite")) {
+                uppdateraRasQuery = "INSERT INTO boglodite (Alien_ID, Antal_Boogies) VALUES ('" + AID + "', 1) ON DUPLICATE KEY UPDATE Number_of_boglodites = Number_of_boglodites + 1";
+            } else if (Ras.equals("Worm")) {
+                uppdateraRasQuery = "INSERT INTO worm (Alien_ID, Langd) VALUES ('" + AID + "', 5,4) ON DUPLICATE KEY UPDATE Number_of_worms = Number_of_worms + 1";
+            } else if (Ras.equals("Squid")) {
+                uppdateraRasQuery = "INSERT INTO squid (Alien_ID, Antal_Armar) VALUES ('" + AID + "', 6) ON DUPLICATE KEY UPDATE Number_of_squids = Number_of_squids + 1";
+            }
+
             idb.insert(uppdateraRasQuery);
-            
+
             JOptionPane.showMessageDialog(null, "Alien information är uppdaterad");
             //Rensar alla fält
             andraAlienIDtext.setText("");
@@ -264,12 +266,12 @@ public class AndraAlienAdmin extends javax.swing.JFrame {
             andraTelefontext1.setText("");
             andraPlatstext.setText("");
             andraAlienIDtext.requestFocus();
-            
-            } catch (InfException ex) {
+
+        } catch (InfException ex) {
             Logger.getLogger(AndraAlienAdmin.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Något gick fel");
             //JOptionPane.showMessageDialog(null, "Lägg av");
-            }   
+        }
     }//GEN-LAST:event_AndratextActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
@@ -283,7 +285,6 @@ public class AndraAlienAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_andraRegistreringsdatumtext1ActionPerformed
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Andratext;
