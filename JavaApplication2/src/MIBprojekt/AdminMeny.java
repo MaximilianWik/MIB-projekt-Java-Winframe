@@ -357,8 +357,8 @@ public class AdminMeny extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NyAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NyAlienActionPerformed
-        NyAlien NY = new NyAlien(idb, agentId);
-        NY.setVisible(true);
+        NyAlienAdmin NYA = new NyAlienAdmin(idb, agentId);
+        NYA.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_NyAlienActionPerformed

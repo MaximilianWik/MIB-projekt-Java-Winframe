@@ -44,7 +44,7 @@ public class AlienMeny extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Bilden = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        BytLosen = new javax.swing.JButton();
         minOmradesCheftext = new javax.swing.JButton();
         GaTillbakaKnapp = new javax.swing.JButton();
 
@@ -54,10 +54,10 @@ public class AlienMeny extends javax.swing.JFrame {
 
         Bilden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MIBprojekt/Ikoner/men-in-black-2-logo.png"))); // NOI18N
 
-        jButton3.setText("Byt Lösenord");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        BytLosen.setText("Byt Lösenord");
+        BytLosen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BytLosenActionPerformed(evt);
             }
         });
 
@@ -89,7 +89,7 @@ public class AlienMeny extends javax.swing.JFrame {
                         .addComponent(GaTillbakaKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(296, 296, 296)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BytLosen, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(minOmradesCheftext)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -101,7 +101,7 @@ public class AlienMeny extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(minOmradesCheftext, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BytLosen, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(129, 129, 129)
                 .addComponent(GaTillbakaKnapp)
                 .addContainerGap(100, Short.MAX_VALUE))
@@ -125,23 +125,19 @@ public class AlienMeny extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void BytLosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BytLosenActionPerformed
         BytLosenordAlien BLA = new BytLosenordAlien(idb, alienId);
         BLA.setVisible(true);
 
         dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_BytLosenActionPerformed
 
     private void minOmradesCheftextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minOmradesCheftextActionPerformed
-        try {
-
-        } catch (InfException ex) {
-            // Displayar error meddelande för nödvändlig error hantering
-            JOptionPane.showMessageDialog(this, "An error occurred while processing the request: " + ex.getMessage());
-            ex.printStackTrace(); // Printar stack tracen för debugga
-
-        }
+      AlienOmradesChef AOC = new AlienOmradesChef(idb, alienId);
+      AOC.setVisible(true);
+      dispose();
     }//GEN-LAST:event_minOmradesCheftextActionPerformed
+ 
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         LogInAlien LIA = new LogInAlien(idb);
@@ -150,23 +146,11 @@ public class AlienMeny extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
-    String nyttLosenord = SkrivNyttLosentext.getText();
-    String NyttLosen = "UPDATE agent SET Losenord = '" + nyttLosenord + "' WHERE Agent_ID = " + agentId;
-
-    idb.update (NyttLosen);
-
-    JOptionPane.showMessageDialog (
-
-    null, "Lösenordet är uppdaterat!");
-    SkrivNyttLosentext.setText (
-
-    "");
-    SkrivNyttLosentext.requestFocus ();
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Bilden;
+    private javax.swing.JButton BytLosen;
     private javax.swing.JButton GaTillbakaKnapp;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton minOmradesCheftext;
     // End of variables declaration//GEN-END:variables
