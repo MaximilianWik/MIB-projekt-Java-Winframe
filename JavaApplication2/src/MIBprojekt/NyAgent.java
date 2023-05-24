@@ -270,11 +270,11 @@ public class NyAgent extends javax.swing.JFrame {
         laggTillNyAgent();
 
     }//GEN-LAST:event_LäggTillAagentKnappActionPerformed
-    //Om finns tid, försöka generera epost istället för att skriva in.
 
     private void laggTillNyAgent() {
 
         try {
+            // Hämta värden från olika textkomponenter i användargränssnittet
             String AID = AgentIDtext.getText();
             String namn = Namntext.getText();
             String Tel = Teltext.getText();
@@ -284,6 +284,7 @@ public class NyAgent extends javax.swing.JFrame {
             String Losen = Losentext.getText();
             String Omrade = Områdetext.getText();
 
+            // Skapa en SQL-fråga för att kontrollera om e-postadressen redan existerar i databasen
             String checkaEpost = "SELECT Epost FROM agent WHERE Epost = '" + epost + "'";
 
             if (idb.fetchSingle(checkaEpost) != null) {
@@ -292,10 +293,14 @@ public class NyAgent extends javax.swing.JFrame {
                 return;
 
             }
-
+            // Skapa en SQL-insättning för att lägga till den nya agenten i databasen
             String fraga = "INSERT INTO agent (Agent_ID, Namn, Telefon, Anstallningsdatum, Administrator, Epost, Losenord, Omrade) VALUES ('" + AID + "', '" + namn + "', '" + Tel + "', '" + AnsDat + "', '" + Admin + "', '" + epost + "', '" + Losen + "', '" + Omrade + "')";
             idb.insert(fraga);
+            
+            // Visa bekräftelse att den nya agenten har lagts till
             JOptionPane.showMessageDialog(this, "Ny Agent har lagts till!");
+            
+            // Rensa textkomponenterna för att förbereda för en ny agent
             AgentIDtext.setText("");
             Namntext.setText("");
             Teltext.setText("");

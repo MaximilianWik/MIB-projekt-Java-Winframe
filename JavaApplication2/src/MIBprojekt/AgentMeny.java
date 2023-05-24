@@ -18,8 +18,10 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class AgentMeny extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
+
     /**
      * Creates new form AgentMeny
      */
@@ -29,7 +31,7 @@ public class AgentMeny extends javax.swing.JFrame {
         this.idb = idb;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -209,68 +211,69 @@ public class AgentMeny extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    //Ändra Lösenord
+    
+    /**
+     * Dessa metoder används för att hantera händelsen när knappen klickas.
+     * Metoden skapar en ny instans av fönstret "BytLosenordAgent" och öppnar
+     * det. Det aktuella fönstret stängs.
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // Skapa en ny instans av BytLosenordAgent-fönstret och skicka med databasanslutningen och agentens ID
         BytLosenordAgent BLA = new BytLosenordAgent(idb, agentId);
+        
+        // Öppna det nya fönstret
         BLA.setVisible(true);
         
-        
+        // Stäng det aktuella fönstre
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     //Ny Alien
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         NyAlien NY = new NyAlien(idb, agentId);
         NY.setVisible(true);
-        
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
         LogInAgent LIA = new LogInAgent(idb);
         LIA.setVisible(true);
-        
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
     private void ÄndraAlienKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ÄndraAlienKnappActionPerformed
         AndraAlien AA = new AndraAlien(idb, agentId);
         AA.setVisible(true);
-        
         dispose();
     }//GEN-LAST:event_ÄndraAlienKnappActionPerformed
 
     private void AlienInfoKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienInfoKnappActionPerformed
         AlienInfo AI = new AlienInfo(idb, agentId);
         AI.setVisible(true);
-        
         dispose();
     }//GEN-LAST:event_AlienInfoKnappActionPerformed
 
     private void SokPåAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPåAlienActionPerformed
         SokPaAlien SPA = new SokPaAlien(idb, agentId);
         SPA.setVisible(true);
-        
         dispose();
     }//GEN-LAST:event_SokPåAlienActionPerformed
 
     private void OmradescheftextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OmradescheftextActionPerformed
         OmradeSida1 OS = new OmradeSida1(idb, agentId);
         OS.setVisible(true);
-        
         dispose();
     }//GEN-LAST:event_OmradescheftextActionPerformed
 
     private void UtrustningKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UtrustningKnappActionPerformed
         Utrustning U = new Utrustning(idb, agentId);
         U.setVisible(true);
-        
         dispose();
     }//GEN-LAST:event_UtrustningKnappActionPerformed
 
     private void AlienDatumknappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlienDatumknappActionPerformed
         AlienDatum AD = new AlienDatum(idb, agentId);
         AD.setVisible(true);
-        
         dispose();
     }//GEN-LAST:event_AlienDatumknappActionPerformed
 
@@ -278,14 +281,9 @@ public class AgentMeny extends javax.swing.JFrame {
         AlienInfoRas ARI = new AlienInfoRas(idb, agentId);
         ARI.setVisible(true);
         dispose();
-        
-
-        
-
-// TODO add your handling code here:
     }//GEN-LAST:event_AlienRasInfoActionPerformed
 
- 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AlienDatumknapp;
     private javax.swing.JButton AlienInfoKnapp;

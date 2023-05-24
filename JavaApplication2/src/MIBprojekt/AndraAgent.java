@@ -209,35 +209,47 @@ public class AndraAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NamntxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NamntxtActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_NamntxtActionPerformed
 
     private void TeltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeltxtActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_TeltxtActionPerformed
 
     private void OmradetextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OmradetextActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_OmradetextActionPerformed
 
+    /**
+     * Denna metod används för att uppdatera informationen för en specifik
+     * agent. Metoden hämtar de nya värdena för agentens attribut från
+     * textkomponenterna i användargränssnittet. En SQL-uppdateringsfråga byggs
+     * upp dynamiskt baserat på de fält som har ändrats. Om inga fält har
+     * ändrats visas en bekräftelse att det inte finns några fält att uppdatera.
+     * Annars utförs databasuppdateringen för att uppdatera agentens information
+     * baserat på dess Agent_ID. Om uppdateringen lyckas visas en bekräftelse
+     * att agentens information har uppdaterats, och textkomponenterna rensas
+     * för att förbereda för nya ändringar. Om det uppstår något fel under
+     * databasåtkomst visas ett generellt felmeddelande.
+     */
     private void AndratextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndratextActionPerformed
-
+        // Hämta värden från textkomponenter
         String AID = AgentIDtxt.getText();
         String namn = Namntxt.getText();
         String Tel = Teltxt.getText();
         String AnsDat = AnsDattxt.getText();
-        //String Admin = Admintxt.getText();
-        //String Losen = LosenText.getText();
         String Omrade = Omradetext.getText();
 
         StringBuilder uppdateraFalt = new StringBuilder("UPDATE agent SET ");
 
         boolean faltUppdaterade = false;
 
+        // Kontrollera om namnet har ändrats
         if (!namn.isEmpty()) {
             uppdateraFalt.append("Namn = '").append(namn).append("'");
             faltUppdaterade = true;
         }
+        // Kontrollera om telefonnumret har ändrats
         if (!Tel.isEmpty()) {
             if (faltUppdaterade) {
                 uppdateraFalt.append(", ");
@@ -245,6 +257,7 @@ public class AndraAgent extends javax.swing.JFrame {
             uppdateraFalt.append("Telefon = '").append(Tel).append("'");
             faltUppdaterade = true;
         }
+        // Kontrollera om anställningsdatumet har ändrats
         if (!AnsDat.isEmpty()) {
             if (faltUppdaterade) {
                 uppdateraFalt.append(", ");
@@ -252,6 +265,7 @@ public class AndraAgent extends javax.swing.JFrame {
             uppdateraFalt.append("Anstallningsdatum = '").append(AnsDat).append("'");
             faltUppdaterade = true;
         }
+        // Kontrollera om området har ändrats
         if (!Omrade.isEmpty()) {
             if (faltUppdaterade) {
                 uppdateraFalt.append(", ");
@@ -259,18 +273,21 @@ public class AndraAgent extends javax.swing.JFrame {
             uppdateraFalt.append("Omrade = '").append(Omrade).append("'");
             faltUppdaterade = true;
         }
+        // Kontrollera om några fält har ändrats
         if (!faltUppdaterade) {
             JOptionPane.showMessageDialog(this, "Inga fält att Uppdatera");
             return;
         }
 
+        // Bygg upp uppdateringsfrågan baserat på ändrade fält och Agent_ID
         uppdateraFalt.append(" WHERE Agent_ID = '").append(AID).append("'");
         String fraga = uppdateraFalt.toString();
 
         System.out.println("SQL Fråga: " + fraga);
 
         try {
-
+            
+            // Utför databasuppdateringen
             idb.update(fraga);
             JOptionPane.showMessageDialog(null, "Agentens Information är nu uppdaterad!");
             AgentIDtxt.setText("");

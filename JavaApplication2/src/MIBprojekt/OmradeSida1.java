@@ -128,10 +128,12 @@ public class OmradeSida1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+        /**
+         * Metod som utförs när "SokKnapp" knappen klickas. Söker efter
+         * områdeschefens namn baserat på angivet område.
+         */
     private void SokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokKnappActionPerformed
-        // Text fält ovan som där man skriver in vilket område If område.getNamn.equals(exempel) then display namn på områdeschef
-
-        //String omradesChef = Omradetext.getText();
         String omradesChef = Omradetext.getText();
         try {
 
@@ -139,7 +141,7 @@ public class OmradeSida1 extends javax.swing.JFrame {
             String agentNamn = idb.fetchSingle(fraga);
 
             if (agentNamn != null) {
-
+                // Visa områdeschefens namn om en agent hittades
                 JOptionPane.showMessageDialog(this, agentNamn);
             } else {
                 JOptionPane.showMessageDialog(this, "Finns ingen Agent i detta område");

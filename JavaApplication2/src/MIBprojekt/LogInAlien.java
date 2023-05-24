@@ -158,30 +158,38 @@ public class LogInAlien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LosenAlienActionPerformed
 
-    //Logga in knapp Alien
+    
     private void LoggaInAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInAlienActionPerformed
-        /*AlienMeny AM = new AlienMeny(idb);
-        AM.setVisible(true);
         
-        dispose();'*/
         try {
             String Epost = AnvNamnAlien.getText();
             String Losen = new String(LosenAlien.getPassword());
+            
+            // Utför en databasfråga för att hämta Alien_ID för den matchande e-postadressen och lösenordet
             String alienID = idb.fetchSingle("SELECT Alien_ID FROM Alien WHERE Epost = '" + Epost + "' AND Losenord = '" + Losen + "'");
-
+            
+            // Kontrollera om en matchning hittades
             if (alienID != null) {
+                // Om en matchning hittades, konvertera Alien_ID till en integer
                 int alienId = Integer.parseInt(alienID);
+                
+                // Öppna en ny AlienMeny med den specifika alienens ID
                 AlienMeny AM = new AlienMeny(idb, alienId);
                 AM.setVisible(true);
+                
+                // Stäng det nuvarande fönstret
                 dispose();
             } else {
+                // Om ingen matchning hittades, visa ett felmeddelande
                 JOptionPane.showMessageDialog(this, "Felaktig e-postadress eller lösenord.", "Fel", JOptionPane.ERROR_MESSAGE);
+                
+                // Rensa textkomponenterna för att förbereda för en ny inloggning
                 AnvNamnAlien.setText("");
                 LosenAlien.setText("");
                 AnvNamnAlien.requestFocus();
             }
         } catch (InfException ex) {
-
+                // Hantera eventuella fel som uppstår under databasåtkomst utan att visa ett specifikt felmeddelande
         }
     }//GEN-LAST:event_LoggaInAlienActionPerformed
 

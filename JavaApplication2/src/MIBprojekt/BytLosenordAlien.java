@@ -129,17 +129,23 @@ public class BytLosenordAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
     private void BytLosenAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BytLosenAlienActionPerformed
-        // TODO add your handling code here:
-
         try {
+            // Skapa en SQL-uppdatering för att ändra lösenordet för den aktuella alienen baserat på dess Alien_ID
             String nyttLosenord = SkrivNyttLosentextalien.getText();
             String NyttLosen = "UPDATE alien SET Losenord = '" + nyttLosenord + "' WHERE Alien_ID = " + alienId;
+            
+            // Utför databasuppdateringen
             idb.update(NyttLosen);
 
+            // Visa bekräftelse att lösenordet har uppdaterats
             JOptionPane.showMessageDialog(null, "Lösenordet är uppdaterat!");
+            
+            // Rensa textkomponenten för att förbereda för en ny ändring
             SkrivNyttLosentextalien.setText("");
             SkrivNyttLosentextalien.requestFocus();
+            
         } catch (InfException ex) {
+            // Visa generellt felmeddelande om det uppstår ett fel under databasåtkomst
             JOptionPane.showMessageDialog(null, "Något fel har inträffat!");
 
         }

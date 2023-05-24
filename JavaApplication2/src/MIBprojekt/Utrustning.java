@@ -156,22 +156,30 @@ public class Utrustning extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
+    /**
+     * Metod som utförs när "RegistreraUtrustningKnapp" knappen klickas.
+     * Registrerar ny utrustning i databasen och kontrollerar att det unika ID:t
+     * inte redan existerar.
+     */
     private void RegistreraUtrustningKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistreraUtrustningKnappActionPerformed
-        //Metod som lägger till ny utrustning i databasen och kontrollerar det unika ID:t
         try {
             String UID = UtrustningsIDtext.getText();
             String Benamning = Benamningtext.getText();
 
             String KontrolleraID = "SELECT Utrustnings_ID FROM utrustning WHERE Utrustnings_ID = '" + UID + "'";
 
+            // Kontrollera om utrustningen redan finns i databasen baserat på det unika ID:t
             if (idb.fetchSingle(KontrolleraID) != null) {
                 JOptionPane.showMessageDialog(this, "Utrustning existerar redan, vänligen välj kontrollera ID");
                 return;
             }
 
+            // Lägg till utrustningen i databasen
             String LaggTillUtrustning = "INSERT INTO utrustning (Utrustnings_ID, Benamning) VALUES ('" + UID + "', '" + Benamning + "')";
             idb.insert(LaggTillUtrustning);
             JOptionPane.showMessageDialog(this, "Utrustning: " + Benamning + " har registrerats med Utrustnings ID: " + UID);
+            
+            // Rensa textfälten och sätt fokus på Utrustnings ID-textfältet för att möjliggöra snabb registrering av fler utrustningar
             UtrustningsIDtext.setText("");
             Benamningtext.setText("");
             UtrustningsIDtext.requestFocus();

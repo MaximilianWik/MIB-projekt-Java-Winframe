@@ -162,10 +162,7 @@ public class LogInAgent extends javax.swing.JFrame {
 
     //Logga in knapp
     private void LoggaInAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInAgentActionPerformed
-        /* AgentMeny AM = new AgentMeny();
-                AM.setVisible(true);
-                dispose();
-         */
+        //Denna metod används för att logga in en alien i systemet baserat på angiven e-postadress och lösenord.
         try {
             String Epost = AnvNamnAgent.getText();
             String Losen = new String(LosenAgent.getPassword());

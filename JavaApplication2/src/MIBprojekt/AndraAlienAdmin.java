@@ -241,11 +241,11 @@ public class AndraAlienAdmin extends javax.swing.JFrame {
         String AA = andraAnsvarigAgentIDtext.getText();
 
         try {
-            //Uppdaterar alien tabellen
+            // Uppdatera alien tabellen med de nya värdena
             String uppdateraAlienQuery = "UPDATE alien SET Registreringsdatum = '" + RegDatum + "', Namn = '" + namn + "', Telefon = '" + telefon + "', Plats = '" + P + "', Ansvarig_Agent = '" + AA + "' WHERE Alien_ID = '" + AID + "'";
             idb.update(uppdateraAlienQuery);
 
-            //Uppdaterar ras
+            // Uppdatera informationen om alienens ras
             String uppdateraRasQuery = "";
             if (Ras.equals("Boglodite")) {
                 uppdateraRasQuery = "INSERT INTO boglodite (Alien_ID, Antal_Boogies) VALUES ('" + AID + "', 1) ON DUPLICATE KEY UPDATE Number_of_boglodites = Number_of_boglodites + 1";
@@ -257,8 +257,11 @@ public class AndraAlienAdmin extends javax.swing.JFrame {
 
             idb.insert(uppdateraRasQuery);
 
+            // Visa bekräftelse att alienens information har uppdaterats
             JOptionPane.showMessageDialog(null, "Alien information är uppdaterad");
-            //Rensar alla fält
+            
+            
+            // Rensa textkomponenterna för att förbereda för nya ändringar
             andraAlienIDtext.setText("");
             andraRegistreringsdatumtext1.setText("");
             andraRastext.setText("");
@@ -270,7 +273,7 @@ public class AndraAlienAdmin extends javax.swing.JFrame {
         } catch (InfException ex) {
             Logger.getLogger(AndraAlienAdmin.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Något gick fel");
-            //JOptionPane.showMessageDialog(null, "Lägg av");
+            
         }
     }//GEN-LAST:event_AndratextActionPerformed
 

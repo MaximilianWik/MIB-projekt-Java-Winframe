@@ -11,11 +11,13 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author Victus
  */
 public class AlienMeny extends javax.swing.JFrame {
+
     private InfDB idb;
     private int alienId;
 
@@ -28,7 +30,7 @@ public class AlienMeny extends javax.swing.JFrame {
         this.alienId = alienId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -126,19 +128,18 @@ public class AlienMeny extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         BytLosenordAlien BLA = new BytLosenordAlien(idb, alienId);
         BLA.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void minOmradesCheftextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minOmradesCheftextActionPerformed
-        try{
-                
-        }
-        catch (InfException ex){
+        try {
+
+        } catch (InfException ex) {
             // Displayar error meddelande för nödvändlig error hantering
-                 JOptionPane.showMessageDialog(this, "An error occurred while processing the request: " + ex.getMessage());
-                     ex.printStackTrace(); // Printar stack tracen för debugga
-            
+            JOptionPane.showMessageDialog(this, "An error occurred while processing the request: " + ex.getMessage());
+            ex.printStackTrace(); // Printar stack tracen för debugga
+
         }
     }//GEN-LAST:event_minOmradesCheftextActionPerformed
 
@@ -149,14 +150,18 @@ public class AlienMeny extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
-    
     String nyttLosenord = SkrivNyttLosentext.getText();
-            String NyttLosen = "UPDATE agent SET Losenord = '" + nyttLosenord +"' WHERE Agent_ID = " + agentId;
-            idb.update(NyttLosen);
-            
-            JOptionPane.showMessageDialog(null, "Lösenordet är uppdaterat!");
-            SkrivNyttLosentext.setText("");
-            SkrivNyttLosentext.requestFocus();
+    String NyttLosen = "UPDATE agent SET Losenord = '" + nyttLosenord + "' WHERE Agent_ID = " + agentId;
+
+    idb.update (NyttLosen);
+
+    JOptionPane.showMessageDialog (
+
+    null, "Lösenordet är uppdaterat!");
+    SkrivNyttLosentext.setText (
+
+    "");
+    SkrivNyttLosentext.requestFocus ();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Bilden;

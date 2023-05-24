@@ -375,43 +375,56 @@ public class AdminMeny extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    
+    /**
+     * Denna metod används för att hantera händelsen när knappen "TaBortAgent"
+     * klickas. Metoden tar bort en agent från databasen. Om agent-ID inte
+     * anges, visas ett felmeddelande. Om agenten inte finns eller om den
+     * inloggade agenten försöker ta bort sig själv, visas ett felmeddelande.
+     * Annars tas agenten bort från databasen och en bekräftelse visas.
+     */
     private void TaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAgentActionPerformed
-        
+
         try {
+            // Hämta agent-ID från fältet TaBortAgenttext
             String agentID = TaBortAgenttext.getText();
+
+            // Konvertera den inloggade agentens ID till sträng
             String ID = Integer.toString(agentId);
             String CheckaID = "SELECT Agent_ID FROM agent where Agent_ID = '" + agentID + "'";
+
+            // Om agent-ID inte anges
             if (agentID.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Ange Agent ID att ta bort.");
 
             } //int confirm = JOptionPane.showConfirmDialog(this, "Är du säker på att du vill ta bort agenten med ID: " + agentID + "?.", JOptionPane.YES_NO_OPTION)
+            // Om agenten inte finns i databasen
             else if (idb.fetchSingle(CheckaID) == null) {
                 JOptionPane.showMessageDialog(this, "Finns ingen Agent med detta ID.");
 
-            } else if (agentID.equals(ID)) {
+            } // Om den inloggade agenten försöker ta bort sig själv
+            else if (agentID.equals(ID)) {
                 JOptionPane.showMessageDialog(this, "Du kan inte ta bort den inloggade agenten.");
 
-            } else {
-                
+            } 
+            else {
+
                 String TabortAgent = "DELETE FROM agent WHERE Agent_ID = '" + agentID + "'";
-                idb.delete(TabortAgent);
+                idb.delete(TabortAgent); // Ta bort agenten från database
 
                 JOptionPane.showMessageDialog(this, "Agent med Agent ID " + agentID + "har tagits bort.");
 
-                TaBortAgenttext.setText("");
+                TaBortAgenttext.setText(""); // Rensa fältet TaBortAgenttext
 
             }
         } catch (InfException ex) {
 
         }
 
-    
-        //AlienInfo AI = new AlienInfo(idb, agentId);
-        //AI.setVisible(true);
-
-        //dispose();
     }//GEN-LAST:event_TaBortAgentActionPerformed
 
+    
+    
     private void SokPåAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPåAlienActionPerformed
         SokPaAlien SPA = new SokPaAlien(idb, agentId);
         SPA.setVisible(true);
@@ -424,7 +437,7 @@ public class AdminMeny extends javax.swing.JFrame {
         NyAgent NA = new NyAgent(idb, agentId);
         NA.setVisible(true);
         dispose();
-        
+
     }//GEN-LAST:event_NyAgentActionPerformed
 
     private void UtrustningKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UtrustningKnappActionPerformed
@@ -434,32 +447,44 @@ public class AdminMeny extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_UtrustningKnappActionPerformed
 
+    
+    /**
+     * Denna metod används för att hantera händelsen när knappen
+     * "AndraAdminStatus" klickas. Metoden ändrar administratörsstatusen för en
+     * agent. Om agenten inte finns eller om den inloggade agenten försöker
+     * ändra sin egen status, visas ett felmeddelande. Annars uppdateras
+     * administratörsstatusen och en bekräftelse visas.
+     */
     private void AndraAdminStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraAdminStatusActionPerformed
-       
-        if (Validering.textFaltIfyllt(AIDadmintxt)) {
+
+        if (Validering.textFaltIfyllt(AIDadmintxt)) { // Kontrollera att fältet AIDadmintxt är ifyllt
             try {
-                String AID = AIDadmintxt.getText();
-                String CheckaStatus = "SELECT Administrator FROM agent WHERE Agent_ID = '" + AID + "'";
-                String AdminStatus = idb.fetchSingle(CheckaStatus);
-                String CheckaID = "SELECT Agent_ID FROM agent where Agent_ID = '" + AID + "'";
-                String agent_ID = Integer.toString(agentId);
-                
-                if (idb.fetchSingle(CheckaID) == null) {
+                String AID = AIDadmintxt.getText(); // Hämta agent-ID från fältet AIDadmintxt
+                String CheckaStatus = "SELECT Administrator FROM agent WHERE Agent_ID = '" + AID + "'"; // Skapa SQL-fråga för att kontrollera nuvarande administratörsstatus
+                String AdminStatus = idb.fetchSingle(CheckaStatus); // Hämta administratörsstatus för agenten
+                String CheckaID = "SELECT Agent_ID FROM agent where Agent_ID = '" + AID + "'"; // Skapa SQL-fråga för att kontrollera om agenten finns
+                String agent_ID = Integer.toString(agentId); // Konvertera den inloggade agentens ID till sträng
+
+                if (idb.fetchSingle(CheckaID) == null) { 
+                    // Om agent-ID inte finns i databasen
                     JOptionPane.showMessageDialog(this, "Finns ingen agent med detta ID");
                 }
                 if (AID.equals(agent_ID)) {
+                    // Om den inloggade agenten försöker ändra sin egen status
                     JOptionPane.showMessageDialog(this, "Du kan inte ändra status på den inloggade agenten.");
                 }
 
+                // Om administratörsstatusen är satt till "J"
                 if (AdminStatus.equals("J")) {
 
                     String uptdStatus = "UPDATE agent SET Administrator = 'N' WHERE Agent_ID = '" + AID + "'";
-                    idb.update(uptdStatus);
+                    idb.update(uptdStatus); // Uppdatera administratörsstatusen i databasen
                     JOptionPane.showMessageDialog(this, "Du har tagit bort administratörstatus från Agent : '" + AID + "'");
                 }
+                // Om administratörsstatusen är satt till "N"
                 if (AdminStatus.equals("N")) {
                     String uptdStatus = "UPDATE agent SET Administrator = 'J' WHERE Agent_ID = '" + AID + "'";
-                    idb.update(uptdStatus);
+                    idb.update(uptdStatus); // Uppdatera administratörsstatusen i databasen
                     JOptionPane.showMessageDialog(this, "Agent : '" + AID + "' är nu administratör");
                 }
 
@@ -467,7 +492,7 @@ public class AdminMeny extends javax.swing.JFrame {
 
             }
         }
-        
+
     }//GEN-LAST:event_AndraAdminStatusActionPerformed
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
@@ -483,65 +508,98 @@ public class AdminMeny extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_ÄndraAlienKnapp1ActionPerformed
 
+    
+    /**
+     * Denna metod används för att hantera händelsen när knappen "TaBortAlien"
+     * klickas. Metoden försöker ta bort den angivna alienen från databasen. Om
+     * alienen finns och tas bort visas en bekräftelse. Om det uppstår ett
+     * undantag eller om alienen inte finns visas ett felmeddelande.
+     */
     private void TaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAlienActionPerformed
-        // Validering
-            if (Validering.textFaltIfyllt(TaBortAlienText)) {
-            
-                try {
-            String alienID = TaBortAlienText.getText();
-            String CheckaID = "SELECT Alien_ID FROM agent where Alien_ID = '" + alienID + "'";
-          
-
-             //int confirm = JOptionPane.showConfirmDialog(this, "Är du säker på att du vill ta bort agenten med ID: " + agentID + "?.", JOptionPane.YES_NO_OPTION)
-                if (idb.fetchSingle(CheckaID) == null) {
-                JOptionPane.showMessageDialog(this, "Finns ingen Alien med detta ID.");
-
-            
-
-            } else {
-
-                String fraga = "DELETE FROM alien WHERE Alien_ID = '" + alienID + "'";
-                idb.delete(fraga);
-
-                JOptionPane.showMessageDialog(this, "Alien med alien ID " + alienID + "har tagits bort.");
-
-                TaBortAgenttext.setText("");
-
-                    }
-        } catch (InfException ex) {
         
-        }
+        if (Validering.textFaltIfyllt(TaBortAlienText)) {
+
+            try {
+                // Hämta värdet för alien ID från textfält
+                String alienID = TaBortAlienText.getText();
+                
+                // Skapa och utför SQL-frågan för att kontrollera om alienen finns
+                String CheckaID = "SELECT Alien_ID FROM agent where Alien_ID = '" + alienID + "'";
+
+                //int confirm = JOptionPane.showConfirmDialog(this, "Är du säker på att du vill ta bort agenten med ID: " + agentID + "?.", JOptionPane.YES_NO_OPTION)
+                if (idb.fetchSingle(CheckaID) == null) {
+                    // Visa meddelande om alienen inte finns
+                    JOptionPane.showMessageDialog(this, "Finns ingen Alien med detta ID.");
+
+                } else {
+                    // Skapa och utför SQL-frågan för att ta bort alienen
+                    String fraga = "DELETE FROM alien WHERE Alien_ID = '" + alienID + "'";
+                    idb.delete(fraga);
+
+                    // Visa bekräftelsemeddelande
+                    JOptionPane.showMessageDialog(this, "Alien med alien ID " + alienID + "har tagits bort.");
+
+                    TaBortAgenttext.setText("");
+
+                }
+            } catch (InfException ex) {
+
             }
+        }
     }//GEN-LAST:event_TaBortAlienActionPerformed
 
+    
+    /**
+     * Denna metod används för att hantera händelsen när knappen
+     * "AndraKontorschef" klickas. Metoden försöker uppdatera kontorschefen för
+     * det angivna kontoret. Om uppdateringen lyckas visas en
+     * bekräftelsemeddelande. Om det uppstår ett undantag visas ett
+     * felmeddelande.
+     */
     private void AndraKontorschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraKontorschefActionPerformed
-        // TODO add your handling code here:
-        try{ 
-        String Kontorschef = Kontorscheftext.getText();
-        String UppdateraChef = "UPDATE kontorschef SET Agent_ID = '" + Kontorschef + "'WHERE Kontorsbeteckning = 'Örebrokontoret'";
-        idb.fetchSingle(UppdateraChef);
-        JOptionPane.showMessageDialog(this, "Kontorschef är uppdaterad till : " + Kontorschef);
-       }
-        catch(InfException ex) {
+        try {
+            // Hämta värdet för kontorschef från textfält
+            
+            String Kontorschef = Kontorscheftext.getText();
+            // Skapa och utför SQL-frågan för att uppdatera kontorschefen
+            String UppdateraChef = "UPDATE kontorschef SET Agent_ID = '" + Kontorschef + "'WHERE Kontorsbeteckning = 'Örebrokontoret'";
+            idb.fetchSingle(UppdateraChef);
+            
+            // Visa bekräftelsemeddelande
+            JOptionPane.showMessageDialog(this, "Kontorschef är uppdaterad till : " + Kontorschef);
+            
+        } catch (InfException ex) {
+            // Visa felmeddelande om något går fel
             Logger.getLogger(AndraAlien.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Något gick fel, var god och skriv in ett korrekt ID");
         }
     }//GEN-LAST:event_AndraKontorschefActionPerformed
 
+    
+    /**
+     * Denna metod används för att hantera händelsen när knappen
+     * "AndraOmrådeschef" klickas. Metoden försöker uppdatera områdeschefen med
+     * den angivna informationen. Om uppdateringen lyckas visas en
+     * bekräftelsemeddelande. Om det uppstår ett undantag visas ett
+     * felmeddelande.
+     */
     private void AndraOmrådeschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraOmrådeschefActionPerformed
-        // TODO add your handling code here:
-       try{
-           String OmradesChef = AndraOmradescheftext.getText();
-           String Omrade = Omradetext.getText();
-           
-           String uptdOmradeChef = "UPDATE omradeschef SET Agent_ID = '" + OmradesChef + "' WHERE Omrade = '" + Omrade + "'";
-           idb.fetchSingle(uptdOmradeChef);
-           JOptionPane.showMessageDialog(this, "Områdeschef är uppdaterad till : " + OmradesChef);
+        try {
+            // Hämta värdet för områdeschef och område från textfält
+            String OmradesChef = AndraOmradescheftext.getText();
+            String Omrade = Omradetext.getText();
+            
+            // Skapa och utför SQL-frågan för att uppdatera områdeschefen
+            String uptdOmradeChef = "UPDATE omradeschef SET Agent_ID = '" + OmradesChef + "' WHERE Omrade = '" + Omrade + "'";
+            idb.fetchSingle(uptdOmradeChef);
+            
+            // Visa bekräftelsemeddelande
+            JOptionPane.showMessageDialog(this, "Områdeschef är uppdaterad till : " + OmradesChef);
 
-       }
-       catch(InfException ex){
-                JOptionPane.showMessageDialog(this, "Kontrollera så att information är korrekt");
-       }
+        } catch (InfException ex) {
+            // Visa felmeddelande om något går fel
+            JOptionPane.showMessageDialog(this, "Kontrollera så att information är korrekt");
+        }
     }//GEN-LAST:event_AndraOmrådeschefActionPerformed
 
     private void AndraOmradescheftextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraOmradescheftextActionPerformed
@@ -556,7 +614,6 @@ public class AdminMeny extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_KontorscheftextActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AIDadmintxt;

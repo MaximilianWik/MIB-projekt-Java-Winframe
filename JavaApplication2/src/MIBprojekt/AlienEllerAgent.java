@@ -16,14 +16,14 @@ import oru.inf.InfException;
  * @author Victus
  */
 public class AlienEllerAgent extends javax.swing.JFrame {
+
     private InfDB idb;
-    
 
     public AlienEllerAgent(InfDB idb) {
-        //Fönstret hamnar i mitten
         initComponents();
         this.idb = idb;
         
+        //Fönstret hamnar i mitten
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
@@ -134,11 +134,10 @@ public class AlienEllerAgent extends javax.swing.JFrame {
     private void AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminActionPerformed
         LogInAdmin LIAdmin = new LogInAdmin(idb);
         LIAdmin.setVisible(true);
-        
-        dispose();        
+
+        dispose();
     }//GEN-LAST:event_AdminActionPerformed
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Admin;

@@ -277,6 +277,17 @@ public class NyAlien extends javax.swing.JFrame {
 
     }//GEN-LAST:event_LäggTillAlienKnappActionPerformed
 
+    /**
+     *
+     * Denna metod används för att lägga till en ny alien i databasen baserat på
+     * de angivna värdena i användargränssnittet. Metoden hämtar informationen
+     * från olika textkomponenter och utför sedan en SQL-insättning för att
+     * lägga till den nya alienen i databasen. Om insättningen lyckas visas en
+     * bekräftelse att den nya alienen har lagts till, och textkomponenterna
+     * rensas för att förbereda för en ny alien. Om det uppstår något fel under
+     * databasåtkomst, loggas felet och ett felmeddelande visas.
+     */
+    
     private void laggTillNyAlien() {
         String AID = AlienIDtext.getText();
         String RegDatum = Registreringsdatumtext.getText();

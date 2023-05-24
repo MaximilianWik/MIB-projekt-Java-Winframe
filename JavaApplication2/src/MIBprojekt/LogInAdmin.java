@@ -160,10 +160,7 @@ public class LogInAdmin extends javax.swing.JFrame {
 
     //Admin logga in knapp
     private void LoggaInAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoggaInAdminActionPerformed
-        /*AdminMeny AM = new AdminMeny(idb);
-        AM.setVisible(true);
-        
-        dispose();*/
+        //Denna metod används för att logga in en alien i systemet baserat på angiven e-postadress och lösenord.
         try {
             String Epost = AnvNamnAdmin.getText();
             String Losen = new String(LosenAdmin.getPassword());
