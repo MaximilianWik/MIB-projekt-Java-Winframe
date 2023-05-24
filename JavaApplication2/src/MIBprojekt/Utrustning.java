@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package MIBprojekt;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
@@ -16,6 +17,7 @@ import javax.swing.JOptionPane;
  * @author Victus
  */
 public class Utrustning extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
 
@@ -28,7 +30,7 @@ public class Utrustning extends javax.swing.JFrame {
         this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -154,33 +156,41 @@ public class Utrustning extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
+    /**
+     * Metod som utförs när "RegistreraUtrustningKnapp" knappen klickas.
+     * Registrerar ny utrustning i databasen och kontrollerar att det unika ID:t
+     * inte redan existerar.
+     */
     private void RegistreraUtrustningKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistreraUtrustningKnappActionPerformed
-        
         try {
             String UID = UtrustningsIDtext.getText();
             String Benamning = Benamningtext.getText();
-            
+
             String KontrolleraID = "SELECT Utrustnings_ID FROM utrustning WHERE Utrustnings_ID = '" + UID + "'";
-            
-            if(idb.fetchSingle(KontrolleraID)!= null){
+
+            // Kontrollera om utrustningen redan finns i databasen baserat på det unika ID:t
+            if (idb.fetchSingle(KontrolleraID) != null) {
                 JOptionPane.showMessageDialog(this, "Utrustning existerar redan, vänligen välj kontrollera ID");
-                 return;
+                return;
             }
-            
+
+            // Lägg till utrustningen i databasen
             String LaggTillUtrustning = "INSERT INTO utrustning (Utrustnings_ID, Benamning) VALUES ('" + UID + "', '" + Benamning + "')";
-              idb.insert(LaggTillUtrustning);
-                 JOptionPane.showMessageDialog(this, "Utrustning: " + Benamning + " har registrerats med Utrustnings ID: " + UID);
-                     UtrustningsIDtext.setText("");
-                     Benamningtext.setText("");
-                     UtrustningsIDtext.requestFocus();
+            idb.insert(LaggTillUtrustning);
+            JOptionPane.showMessageDialog(this, "Utrustning: " + Benamning + " har registrerats med Utrustnings ID: " + UID);
             
+            // Rensa textfälten och sätt fokus på Utrustnings ID-textfältet för att möjliggöra snabb registrering av fler utrustningar
+            UtrustningsIDtext.setText("");
+            Benamningtext.setText("");
+            UtrustningsIDtext.requestFocus();
+
         } catch (InfException ex) {
             // Displayar error meddelande för nödvändlig error hantering
-                 JOptionPane.showMessageDialog(this, "An error occurred while processing the request: " + ex.getMessage());
-                     ex.printStackTrace(); // Printar stack tracen för debugga
-            
+            JOptionPane.showMessageDialog(this, "An error occurred while processing the request: " + ex.getMessage());
+            ex.printStackTrace(); // Printar stack tracen för debugga
+
         }
-        
+
     }//GEN-LAST:event_RegistreraUtrustningKnappActionPerformed
 
 

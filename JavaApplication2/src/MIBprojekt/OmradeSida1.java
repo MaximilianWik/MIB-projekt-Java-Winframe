@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package MIBprojekt;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.logging.Level;
@@ -11,13 +12,16 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author Victus
  */
 public class OmradeSida1 extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
+
     /**
      * Creates new form OmradeSida1
      */
@@ -27,7 +31,7 @@ public class OmradeSida1 extends javax.swing.JFrame {
         this.idb = idb;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -124,25 +128,26 @@ public class OmradeSida1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+        /**
+         * Metod som utförs när "SokKnapp" knappen klickas. Söker efter
+         * områdeschefens namn baserat på angivet område.
+         */
     private void SokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokKnappActionPerformed
-        // Text fält ovan som där man skriver in vilket område If område.getNamn.equals(exempel) then display namn på områdeschef
-
-        //String omradesChef = Omradetext.getText();
-            String omradesChef = Omradetext.getText();
+        String omradesChef = Omradetext.getText();
         try {
-            
+
             String fraga = "SELECT Namn FROM agent JOIN omradeschef ON agent.Agent_ID = omradeschef.Agent_ID JOIN omrade on omradeschef.Omrade = omrade.Omrades_ID  WHERE Benamning = '" + omradesChef + "'";
             String agentNamn = idb.fetchSingle(fraga);
-            
-            if (agentNamn != null){
-                
+
+            if (agentNamn != null) {
+                // Visa områdeschefens namn om en agent hittades
                 JOptionPane.showMessageDialog(this, agentNamn);
-            }
-            else{
+            } else {
                 JOptionPane.showMessageDialog(this, "Finns ingen Agent i detta område");
 
             }
-                
+
         } catch (InfException ex) {
 
         }

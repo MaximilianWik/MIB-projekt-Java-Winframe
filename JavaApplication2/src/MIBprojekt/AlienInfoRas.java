@@ -17,13 +17,16 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author Victus
  */
 public class AlienInfoRas extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
+
     /**
      * Creates new form AlienInfo
      */
@@ -33,17 +36,16 @@ public class AlienInfoRas extends javax.swing.JFrame {
         this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
-       
-        Ras.setModel(new DefaultComboBoxModel<>(new String[] {"Välj Ras", "worm", "squid", "boglodite"}));
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
+
+        Ras.setModel(new DefaultComboBoxModel<>(new String[]{"Välj Ras", "worm", "squid", "boglodite"}));
         Ras.setBounds(20, 20, 150, 30);
-        
+
         AlienNamnTextArea.setEditable(false);
-        Scrollpane.setBounds(20,70,280,300);
-        
+        Scrollpane.setBounds(20, 70, 280, 300);
+
     }
-        
-        
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -161,20 +163,30 @@ public class AlienInfoRas extends javax.swing.JFrame {
         areaComboBox.setBounds(20, 20, 150, 30);
         jPanel1.add(areaComboBox);*/
     }//GEN-LAST:event_RasActionPerformed
-    
-        
+
+    /**
+     * Denna metod används för att hantera händelsen när en ras väljs i en
+     * ComboBox. Metoden kontrollerar vilken ras som har valts och utför en
+     * SQL-fråga för att hämta information om aliens av den valda rasen.
+     * Informationen visas sedan i en textkomponent för användaren. Om det
+     * uppstår något fel under databasåtkomst loggas felmeddelandet.
+     */
     private void RasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_RasItemStateChanged
-        //Metoden börjar med en "if" sats som kontrollerar vilket object som valts i ComboBoxen
-        
+        // Kontrollera om ett objekt har valts i ComboBoxen
         if (evt.getStateChange() == ItemEvent.SELECTED) {
 
             try {
+                // Hämta den valda rasen från ComboBoxen
                 String valdRas = (String) Ras.getSelectedItem();
 
+                // Bygg upp SQL-frågan för att hämta alien-information baserat på vald ras
                 String fraga = "SELECT Namn, Epost, Registreringsdatum, Telefon FROM alien JOIN " + valdRas + " ON alien.`Alien_ID` = " + valdRas + ".`Alien_ID`";
                 System.out.println(fraga);
-                ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(fraga);
                 
+                // Hämta alien-information från databasen
+                ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(fraga);
+
+                // Visa alien-informationen i textkomponenten
                 for (HashMap<String, String> alienInfoMap : alienInfo) {
 
                     String namn = alienInfoMap.get("Namn");
@@ -193,9 +205,8 @@ public class AlienInfoRas extends javax.swing.JFrame {
                 Logger.getLogger(AlienInfoRas.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_RasItemStateChanged
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

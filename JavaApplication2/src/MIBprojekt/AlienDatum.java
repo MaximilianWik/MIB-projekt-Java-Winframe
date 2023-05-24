@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package MIBprojekt;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -11,11 +12,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author Victus
  */
 public class AlienDatum extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
 
@@ -24,11 +27,11 @@ public class AlienDatum extends javax.swing.JFrame {
      */
     public AlienDatum(InfDB idb, int agentId) {
         initComponents();
-        this.agentId = agentId; 
+        this.agentId = agentId;
         this.idb = idb;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -148,40 +151,50 @@ public class AlienDatum extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AnkomstActionPerformed
 
+    
+    /**
+     * Denna metod används för att hantera händelsen när sökknappen klickas.
+     * Metoden utför en SQL-fråga för att hämta alieninformation baserat på
+     * angivna ankomst- och utkomstdatum. Informationen visas sedan i en
+     * informationsruta.
+     */
     private void SokKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokKnappActionPerformed
-        // TODO add your handling code here:
-        try{
-        String AK = Ankomst.getText();
-        String UK = Utkomst.getText();
-        String fraga = "SELECT Namn, Epost, Alien_ID, Plats, Telefon, Registreringsdatum FROM Alien WHERE Registreringsdatum >= '" + AK + "' AND Registreringsdatum <= '" + UK + "'";
-        ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(fraga);
         
-        for (HashMap <String, String> AlienInfoMap : alienInfo){
+        try {
+            // Hämta ankomst- och utkomstdatum från textfälten
+            String AK = Ankomst.getText();
+            String UK = Utkomst.getText();
             
-                    String ID = AlienInfoMap.get("Alien_ID");
-                    String epost = AlienInfoMap.get("Epost");
-                    String namn = AlienInfoMap.get("Namn");
-                    String plats = AlienInfoMap.get("Plats");
-                    String tel = AlienInfoMap.get("Telefon");
-                    String Reg = AlienInfoMap.get("Registreringsdatum");
-                    
-                    InfoRuta.append("ALien ID: " + ID + "\n");
-                    InfoRuta.append("Epost: " + epost + "\n");
-                    InfoRuta.append("Telefon: " + tel + "\n");
-                    InfoRuta.append("Namn: " + namn + "\n");
-                    InfoRuta.append("Plats: " + plats + "\n");
-                    InfoRuta.append("Registreringsdatum: " + Reg + "\n");
-                    InfoRuta.append("\n");
+            // Bygg SQL-frågan för att hämta alieninformation baserat på datumintervall
+            String fraga = "SELECT Namn, Epost, Alien_ID, Plats, Telefon, Registreringsdatum FROM Alien WHERE Registreringsdatum >= '" + AK + "' AND Registreringsdatum <= '" + UK + "'";
+            
+            // Hämta resultatet av SQL-frågan i form av en lista av hashmappar
+            ArrayList<HashMap<String, String>> alienInfo = idb.fetchRows(fraga);
+
+            // Loopa igenom varje alieninformation och visa den i informationsrutan
+            for (HashMap<String, String> AlienInfoMap : alienInfo) {
+                String ID = AlienInfoMap.get("Alien_ID");
+                String epost = AlienInfoMap.get("Epost");
+                String namn = AlienInfoMap.get("Namn");
+                String plats = AlienInfoMap.get("Plats");
+                String tel = AlienInfoMap.get("Telefon");
+                String Reg = AlienInfoMap.get("Registreringsdatum");
+
+                InfoRuta.append("ALien ID: " + ID + "\n");
+                InfoRuta.append("Epost: " + epost + "\n");
+                InfoRuta.append("Telefon: " + tel + "\n");
+                InfoRuta.append("Namn: " + namn + "\n");
+                InfoRuta.append("Plats: " + plats + "\n");
+                InfoRuta.append("Registreringsdatum: " + Reg + "\n");
+                InfoRuta.append("\n");
+            }
+
+        } catch (InfException ex) {
+            Logger.getLogger(AlienInfoRas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        }
-        catch(InfException ex){
-             Logger.getLogger(AlienInfoRas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+
     }//GEN-LAST:event_SokKnappActionPerformed
 
- 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Ankomst;

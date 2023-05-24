@@ -17,13 +17,16 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+
 /**
  *
  * @author Victus
  */
 public class AlienInfo extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
+
     /**
      * Creates new form AlienInfo
      */
@@ -33,17 +36,16 @@ public class AlienInfo extends javax.swing.JFrame {
         this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
-       
-        Omrade.setModel(new DefaultComboBoxModel<>(new String[] {"Välj Område", "Örebro", "Västerås", "Vilhelmina", "Borås" }));
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
+
+        Omrade.setModel(new DefaultComboBoxModel<>(new String[]{"Välj Område", "Örebro", "Västerås", "Vilhelmina", "Borås"}));
         Omrade.setBounds(20, 20, 150, 30);
-        
+
         AlienNamnTextArea.setEditable(false);
-        Scrollpane.setBounds(20,70,280,300);
-        
+        Scrollpane.setBounds(20, 70, 280, 300);
+
     }
-        
-        
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -161,39 +163,34 @@ public class AlienInfo extends javax.swing.JFrame {
         areaComboBox.setBounds(20, 20, 150, 30);
         jPanel1.add(areaComboBox);*/
     }//GEN-LAST:event_OmradeActionPerformed
-    
-        
+
+
     private void OmradeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_OmradeItemStateChanged
         //Metoden börjar med en "if" sats som kontrollerar vilket object som valts i ComboBoxen
-        
+
         if (evt.getStateChange() == ItemEvent.SELECTED) {
-            
+
             try {
                 //"valtOmråde" blir en lokal variabel för det område som står i ComboBoxen
-                
+
                 String valtOmrade = (String) Omrade.getSelectedItem();
-                
+
                 //Uppbyggnaden av SQL fråga som kör in Sringen "valtOmrade" och vad vi vill få ut för data från tabellen
-                
                 String fraga = "SELECT Namn, Epost, Alien_ID, Registreringsdatum, Ansvarig_Agent, Telefon FROM alien JOIN Plats on alien.`Plats` = plats.`Plats_ID` WHERE Benamning = '" + valtOmrade + "'";
-                
+
                 //Här körs SQL frågan i databasen och tar in datan och värden i en ArrayList av Hashmap. 
                 //Varje HashMap representerar en rad där nyckeln är kolumnernas namn i SQL-frågan
                 // och värderna som är kolumnernas värde (Det som står i kolumnerna)
-                
                 ArrayList<HashMap<String, String>> alienInfoList = idb.fetchRows(fraga);
-                
+
                 //Detta ser till att ingeting står i rutan när vi öppnar sidan för att välja område
-                
                 AlienNamnTextArea.setText("");
-                
+
                 //Detta är iteration för "for" loopen för varje rad i HashMapen "alienInfoList"
-                
                 for (HashMap<String, String> alienInfoMap : alienInfoList) {
-                    
+
                     // Dessa statesment hämtar varje värde i HashMapen, 
                     //som man ser så hämtar den värderna från varje kolumn som vi vill ha info ifrån i SQL frågan
-                    
                     String namn = alienInfoMap.get("Namn");
                     String epost = alienInfoMap.get("Epost");
                     String AlienID = alienInfoMap.get("Alien_ID");
@@ -202,7 +199,7 @@ public class AlienInfo extends javax.swing.JFrame {
                     String Tel = alienInfoMap.get("Telefon");
                     //Här så användar vi en "append" metod för att sätta in värderna i text-rutan 
                     //("\n" betyder "enter" på tangentbordet, man går neråt i rad)
-                    
+
                     AlienNamnTextArea.append("Namn: " + namn + "\n");
                     AlienNamnTextArea.append("Epost: " + epost + "\n");
                     AlienNamnTextArea.append("Telefon: " + Tel + "\n");
@@ -210,15 +207,14 @@ public class AlienInfo extends javax.swing.JFrame {
                     AlienNamnTextArea.append("Reg. Datum: " + RegDat + "\n");
                     AlienNamnTextArea.append("Ansvarig Agent: " + agent + "\n");
                     AlienNamnTextArea.append("\n");
-                    
+
                 }
             } catch (InfException ex) {
                 Logger.getLogger(AlienInfo.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_OmradeItemStateChanged
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

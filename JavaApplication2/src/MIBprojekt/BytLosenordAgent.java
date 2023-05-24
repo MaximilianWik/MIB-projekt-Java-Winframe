@@ -4,22 +4,25 @@
  */
 package MIBprojekt;
 
-
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Victus
  */
 public class BytLosenordAgent extends javax.swing.JFrame {
+
     private InfDB idb;
     private int agentId;
-    
+
     /**
      * Creates new form BytLosenordAgent
+     *
      * @param idb
      * @param agentId
      */
@@ -29,7 +32,7 @@ public class BytLosenordAgent extends javax.swing.JFrame {
         this.agentId = agentId;
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
-        setLocation(size.width/2-getWidth()/2, size.height/2-getHeight()/2);
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -128,19 +131,26 @@ public class BytLosenordAgent extends javax.swing.JFrame {
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
     private void BytLosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BytLosenActionPerformed
-        // TODO add your handling code here:
-        try{
+        try {
+
+            // Skapa en SQL-uppdatering för att ändra lösenordet för den aktuella agenten baserat på dess Agent_ID
             String nyttLosenord = SkrivNyttLosentext.getText();
-            String NyttLosen = "UPDATE agent SET Losenord = '" + nyttLosenord +"' WHERE Agent_ID = " + agentId;
+            String NyttLosen = "UPDATE agent SET Losenord = '" + nyttLosenord + "' WHERE Agent_ID = " + agentId;
+            
+            // Utför databasuppdateringen
             idb.update(NyttLosen);
-            
+
+            // Visa bekräftelse att lösenordet har uppdaterats
             JOptionPane.showMessageDialog(null, "Lösenordet är uppdaterat!");
-            SkrivNyttLosentext.setText("");
-            SkrivNyttLosentext.requestFocus();    
-        }
-        catch (InfException ex){
-            JOptionPane.showMessageDialog(null, "Något fel har inträffat!");
             
+            // Rensa textkomponenten för att förbereda för en ny ändring
+            SkrivNyttLosentext.setText("");
+            SkrivNyttLosentext.requestFocus();
+            
+        } catch (InfException ex) {
+            // Visa generellt felmeddelande om det uppstår ett fel under databasåtkomst
+            JOptionPane.showMessageDialog(null, "Något fel har inträffat!");
+
         }
     }//GEN-LAST:event_BytLosenActionPerformed
 
