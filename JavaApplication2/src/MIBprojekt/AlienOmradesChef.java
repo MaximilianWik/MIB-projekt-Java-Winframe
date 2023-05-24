@@ -151,8 +151,8 @@ public class AlienOmradesChef extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        AgentMeny AM = new AgentMeny(idb, agentId);
-        AM.setVisible(true);
+        AlienMeny ALM = new AlienMeny(idb, agentId);
+        ALM.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed

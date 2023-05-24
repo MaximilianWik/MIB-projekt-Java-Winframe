@@ -57,7 +57,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="ÄndraAlienKnapp1" min="-2" pref="98" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="UtrustningKnapp" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="SokPaAgent" min="-2" pref="98" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="ÄndraAgentKnapp" min="-2" pref="98" max="-2" attributes="0"/>
@@ -156,7 +156,7 @@
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="UtrustningKnapp" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="SokPaAgent" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="ÄndraAlienKnapp1" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -268,12 +268,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NyAgentActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="UtrustningKnapp">
+        <Component class="javax.swing.JButton" name="SokPaAgent">
           <Properties>
             <Property name="text" type="java.lang.String" value="S&#xf6;k Agent"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UtrustningKnappActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SokPaAgentActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="AndraAdminStatus">

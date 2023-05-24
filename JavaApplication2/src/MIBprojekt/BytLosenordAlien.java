@@ -129,6 +129,7 @@ public class BytLosenordAlien extends javax.swing.JFrame {
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
     private void BytLosenAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BytLosenAlienActionPerformed
+        if (Validering.textFaltIfyllt(SkrivNyttLosentextalien)){
         try {
             // Skapa en SQL-uppdatering för att ändra lösenordet för den aktuella alienen baserat på dess Alien_ID
             String nyttLosenord = SkrivNyttLosentextalien.getText();
@@ -148,6 +149,7 @@ public class BytLosenordAlien extends javax.swing.JFrame {
             // Visa generellt felmeddelande om det uppstår ett fel under databasåtkomst
             JOptionPane.showMessageDialog(null, "Något fel har inträffat!");
 
+        }
         }
     }//GEN-LAST:event_BytLosenAlienActionPerformed
 

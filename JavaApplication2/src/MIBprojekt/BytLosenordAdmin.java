@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author Victus
  */
-public class BytLosenordAgent extends javax.swing.JFrame {
+public class BytLosenordAdmin extends javax.swing.JFrame {
 
     private InfDB idb;
     private int agentId;
@@ -26,7 +26,7 @@ public class BytLosenordAgent extends javax.swing.JFrame {
      * @param idb
      * @param agentId
      */
-    public BytLosenordAgent(InfDB idb, int agentId) {
+    public BytLosenordAdmin(InfDB idb, int agentId) {
         initComponents();
         this.idb = idb;
         this.agentId = agentId;
@@ -124,14 +124,13 @@ public class BytLosenordAgent extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GaTillbakaKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaTillbakaKnappActionPerformed
-        AgentMeny AM = new AgentMeny(idb, agentId);
+        AdminMeny AM = new AdminMeny(idb, agentId);
         AM.setVisible(true);
 
         dispose();
     }//GEN-LAST:event_GaTillbakaKnappActionPerformed
 
     private void BytLosenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BytLosenActionPerformed
-        
         if (Validering.textFaltIfyllt(SkrivNyttLosentext)){
         try {
 

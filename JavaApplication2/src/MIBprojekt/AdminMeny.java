@@ -51,7 +51,7 @@ public class AdminMeny extends javax.swing.JFrame {
         TaBortAgent = new javax.swing.JButton();
         TaBortUtrustning = new javax.swing.JButton();
         NyAgent = new javax.swing.JButton();
-        UtrustningKnapp = new javax.swing.JButton();
+        SokPaAgent = new javax.swing.JButton();
         AndraAdminStatus = new javax.swing.JButton();
         GaTillbakaKnapp = new javax.swing.JButton();
         ÄndraAlienKnapp1 = new javax.swing.JButton();
@@ -121,10 +121,10 @@ public class AdminMeny extends javax.swing.JFrame {
             }
         });
 
-        UtrustningKnapp.setText("Sök Agent");
-        UtrustningKnapp.addActionListener(new java.awt.event.ActionListener() {
+        SokPaAgent.setText("Sök Agent");
+        SokPaAgent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UtrustningKnappActionPerformed(evt);
+                SokPaAgentActionPerformed(evt);
             }
         });
 
@@ -223,7 +223,7 @@ public class AdminMeny extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ÄndraAlienKnapp1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(UtrustningKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SokPaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ÄndraAgentKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -299,7 +299,7 @@ public class AdminMeny extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(UtrustningKnapp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SokPaAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ÄndraAlienKnapp1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
@@ -371,9 +371,9 @@ public class AdminMeny extends javax.swing.JFrame {
     }//GEN-LAST:event_ÄndraAgentKnappActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        BytLosenordAgent BLA = new BytLosenordAgent(idb, agentId);
+        BytLosenordAdmin BLA = new BytLosenordAdmin(idb, agentId);
         BLA.setVisible(true);
-
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void TaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAgentActionPerformed
@@ -471,12 +471,12 @@ public class AdminMeny extends javax.swing.JFrame {
         
     }//GEN-LAST:event_NyAgentActionPerformed
 
-    private void UtrustningKnappActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UtrustningKnappActionPerformed
-        Utrustning U = new Utrustning(idb, agentId);
-        U.setVisible(true);
+    private void SokPaAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPaAgentActionPerformed
+        SokPaAgent SPA = new SokPaAgent(idb, agentId);
+        SPA.setVisible(true);
 
         dispose();
-    }//GEN-LAST:event_UtrustningKnappActionPerformed
+    }//GEN-LAST:event_SokPaAgentActionPerformed
 
     private void AndraAdminStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraAdminStatusActionPerformed
        
@@ -616,13 +616,13 @@ public class AdminMeny extends javax.swing.JFrame {
     private javax.swing.JButton NyAgent;
     private javax.swing.JButton NyAlien;
     private javax.swing.JTextField Omradetext;
+    private javax.swing.JButton SokPaAgent;
     private javax.swing.JButton TaBortAgent;
     private javax.swing.JTextField TaBortAgenttext;
     private javax.swing.JButton TaBortAlien;
     private javax.swing.JTextField TaBortAlienText;
     private javax.swing.JButton TaBortUtrustning;
     private javax.swing.JTextField TaBortUtrustningtext;
-    private javax.swing.JButton UtrustningKnapp;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
