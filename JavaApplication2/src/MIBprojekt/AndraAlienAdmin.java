@@ -267,7 +267,7 @@ public class AndraAlienAdmin extends javax.swing.JFrame {
             
             } catch (InfException ex) {
             Logger.getLogger(AndraAlienAdmin.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "Knaaaas bror");
+            JOptionPane.showMessageDialog(this, "Något gick fel");
             //JOptionPane.showMessageDialog(null, "Lägg av");
             }   
     }//GEN-LAST:event_AndratextActionPerformed
