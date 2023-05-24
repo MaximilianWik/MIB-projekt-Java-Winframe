@@ -6,6 +6,7 @@ package MIBprojekt;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -376,42 +377,63 @@ public class AdminMeny extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void TaBortAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAgentActionPerformed
-        
-        try {
-            String agentID = TaBortAgenttext.getText();
-            String ID = Integer.toString(agentId);
-            String CheckaID = "SELECT Agent_ID FROM agent where Agent_ID = '" + agentID + "'";
-            if (agentID.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Ange Agent ID att ta bort.");
+        if (Validering.textFaltIfyllt(TaBortAgenttext)) {
 
-            } //int confirm = JOptionPane.showConfirmDialog(this, "Är du säker på att du vill ta bort agenten med ID: " + agentID + "?.", JOptionPane.YES_NO_OPTION)
-            else if (idb.fetchSingle(CheckaID) == null) {
-                JOptionPane.showMessageDialog(this, "Finns ingen Agent med detta ID.");
+            try {
+                String agentID = TaBortAgenttext.getText();
+                String ID = Integer.toString(agentId);
+                String CheckaID = "SELECT Agent_ID FROM agent where Agent_ID = '" + agentID + "'";
+                //int confirm = JOptionPane.showConfirmDialog(this, "Är du säker på att du vill ta bort agenten med ID: " + agentID + "?.", JOptionPane.YES_NO_OPTION)
+                if (idb.fetchSingle(CheckaID) == null) {
+                    JOptionPane.showMessageDialog(this, "Finns ingen Agent med detta ID.");
 
-            } else if (agentID.equals(ID)) {
-                JOptionPane.showMessageDialog(this, "Du kan inte ta bort den inloggade agenten.");
+                } else if (agentID.equals(ID)) {
+                    JOptionPane.showMessageDialog(this, "Du kan inte ta bort den inloggade agenten.");
 
-            } else {
-                
-                String TabortAgent = "DELETE FROM agent WHERE Agent_ID = '" + agentID + "'";
-                idb.delete(TabortAgent);
+                } else {
 
-                JOptionPane.showMessageDialog(this, "Agent med Agent ID " + agentID + "har tagits bort.");
+                    String[] referensetabeller = {"agent", "innehar_utrustning", "faltagent", "kontorschef", "alien" };
+                    boolean arRefererad = false;
 
-                TaBortAgenttext.setText("");
+                    for (String tabell : referensetabeller) {
+                        String checkaNyckel = "SELECT Agent_ID FROM " + tabell + " WHERE Agent_ID = '" + agentID + "'";
+                        String Nyckel = idb.fetchSingle(checkaNyckel);
+
+                        if (Nyckel != null) {
+                            arRefererad = true;
+                            break;
+                        }
+                    }
+                    
+                        String nyAnsvarigAgnet = JOptionPane.showInputDialog(this, "Ange ID för den nya ansvariga agenten: ");
+                    if (nyAnsvarigAgnet != null) {
+                        
+                        String uppdateraAnsvarig = "UPDATE " + referensetabeller[4] + " SET Ansvarig_Agent = '" + nyAnsvarigAgnet + "'";// + "' WHERE Agent_ID = '" + agentID + "'";
+                        idb.update(uppdateraAnsvarig);
+                    } else {
+                        return;
+                    } 
+                    
+                        String TabortAgent = "DELETE FROM agent WHERE Agent_ID = '" + agentID + "'";
+                        idb.delete(TabortAgent);
+
+                        JOptionPane.showMessageDialog(this, "Agent med Agent ID " + agentID + " har tagits bort.");
+                        TaBortAgenttext.setText("");
+                    
+                    
+                    //else {
+                        //return;
+                    //}
+
+                   
+                }
+            } catch (InfException ex) {
 
             }
-        } catch (InfException ex) {
-
         }
-
-    
-        //AlienInfo AI = new AlienInfo(idb, agentId);
-        //AI.setVisible(true);
-
-        //dispose();
     }//GEN-LAST:event_TaBortAgentActionPerformed
 
+    
     private void SokPåAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPåAlienActionPerformed
         SokPaAlien SPA = new SokPaAlien(idb, agentId);
         SPA.setVisible(true);
@@ -487,32 +509,33 @@ public class AdminMeny extends javax.swing.JFrame {
     private void TaBortAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortAlienActionPerformed
         // TODO add your handling code here:
             if (Validering.textFaltIfyllt(TaBortAlienText)) {
-            
-                try {
-            String alienID = TaBortAlienText.getText();
-            String CheckaID = "SELECT Alien_ID FROM agent where Alien_ID = '" + alienID + "'";
-          
 
-             //int confirm = JOptionPane.showConfirmDialog(this, "Är du säker på att du vill ta bort agenten med ID: " + agentID + "?.", JOptionPane.YES_NO_OPTION)
+            try {
+                String alienID = TaBortAlienText.getText();
+                String CheckaID = "SELECT Alien_ID FROM alien where Alien_ID = '" + alienID + "'";
+
                 if (idb.fetchSingle(CheckaID) == null) {
-                JOptionPane.showMessageDialog(this, "Finns ingen Alien med detta ID.");
+                    JOptionPane.showMessageDialog(this, "Finns ingen Alien med detta ID.");
 
-            
+                } else {
+                    String TabortRas = "DELETE FROM squid WHERE Alien_ID = '" + alienID + "'";
+                    String TabortRas2 = "DELETE FROM worm WHERE Alien_ID = '" + alienID + "'";
+                    String TabortRas3 = "DELETE FROM boglodite WHERE Alien_ID = '" + alienID + "'";
+                    String TabortAlien = "DELETE FROM alien WHERE Alien_ID = '" + alienID + "'";
+                    idb.delete(TabortRas);
+                    idb.delete(TabortRas2);
+                    idb.delete(TabortRas3);
+                    idb.delete(TabortAlien);
 
-            } else {
+                    JOptionPane.showMessageDialog(this, "Alien med alien ID " + alienID + " har tagits bort.");
 
-                String fraga = "DELETE FROM alien WHERE Alien_ID = '" + alienID + "'";
-                idb.delete(fraga);
+                    TaBortAgenttext.setText("");
 
-                JOptionPane.showMessageDialog(this, "Alien med alien ID " + alienID + "har tagits bort.");
+                }
+            } catch (InfException ex) {
 
-                TaBortAgenttext.setText("");
-
-                    }
-        } catch (InfException ex) {
-        
-        }
             }
+        }
     }//GEN-LAST:event_TaBortAlienActionPerformed
 
     private void AndraKontorschefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AndraKontorschefActionPerformed
