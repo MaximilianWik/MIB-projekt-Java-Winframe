@@ -49,7 +49,7 @@ public class AdminMeny extends javax.swing.JFrame {
         ÄndraAgentKnapp = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         TaBortAgent = new javax.swing.JButton();
-        SokPåAlien = new javax.swing.JButton();
+        TaBortUtrustning = new javax.swing.JButton();
         NyAgent = new javax.swing.JButton();
         UtrustningKnapp = new javax.swing.JButton();
         AndraAdminStatus = new javax.swing.JButton();
@@ -107,10 +107,10 @@ public class AdminMeny extends javax.swing.JFrame {
             }
         });
 
-        SokPåAlien.setText("Ta bort Utrustning");
-        SokPåAlien.addActionListener(new java.awt.event.ActionListener() {
+        TaBortUtrustning.setText("Ta bort Utrustning");
+        TaBortUtrustning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SokPåAlienActionPerformed(evt);
+                TaBortUtrustningActionPerformed(evt);
             }
         });
 
@@ -259,7 +259,7 @@ public class AdminMeny extends javax.swing.JFrame {
                             .addComponent(TaBortAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SokPåAlien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TaBortUtrustning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(TaBortUtrustningtext)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(82, 82, 82))
@@ -295,7 +295,7 @@ public class AdminMeny extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TaBortAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TaBortAgent, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SokPåAlien, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(TaBortUtrustning, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -434,12 +434,34 @@ public class AdminMeny extends javax.swing.JFrame {
     }//GEN-LAST:event_TaBortAgentActionPerformed
 
     
-    private void SokPåAlienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SokPåAlienActionPerformed
-        SokPaAlien SPA = new SokPaAlien(idb, agentId);
-        SPA.setVisible(true);
+    private void TaBortUtrustningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaBortUtrustningActionPerformed
+            
+        if (Validering.textFaltIfyllt(TaBortUtrustningtext)){
+            try{
+                String UID = TaBortUtrustningtext.getText();
+                String CheckaUID = "SELECT Utrustnings_ID FROM utrustning WHERE Utrustnings_ID = '" + UID + "'";
 
-        dispose();
-    }//GEN-LAST:event_SokPåAlienActionPerformed
+                if (idb.fetchSingle(CheckaUID) == null) {
+                    JOptionPane.showMessageDialog(this, "Finns ingen Utrustning med detta namn.");
+                }  else {
+                    String TabortUtrustning1 = "DELETE FROM innehar_utrustning WHERE Utrustnings_ID = '" + UID + "'";
+                    String TabortUtrustning2 = "DELETE FROM utrustning WHERE Utrustnings_ID = '" + UID + "'";
+                    
+                    
+                    idb.delete(TabortUtrustning1);
+                    idb.delete(TabortUtrustning2);
+
+                    JOptionPane.showMessageDialog(this, "Utrustning med Utrustnings_ID " + UID + " har tagits bort.");
+
+                    TaBortAgenttext.setText("");
+                }
+            } catch(InfException ex){
+                
+            }
+        
+        }
+        
+    }//GEN-LAST:event_TaBortUtrustningActionPerformed
 
     private void NyAgentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NyAgentActionPerformed
         //JOptionPane.showMessageDialog(null, "Heeeej");
@@ -594,11 +616,11 @@ public class AdminMeny extends javax.swing.JFrame {
     private javax.swing.JButton NyAgent;
     private javax.swing.JButton NyAlien;
     private javax.swing.JTextField Omradetext;
-    private javax.swing.JButton SokPåAlien;
     private javax.swing.JButton TaBortAgent;
     private javax.swing.JTextField TaBortAgenttext;
     private javax.swing.JButton TaBortAlien;
     private javax.swing.JTextField TaBortAlienText;
+    private javax.swing.JButton TaBortUtrustning;
     private javax.swing.JTextField TaBortUtrustningtext;
     private javax.swing.JButton UtrustningKnapp;
     private javax.swing.JButton jButton3;
