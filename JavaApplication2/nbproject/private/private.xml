@@ -3,14 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/Aliens.java</file>
-            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AgentMeny.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AlienMeny.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AlienInfoRas.java</file>
             <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AndraAlien.java</file>
-            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/OmradeSida.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/OmradeSida1.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/LogInAdmin.java</file>
             <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/Start.java</file>
-            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AndraAgent.java</file>
-            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/NyAlien.java</file>
             <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/NyAgent.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/NyAlien.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AndraAlienAdmin.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AlienInfo.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AlienDatum.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/LogInAgent.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AgentMeny.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/Utrustning.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/Validering.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/SokPaAlien.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AlienEllerAgent.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/LogInAlien.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/BytLosenordAlien.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AndraAgent.java</file>
+            <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/AdminMeny.java</file>
             <file>file:/C:/Users/Victus/Documents/NetBeansProjects/MIBpj/MIB-projekt/JavaApplication2/src/MIBprojekt/BytLosenordAgent.java</file>
         </group>
     </open-files>
